@@ -2,6 +2,7 @@ class TagsController < ApplicationController
 
   def create
     @tag = Tag.new(tags_params)
+    @tag.delivery = Delivery.find(params[:delivery_id])
     if @tag.save
       redirect_to user_path
     else
