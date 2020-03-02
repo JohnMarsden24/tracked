@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   end
 
   resources :tags, only: [:edit, :update, :destroy]
-  resources :deliveries, only: [:destroy,  :edit, :update]
+  resources :deliveries, only: [:destroy, :edit, :update]
 end
