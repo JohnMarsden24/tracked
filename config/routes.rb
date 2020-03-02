@@ -5,10 +5,9 @@ Rails.application.routes.draw do
     resources :deliveries, only: [:create]
   end
 
-  resources :deliveries do
+  resources :deliveries, only: [:edit, :update, :destroy] do
     resources :tags, only: [:create]
   end
 
   resources :tags, only: [:edit, :update, :destroy]
-  resources :deliveries, only: [:destroy, :edit, :update]
 end
