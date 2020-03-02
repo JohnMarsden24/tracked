@@ -5,10 +5,10 @@ Rails.application.routes.draw do
     resources :deliveries, only: [:create]
   end
 
-  resources :deliveries do
+  resources :deliveries, except: [:create, :new, :index] do
     resources :tags, only: [:create]
   end
 
   resources :tags, only: [:edit, :update, :destroy]
-  resources :deliveries, only: [:destroy, :edit, :update]
+  resources :deliveries, only: [:edit, :update, :destroy]
 end
