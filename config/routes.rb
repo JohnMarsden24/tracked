@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :deliveries, only: [:create]
   end
 
-  resources :deliviers do
+  resources :deliveries do
     resources :tags, only: [:create]
   end
 
