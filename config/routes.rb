@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :users do
-    resources :deliveries, only: [:create]
-  end
+  resources :users, only: [:show]
+
+  resources :deliveries, only: [:create]
 
   resources :deliveries, only: [:edit, :update, :destroy] do
     resources :tags, only: [:create]
