@@ -1,0 +1,4 @@
+def new
+end
+
+def
