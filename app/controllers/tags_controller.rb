@@ -4,9 +4,9 @@ class TagsController < ApplicationController
     @tag = Tag.new(tags_params)
     @tag.delivery = Delivery.find(params[:delivery_id])
     if @tag.save
-      redirect_to user_path
+      redirect_to user_path(current_user)
     else
-      render :user_path
+      redirect_to user_path(current_user)
     end
   end
 
