@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_165920) do
+ActiveRecord::Schema.define(version: 2020_03_03_172606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2020_03_02_165920) do
     t.string "courier"
     t.string "tracking_number"
     t.string "status"
-    t.string "history"
     t.date "expected_arrival_date"
     t.date "arrival_date"
     t.boolean "delivered"
@@ -28,6 +27,17 @@ ActiveRecord::Schema.define(version: 2020_03_02_165920) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_deliveries_on_user_id"
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.string "message"
+    t.string "subtag_message"
+    t.string "location"
+    t.string "checkpoint_time"
+    t.bigint "delivery_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["delivery_id"], name: "index_histories_on_delivery_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -52,5 +62,6 @@ ActiveRecord::Schema.define(version: 2020_03_02_165920) do
   end
 
   add_foreign_key "deliveries", "users"
+  add_foreign_key "histories", "deliveries"
   add_foreign_key "tags", "deliveries"
 end
