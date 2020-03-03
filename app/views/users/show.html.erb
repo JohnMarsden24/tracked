@@ -3,6 +3,14 @@
 <ul>
   <% @user.deliveries.each do |delivery| %>
     <li>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
+      Staus: <%= delivery.status %> Estimated delivery: <%= delivery.expected_arrival_date %>
+      <% if delivery.histories != [] %>
+      <ul>
+        <% delivery.histories.each do |history| %>
+          <li><%= history["message"] %> at <%= history["checkpoint_time"] %></li>
+       <% end %>
+      </ul>
+      <% end %>
       <ul>
         <% delivery.tags.each do |tag| %>
           <li><%= tag.name %></li>
@@ -20,7 +28,6 @@
 <h2>Add new delivery</h2>
 <%= simple_form_for(@delivery) do |f| %>
   <%= f.input :name %>
-  <%= f.input :courier %>
   <%= f.input :tracking_number %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
