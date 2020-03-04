@@ -2,13 +2,12 @@ class DeliveriesController < ApplicationController
 
   def create
     new_delivery = Delivery.new(delivery_params)
-    delivery_hash = new_delivery.tracking(new_delivery)
-    delivery = delivery_hash[:delivery]
-    history_array = delivery_hash[:history]
+    delivery_data = new_delivery.tracking(new_delivery)
+    delivery = delivery_data[:delivery]
+    history_array = delivery_data[:history]
     delivery.user = current_user
     if delivery.save
-      history = History.new
-      history.create_history(history_array, delivery)
+      History.create_history(history_array, delivery)
       redirect_to user_path(current_user)
     else
       render "users/show"
