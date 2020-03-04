@@ -6,8 +6,8 @@ class DeliveriesController < ApplicationController
     delivery = delivery_data[:delivery]
     history_array = delivery_data[:history]
     delivery.user = current_user
-    delivery.courier_slug = delivery_hash[:delivery][:courier_slug]
-    delivery.expected_arrival_date = delivery_hash[:expected_arrival_date]
+    delivery.courier_slug = delivery_data[:delivery][:courier_slug]
+    delivery.expected_arrival_date = delivery_data[:expected_arrival_date]
     if delivery.save
       new_history = History.new
       new_history.create_history(history_array, delivery)
