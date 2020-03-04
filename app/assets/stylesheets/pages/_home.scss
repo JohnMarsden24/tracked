@@ -1,74 +1,225 @@
-// Specific CSS for your home-page
+// LANDING 1
 
-.banner {
+.landing1 {
+  .banner {
   // background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
   "text text form";
   height: 80vh;
-}
-
-.banner-left {
-  background-image: url("box.svg");
-  background-size: 30rem;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: white;
-
-  grid-area: text;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  h4 {
-    margin: 0;
   }
 
-  p {
-    margin: 0;
+  .banner-left {
+    background-image: url("box.svg");
+    background-size: 30rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+
+    grid-area: text;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    h4 {
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .text {
+      background-color: $lavender;
+    }
+
+    .text-header {
+      color: white;
+      padding: 1rem 1rem 1rem 12rem;
+    }
+
+    .text-footer {
+      color: white;
+      padding: 1rem 1rem 1rem 12rem;
+    }
   }
 
-  .text {
+  .banner-right {
+    color: white;
     background-color: $lavender;
+    grid-area: form;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .form-actions {
+      text-align: center;
+    }
+
+    .btn-full-wdith {
+      margin-bottom: 1rem;
+    }
+
+    .sign-up {
+      color: white;
+    }
   }
 
-  .text-header {
-    color: white;
-    padding: 1rem 1rem 1rem 12rem;
-  }
-
-  .text-footer {
-    color: white;
-    padding: 1rem 1rem 1rem 12rem;
-  }
-}
-
-.banner-right {
-  color: white;
-  background-color: $lavender;
-  grid-area: form;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-
-  .form-actions {
-    text-align: center;
-  }
-
-  .btn-full-wdith {
-    margin-bottom: 1rem;
-  }
-
-  .sign-up {
-    color: white;
+  .info-card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 8rem;
   }
 }
 
-.info-card-body {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4rem 8rem;
+// LANDING 2
+
+.landing2 {
+  .banner {
+    position: relative;
+  }
+
+  .login-form {
+    position: absolute;
+    right: 8rem;
+    top: 8rem;
+    z-index: 10;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 2px 2px 2px 2px #888888;
+
+    .form-actions {
+      text-align: center;
+    }
+
+    .btn-full-wdith {
+      margin-bottom: 1rem;
+      background-color: $lavender;
+      color: white;
+    }
+  }
+
+  .banner-top {
+    background-color: white;
+    grid-area: top;
+    height: 40vh;
+    width: 100%;
+    position: relative;
+
+    h1 {
+      position: absolute;
+      bottom: -60px;
+      margin: 0;
+      font-size: 12rem;
+      color: $lavender;
+      padding-left: 16px;
+      font-family: 'Merriweather Sans';
+      font-weight: 700;
+      z-index: 0;
+    }
+  }
+
+  .banner-bottom {
+    background-color: $lavender;
+    height: 40vh;
+
+    h2 {
+      color: white;
+      padding-left: 42px;
+      position: relative;
+      z-index: 10;
+    }
+  }
+
+  .info-card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 8rem;
+  }
 }
+
+// LANDING 3
+
+.landing3 {
+  .banner {
+    position: relative;
+    display: flex;
+    height: 80vh;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 40px;
+    background-color: white;
+  }
+
+  .login-form {
+    position: absolute;
+    right: 8rem;
+    top: 8rem;
+    z-index: 10;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 2px 2px 2px 2px #888888;
+
+    .form-actions {
+      text-align: center;
+    }
+
+    .btn-full-wdith {
+      margin-bottom: 1rem;
+      background-color: $lavender;
+      color: white;
+    }
+  }
+
+  .banner-text {
+    position: relative;
+  }
+
+  .banner-title {
+    display: flex;
+    position: relative;
+
+    h1 {
+    font-family: 'Merriweather Sans';
+    font-size: 12rem;
+    font-weight: 700;
+    }
+  }
+
+  #tr {
+    background-color: $lavender;
+    margin: 0px;
+    color: white;
+    border-radius: 20px;
+    padding: 0 16px;
+  }
+
+  #acked {
+    color: $lavender;
+    margin: 0;
+  }
+
+  .banner-tagline {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 24px;
+  }
+
+  .info-card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 8rem;
+  }
+}
+
+
+
+
+
+
