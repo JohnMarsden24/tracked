@@ -3,8 +3,8 @@
       <% @user.deliveries.each do |delivery| %>
         <div class="delivery-card">
           <div class="detail-bar">
-            <p>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
-              Status: <%= delivery.status %> Estimated delivery: <%= delivery.expected_arrival_date %>
+            <p>Name: <%= delivery.name %> | Tracking number: <%= delivery.tracking_number %> <br>
+              Status: <%= delivery.status %> | Estimated delivery: <%= delivery.expected_arrival_date %>
               <% if delivery.histories != [] %>
                 </p>
                 <% delivery.histories.each do |history| %>
@@ -13,6 +13,11 @@
               <% end %>
             </div>
 
+            <% if delivery.courier == nil %>
+              <%= image_tag "logo", class:"avatar", alt: "alttext" %>
+                <% else %>
+              <%= image_tag "#{delivery.courier}", class:"avatar", alt: "#{delivery.courier}"%>
+            <% end %>
             <div class="tag-bar">
               <div class="tag-list">
                 <% delivery.tags.each do |tag| %>
