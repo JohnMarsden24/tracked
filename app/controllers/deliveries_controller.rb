@@ -6,11 +6,12 @@ class DeliveriesController < ApplicationController
     delivery = delivery_hash[:delivery]
     history_array = delivery_hash[:history]
     delivery.user = current_user
-    delivery.courier_slug = delivery_hash[:courier_slug]
+    delivery.courier_slug = delivery_hash[:delivery][:courier_slug]
     delivery.expected_arrival_date = delivery_hash[:expected_arrival_date]
     if delivery.save
-      history = History.new
-      history.create_history(history_array, delivery)
+      new_history = History.new
+      new_history.create_history(history_array, delivery)
+      new_history.save
       redirect_to user_path(current_user)
     else
       render "users/show"

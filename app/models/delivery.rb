@@ -2,7 +2,7 @@ require('aftership')
 class Delivery < ApplicationRecord
   belongs_to :user
   has_many :tags
-  has_many :histories
+  has_one :history
   validates :tracking_number, uniqueness: true, presence: true
   validates :user_id, presence: true
 
@@ -21,14 +21,14 @@ class Delivery < ApplicationRecord
   end
 
   def update_delivery
-    raise
-    delivery_hash = new_delivery.tracking( { name: self.courier_slug, tracking_number: self.tracking_number } )
+    delivery_hash = tracking(self)
     delivery = delivery_hash[:delivery]
     history_array = delivery_hash[:history]
     if delivery.save
-      history = History.new
-      history.create_history(history_array, delivery)
-      redirect_to user_path(current_user)
+      history_array.each do |tracking_event|
+        delivery.history['status_updates'] << [tracking_event['message'], tracking_event['location'], tracking_event['checkpoint_time']]
+      end
+      delivery.save
     else
       render "users/show"
     end

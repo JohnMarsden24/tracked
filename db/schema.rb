@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_115904) do
+ActiveRecord::Schema.define(version: 2020_03_04_141834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_115904) do
     t.bigint "delivery_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status_updates", default: [], array: true
     t.index ["delivery_id"], name: "index_histories_on_delivery_id"
   end
 
