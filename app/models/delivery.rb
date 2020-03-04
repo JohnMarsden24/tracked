@@ -53,4 +53,16 @@ class Delivery < ApplicationRecord
     end
     return courier_data
   end
+
+  include PgSearch::Model
+
+  pg_search_scope :search_by_everything,
+    against: [ :name, :courier, :tracking_number, :status, :expected_arrival_date, :arrival_date, :delivered ],
+    associated_against: {
+      tags: [ :name ],
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end
