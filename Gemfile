@@ -15,6 +15,8 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'faker'
+gem 'pg_search', '~> 2.3.0'
 
 gem "aftership", "~> 4.3.1"
 

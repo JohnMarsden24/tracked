@@ -2,9 +2,9 @@ class DeliveriesController < ApplicationController
 
   def create
     new_delivery = Delivery.new(delivery_params)
-    delivery_hash = new_delivery.tracking(new_delivery)
-    delivery = delivery_hash[:delivery]
-    history_array = delivery_hash[:history]
+    delivery_data = new_delivery.tracking(new_delivery)
+    delivery = delivery_data[:delivery]
+    history_array = delivery_data[:history]
     delivery.user = current_user
     delivery.courier_slug = delivery_hash[:delivery][:courier_slug]
     delivery.expected_arrival_date = delivery_hash[:expected_arrival_date]
