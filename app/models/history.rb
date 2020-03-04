@@ -1,7 +1,7 @@
 class History < ApplicationRecord
   belongs_to :delivery
 
-  def create_history(history_array, delivery)
+  def self.create_history(history_array, delivery)
     history_array.each do |history|
       new_history = History.new
       new_history.message = history["message"]
