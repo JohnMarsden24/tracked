@@ -1,11 +1,11 @@
 <%= render 'shared/navbar' %>
-<h1>hello <%= current_user.display_name %></h1>
+<h1>hello <%= @user.display_name %></h1>
 <ul>
 <% if @deliveries.count == 0 %>
     <h3>Oops! There are no results for your search!</h3>
 <% else %>
 
-  <% current_user.deliveries.each do |delivery| %>
+  <% @deliveries.each do |delivery| %>
     <% delivery.update_delivery %>
   <ul>
     <li>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>

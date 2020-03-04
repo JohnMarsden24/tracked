@@ -30,7 +30,7 @@
   }
 
   .text {
-    background-color: $blueberry;
+    background-color: $lavender;
   }
 
   .text-header {
@@ -46,11 +46,24 @@
 
 .banner-right {
   color: white;
-  background-color: $blueberry;
+  background-color: $lavender;
   grid-area: form;
   display: flex;
   justify-content: center;
   align-items: center;
+
+
+  .form-actions {
+    text-align: center;
+  }
+
+  .btn-full-wdith {
+    margin-bottom: 1rem;
+  }
+
+  .sign-up {
+    color: white;
+  }
 }
 
 .info-card-body {
