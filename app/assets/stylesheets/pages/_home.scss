@@ -1,1 +1,54 @@
 // Specific CSS for your home-page
+
+.banner {
+  // background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+  "text text form";
+  height: 80vh;
+}
+
+.banner-left {
+  background-image: url("box.svg");
+  background-size: 30rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+
+  grid-area: text;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  h4 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .text {
+    background-color: $blueberry;
+  }
+
+  .text-header {
+    color: white;
+    padding: 1rem 1rem 1rem 12rem;
+  }
+
+  .text-footer {
+    color: white;
+    padding: 1rem 1rem 1rem 12rem;
+  }
+}
+
+.banner-right {
+  color: white;
+  background-color: $blueberry;
+  grid-area: form;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
