@@ -7,7 +7,7 @@
       <% if delivery.histories != [] %>
       <ul>
         <% delivery.histories.each do |history| %>
-          <li><%= history["message"] %> at <%= history["checkpoint_time"] %></li>
+          <li><%= history["message"] %> [<%= history["location"]%>] at <%= history["checkpoint_time"] %></li>
        <% end %>
       </ul>
       <% end %>

@@ -1,3 +1,4 @@
+require('aftership')
 class Delivery < ApplicationRecord
   belongs_to :user
   has_many :tags
@@ -9,9 +10,9 @@ class Delivery < ApplicationRecord
 
   def tracking(delivery)
     courier = detect_courier(delivery.tracking_number)
-    courier_create = courier["data"]["couriers"].first["slug"]
+    delivery.courier_slug = courier["data"]["couriers"].first["slug"]
     delivery.courier = courier["data"]["couriers"].first["name"]
-    details = create_tracking(courier_create, delivery)
+    details = create_tracking(delivery.courier_slug, delivery)
     delivery.expected_arrival_date = details["data"]["tracking"]["expected_delivery"]
     delivery.status = details["data"]["tracking"]["subtag_message"]
     history = details["data"]["tracking"]["checkpoints"]

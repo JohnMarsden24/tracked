@@ -5,6 +5,7 @@ class DeliveriesController < ApplicationController
     delivery_hash = new_delivery.tracking(new_delivery)
     delivery = delivery_hash[:delivery]
     history_array = delivery_hash[:history]
+    raise
     delivery.user = current_user
     if delivery.save
       history = History.new
@@ -22,6 +23,7 @@ class DeliveriesController < ApplicationController
   end
 
   def update
+
   end
 
   private
