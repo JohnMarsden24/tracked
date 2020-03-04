@@ -1,7 +1,7 @@
 class Delivery < ApplicationRecord
   belongs_to :user
-  has_many :tags
-  has_many :histories
+  has_many :tags, dependent: :destroy
+  has_many :histories, dependent: :destroy
   validates :tracking_number, uniqueness: true, presence: true
   validates :user_id, presence: true
 
