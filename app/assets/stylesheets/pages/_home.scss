@@ -52,3 +52,10 @@
   justify-content: center;
   align-items: center;
 }
+
+.info-card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 8rem;
+}

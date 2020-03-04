@@ -1,0 +1,22 @@
+.info-card {
+  background-color: white;
+  width: 16rem;
+  height: 20rem;
+  // padding: 1rem;
+
+  img {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6rem;
+    padding: 1rem;
+    background-color: $blueberry;
+    text-align: center;
+    color: white;
+  }
+}
