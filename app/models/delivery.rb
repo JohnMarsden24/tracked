@@ -26,4 +26,16 @@ class Delivery < ApplicationRecord
   def detect_courier(tracking_number)
     AfterShip::V4::Courier.detect({:tracking_number => tracking_number})
   end
+
+  include PgSearch::Model
+
+  pg_search_scope :search_by_everything,
+    against: [ :name, :courier, :tracking_number, :status, :expected_arrival_date, :arrival_date, :delivered ],
+    associated_against: {
+      tags: [ :name ],
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end

@@ -1,7 +1,15 @@
-<h1>hello <%= @user.email %></h1>
+<%= render 'shared/navbar' %>
+
+<h1>hello <%= @user.display_name %></h1>
+
+<% if @deliveries.count == 0 %>
+
+    <h3>Oops! There are no results for your search!</h3>
+
+<% else %>
 
 <ul>
-  <% @user.deliveries.each do |delivery| %>
+  <% @deliveries.each do |delivery| %>
     <li>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
       Staus: <%= delivery.status %> Estimated delivery: <%= delivery.expected_arrival_date %>
       <% if delivery.histories != [] %>
@@ -25,11 +33,15 @@
   <% end %>
 </ul>
 
+<% end %>
+
 <h2>Add new delivery</h2>
 <%= simple_form_for(@delivery) do |f| %>
   <%= f.input :name %>
   <%= f.input :tracking_number %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
+
+
 
 
