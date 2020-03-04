@@ -1,38 +1,38 @@
 <%= render 'shared/navbar' %>
 <h1>hello <%= current_user.display_name %></h1>
 <ul>
-  <% current_user.deliveries.each do |delivery| %>
-    <% delivery.update_delivery %>
 <% if @deliveries.count == 0 %>
-
     <h3>Oops! There are no results for your search!</h3>
-
 <% else %>
 
-<ul>
-  <% @deliveries.each do |delivery| %>
-    <li>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
-      Staus: <%= delivery.status %> Estimated delivery: <%= delivery.expected_arrival_date %>
-      <% if !delivery.history.nil? %>
-      <ul>
-        <% delivery.history.status_updates.each do |history| %>
-          <li><%= history[0] %> [<%= history[1]%>] at <%= history[2] %></li>
-       <% end %>
-      </ul>
-      <% end %>
-      <ul>
-        <% delivery.tags.each do |tag| %>
-          <li><%= tag.name %></li>
+  <% current_user.deliveries.each do |delivery| %>
+    <% delivery.update_delivery %>
+  <ul>
+    <% @deliveries.each do |delivery| %>
+      <li>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
+        Staus: <%= delivery.status %> Estimated delivery: <%= delivery.expected_arrival_date %>
+        <% if !delivery.history.nil? %>
+        <ul>
+          <% delivery.history.status_updates.each do |history| %>
+            <li><%= history[0] %> [<%= history[1]%>] at <%= history[2] %></li>
+         <% end %>
+        </ul>
         <% end %>
-      </ul>
-      <% @tag = Tag.new %>
-      <%= simple_form_for([delivery, @tag]) do |f| %>
-        <%= f.input :name %>
-        <%= f.button :submit, class: "btn btn-primary" %>
-      <% end %>
-    </li>
+        <ul>
+          <% delivery.tags.each do |tag| %>
+            <li><%= tag.name %></li>
+          <% end %>
+        </ul>
+        <% @tag = Tag.new %>
+        <%= simple_form_for([delivery, @tag]) do |f| %>
+          <%= f.input :name %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
   <% end %>
-</ul>
 
 <% end %>
 
@@ -43,7 +43,5 @@
   <%= f.input :tracking_number %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
-
-
 
 
