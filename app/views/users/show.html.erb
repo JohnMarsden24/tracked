@@ -2,6 +2,7 @@
 
 <ul>
   <% @user.deliveries.each do |delivery| %>
+    <% delivery.update_delivery %>
     <li>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
       Staus: <%= delivery.status %> Estimated delivery: <%= delivery.expected_arrival_date %>
       <% if delivery.histories != [] %>

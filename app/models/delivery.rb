@@ -13,11 +13,25 @@ class Delivery < ApplicationRecord
     delivery.courier_slug = courier["data"]["couriers"].first["slug"]
     delivery.courier = courier["data"]["couriers"].first["name"]
     details = create_tracking(delivery.courier_slug, delivery)
-    delivery.expected_arrival_date = details["data"]["tracking"]["expected_delivery"]
+    delivery.expected_arrival_date = details['data']['tracking']['expected_delivery']
     delivery.status = details["data"]["tracking"]["subtag_message"]
     history = details["data"]["tracking"]["checkpoints"]
     to_be_returned = {delivery: delivery, history: history}
     return to_be_returned
+  end
+
+  def update_delivery
+    raise
+    delivery_hash = new_delivery.tracking( { name: self.courier_slug, tracking_number: self.tracking_number } )
+    delivery = delivery_hash[:delivery]
+    history_array = delivery_hash[:history]
+    if delivery.save
+      history = History.new
+      history.create_history(history_array, delivery)
+      redirect_to user_path(current_user)
+    else
+      render "users/show"
+    end
   end
 
   def create_tracking(courier_create, delivery)
