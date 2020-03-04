@@ -8,33 +8,31 @@
   <% current_user.deliveries.each do |delivery| %>
     <% delivery.update_delivery %>
   <ul>
-    <% @deliveries.each do |delivery| %>
-      <li>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
-        Staus: <%= delivery.status %> Estimated delivery: <%= delivery.expected_arrival_date %>
-        <% if !delivery.history.nil? %>
-        <ul>
-          <% delivery.history.status_updates.each do |history| %>
-            <li><%= history[0] %> [<%= history[1]%>] at <%= history[2] %></li>
-         <% end %>
-        </ul>
+    <li>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
+      Staus: <%= delivery.status %> Estimated delivery: <%= delivery.expected_arrival_date %>
+      <% if !delivery.history.nil? %>
+      <ul>
+        <% delivery.history.status_updates.each do |history| %>
+          <li><%= history[0] %> [<%= history[1]%>] at <%= history[2] %></li>
+       <% end %>
+      </ul>
+      <% end %>
+      <ul>
+        <% delivery.tags.each do |tag| %>
+          <li><%= tag.name %></li>
         <% end %>
-        <ul>
-          <% delivery.tags.each do |tag| %>
-            <li><%= tag.name %></li>
-          <% end %>
-        </ul>
-        <% @tag = Tag.new %>
-        <%= simple_form_for([delivery, @tag]) do |f| %>
-          <%= f.input :name %>
-          <%= f.button :submit, class: "btn btn-primary" %>
-        <% end %>
-      </li>
-    <% end %>
+      </ul>
+      <% @tag = Tag.new %>
+      <%= simple_form_for([delivery, @tag]) do |f| %>
+        <%= f.input :name %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </li>
+  <% end %>
   </ul>
 
   <% end %>
 
-<% end %>
 
 <h2>Add new delivery</h2>
 <% @delivery = Delivery.new %>
