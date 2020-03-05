@@ -6,6 +6,7 @@
 <% else %>
 <div class="deliver-card-container">
   <% @deliveries.each do |delivery| %>
+  <% delivery.update_delivery %>
   <div class="delivery-card">
     <% delivery.update_delivery %>
     <% if delivery.courier_slug == 'dpd-uk' %>
@@ -13,7 +14,6 @@
     <% else courier_logo = "fedex_logo" %>
     <% end %>
     <div class="delivery-card-image"><%= image_tag courier_logo, alt: "alttext" %></div>
-
 
     <div class="delivery-details">
     <p>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
