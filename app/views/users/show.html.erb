@@ -27,7 +27,9 @@
         </div>
           <div id="collapse<%=delivery.id%>" class="panel-collapse collapse">
             <% delivery.history.status_updates.each do |history| %>
-            <div class="panel-body"><%= history[0] %> [<%= history[1]%>] at <%= history[2] %></div>
+            <ul class="list-group">
+            <div class="panel-body"><li class="list-group-item"><%= history[0] %> [<%= history[1]%>] at <%= history[2] %></li></div>
+            </ul>
             <% end %>
           </div>
           <div class="tags">
