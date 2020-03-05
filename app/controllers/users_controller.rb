@@ -12,5 +12,3 @@ class UsersController < ApplicationController
   end
 
 end
-
-# @user.deliveries.select(|delivery| delivery.tags.include?(params[:query]))

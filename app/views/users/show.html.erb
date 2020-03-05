@@ -1,5 +1,6 @@
 <%= render 'shared/navbar' %>
-<h1>hello <%= current_user.display_name %></h1>
+<div class="back" style="background-image: url('images/plane.png')">
+<h1>hello <%= @user.display_name %></h1>
 <ul>
 <% if @deliveries.count == 0 %>
     <h3>Oops! There are no results for your search!</h3>
@@ -64,5 +65,7 @@
   <%= f.input :tracking_number %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
+
+</div>
 
 

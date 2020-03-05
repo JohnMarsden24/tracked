@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="854px" height="655px" viewBox="0 0 854 655" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Step-3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50.0010333%" y1="100%" x2="50.0010333%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#808080" stop-opacity="0.25" offset="0%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.12" offset="54%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="31024%" y1="81328%" x2="31024%" y2="5335%" id="linearGradient-2">
+            <stop stop-color="#808080" stop-opacity="0.25" offset="0%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.12" offset="54%"></stop>
+            <stop stop-color="#808080" stop-opacity="0.1" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-3" x="44.7367416" y="50.1886334" width="247.154494" height="464.760171"></rect>
+        <linearGradient x1="50.0344634%" y1="99.9815836%" x2="50.0344634%" y2="1.03014442%" id="linearGradient-5">
+            <stop stop-color="#FFFFFF" stop-opacity="0.12" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.09" offset="55%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.02" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="30936%" y1="37683%" x2="30936%" y2="33513%" id="linearGradient-6">
+            <stop stop-color="#FFFFFF" stop-opacity="0.12" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.09" offset="55%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.02" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Step-3" transform="translate(-157.000000, 0.000000)">
+            <rect id="Rectangle-path" fill="#3F3D56" fill-rule="nonzero" x="824" y="50" width="105" height="2"></rect>
+            <rect id="Rectangle-path" fill="#3F3D56" fill-rule="nonzero" x="409" y="50" width="333" height="2"></rect>
+            <circle id="Oval" fill="#D0CDE1" fill-rule="nonzero" cx="596" cy="51" r="41"></circle>
+            <circle id="Oval" fill="#8D3B72" fill-rule="nonzero" cx="970" cy="51" r="41"></circle>
+            <circle id="Oval" fill="#D0CDE1" fill-rule="nonzero" cx="409" cy="51" r="41"></circle>
+            <circle id="Oval" fill="#D0CDE1" fill-rule="nonzero" cx="784" cy="51" r="41"></circle>
+            <polygon id="Shape" fill="#8D3B72" fill-rule="nonzero" points="779.768 68.418 762 44.729 768.4 39.928 780.633 56.238 836.872 0 842.528 5.656"></polygon>
+            <g id="Step-4">
+                <g id="Group-2" transform="translate(157.000000, 54.000000)">
+                    <rect id="Rectangle-path" fill="url(#linearGradient-1)" fill-rule="nonzero" x="250.007341" y="339.726899" width="382.399963" height="240.044612"></rect>
+                    <rect id="Rectangle-path" fill="#FFFFFF" fill-rule="nonzero" x="250.007341" y="345.697411" width="377.595169" height="224.028476"></rect>
+                    <rect id="Rectangle-path" fill="#8D3B72" fill-rule="nonzero" x="563.235655" y="362.763916" width="48.0400375" height="35.5229698"></rect>
+                    <rect id="Rectangle-path" fill="#8D3B72" fill-rule="nonzero" x="387.410225" y="455.90707" width="184.470899" height="11.5224573"></rect>
+                    <rect id="Rectangle-path" fill="#8D3B72" fill-rule="nonzero" x="387.410225" y="484.709264" width="134.510524" height="7.6842707"></rect>
+                    <rect id="Rectangle-path" fill="url(#linearGradient-2)" fill-rule="nonzero" x="0.205468165" y="0.276412615" width="338.200599" height="600.162865" rx="10"></rect>
+                    <rect id="Rectangle-path" fill="#FFFFFF" fill-rule="nonzero" x="8.89044944" y="10.0614192" width="319.24221" height="571.10795" rx="10"></rect>
+                    <rect id="c7b02336-9701-4e2a-9a3b-1f471733f396" fill="#8D3B72" fill-rule="nonzero" x="44.9343071" y="50.433456" width="247.154494" height="464.760171"></rect>
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="a4571f71-7401-4714-9f7d-472da655db57"></g>
+                    <path d="M-135.790749,321.925926 L357.846517,83.8004074" id="Shape" stroke="#FFFFFF" stroke-width="7" fill="#2196F3" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                    <path d="M-3.41393258,-53.6161498 L169.392697,174.708568" id="Shape" stroke="#FFFFFF" stroke-width="7" fill="#2196F3" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                    <path d="M-146.040449,28.3204468 L32.653633,240.668515" id="Shape" stroke="#FFFFFF" stroke-width="7" fill="#2196F3" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                    <path d="M-18.468427,265.332418 L261.3397,642.840972" id="Shape" stroke="#FFFFFF" stroke-width="7" fill="#2196F3" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                    <path d="M-156.29015,587.361012 L77.0189513,394.156491" id="Shape" stroke="#FFFFFF" stroke-width="7" fill="#2196F3" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                    <path d="M296.356217,286.932089 L120.949625,453.427254" id="Shape" stroke="#FFFFFF" stroke-width="7" fill="#2196F3" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                    <ellipse id="Oval" fill="#DBDBDB" fill-rule="nonzero" mask="url(#mask-4)" cx="168.515506" cy="548.679041" rx="19.7091386" ry="19.6963732"></ellipse>
+                    <ellipse id="Oval" fill="#DBDBDB" fill-rule="nonzero" mask="url(#mask-4)" cx="131.072884" cy="28.7706045" rx="3.94340824" ry="3.94085414"></ellipse>
+                    <rect id="Rectangle-path" fill="#DBDBDB" fill-rule="nonzero" mask="url(#mask-4)" x="148.806367" y="25.8169382" width="61.0872659" height="5.90733246" rx="1.5"></rect>
+                    <path d="M223.114719,243.077254 C223.114719,273.158844 168.586629,358.380802 168.586629,358.380802 C168.586629,358.380802 114.058539,273.198331 114.058539,243.077254 C113.424933,223.204943 123.671853,204.565089 140.795085,194.441636 C157.918316,184.318183 179.199624,184.318183 196.322855,194.441636 C213.446087,204.565089 223.693007,223.204943 223.059401,243.077254 L223.114719,243.077254 Z" id="Shape" fill="url(#linearGradient-5)" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                    <ellipse id="Oval" fill="url(#linearGradient-6)" fill-rule="nonzero" mask="url(#mask-4)" cx="168.610337" cy="239.278555" rx="16.4769663" ry="16.4662943"></ellipse>
+                    <path d="M168.610337,339.640026 C168.610337,339.640026 126.133745,273.229921 126.133745,249.813824 C125.924876,234.511662 133.974123,220.281707 147.201057,212.569735 C160.427991,204.857764 176.78478,204.857764 190.011714,212.569735 C203.238648,220.281707 211.287896,234.511662 211.079026,249.813824 C211.086929,273.253614 168.610337,339.640026 168.610337,339.640026 Z" id="Shape" fill="#FF5252" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                    <ellipse id="Oval" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-4)" cx="168.610337" cy="246.828568" rx="12.8417603" ry="12.8334428"></ellipse>
+                    <rect id="Rectangle-path" fill="#3F3D56" fill-rule="nonzero" mask="url(#mask-4)" x="484.430712" y="-48.17477" width="82.9775281" height="1.57950066"></rect>
+                    <rect id="Rectangle-path" fill="#3F3D56" fill-rule="nonzero" mask="url(#mask-4)" x="156.47191" y="-48.17477" width="263.157303" height="1.57950066"></rect>
+                    <ellipse id="Oval" fill="#D0CDE1" fill-rule="nonzero" mask="url(#mask-4)" cx="451.2397" cy="-47.3850197" rx="32.4007491" ry="32.3797635"></ellipse>
+                    <ellipse id="Oval" fill="#D0CDE1" fill-rule="nonzero" mask="url(#mask-4)" cx="156.47191" cy="-47.3850197" rx="32.4007491" ry="32.3797635"></ellipse>
+                    <ellipse id="Oval" fill="#D0CDE1" fill-rule="nonzero" mask="url(#mask-4)" cx="304.250936" cy="-47.3850197" rx="32.4007491" ry="32.3797635"></ellipse>
+                    <ellipse id="Oval" fill="#8D3B72" fill-rule="nonzero" mask="url(#mask-4)" cx="599.018727" cy="-47.3850197" rx="32.4007491" ry="32.3797635"></ellipse>
+                    <polygon id="Shape" fill="#8D3B72" fill-rule="nonzero" mask="url(#mask-4)" points="447.895311 -32.8393982 433.853933 -51.5477937 438.91161 -55.339385 448.578888 -42.4585572 493.022442 -86.8725361 497.492165 -82.4057083"></polygon>
+                </g>
+                <g id="Group" opacity="0.6" transform="translate(544.000000, 416.000000)"></g>
+                <g id="Clipped">
+                    <g id="Group" transform="translate(0.388535, 0.532203)"></g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

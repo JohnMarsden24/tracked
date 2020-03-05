@@ -1,61 +1,51 @@
-// Specific CSS for your home-page
-
 .banner {
-  // background-color: white;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas:
-  "text text form";
-  height: 80vh;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "text form";
+  justify-content: space-between;
+  padding: 0 64px;
+  // margin: auto;
 }
 
-.banner-left {
-  background-image: url("box.svg");
-  background-size: 30rem;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: white;
-
+.banner-text {
   grid-area: text;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  h4 {
-    margin: 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  .text {
-    background-color: $blueberry;
-  }
-
-  .text-header {
-    color: white;
-    padding: 1rem 1rem 1rem 12rem;
-  }
-
-  .text-footer {
-    color: white;
-    padding: 1rem 1rem 1rem 12rem;
-  }
+  background-image: url("tracked_logo");
+  width: 100%;
+  height: 80vh;
+  background-position: left;
+  background-size: 75%;
+  background-repeat: no-repeat;
 }
 
-.banner-right {
-  color: white;
-  background-color: $blueberry;
+.banner-form {
   grid-area: form;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 }
 
-.info-card-body {
+.log-in {
+  background-color: white;
+  width: 80%;
+  position: absolute;
+  right: 0;
+  top: 64px;
+}
+
+
+.info-cards-body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4rem 8rem;
+  background-color: $lavender;
+  padding: 64px;
+  width: 100%;
 }
+
+.filler {
+  height: 600px;
+}
+
+
+
+
+
+
