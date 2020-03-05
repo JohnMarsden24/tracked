@@ -6,8 +6,9 @@
 <% else %>
 <div class="deliver-card-container">
   <% @deliveries.each do |delivery| %>
+  <% delivery.update_delivery %>
   <div class="delivery-card">
-    <% delivery.update_delivery %>
+
     <div class="delivery-card-image"><%= image_tag "logo", alt: "alttext" %></div>
 
 
