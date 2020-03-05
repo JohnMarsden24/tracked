@@ -1,18 +1,23 @@
 .footer {
-  background-color: $emerald;
-  height: 200px;
+  background-color: $lavender;
+  // height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
-  .links {
-    display: flex;
-    justify-content: space-between;
-  }
-
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 0;
   a {
     padding: 0 24px;
     text-decoration: none;
     color: white;
   }
+}
+
+.footer-text {
+  text-align: center;
+  color: white;
 }
