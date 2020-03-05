@@ -45,6 +45,9 @@
   display: flex;
   float: right;
   justify-content: space-around;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
 }
 
 .new_tag {
@@ -55,4 +58,14 @@
 #tag_name {
   padding: 0;
   height: 24px;
+}
+
+
+.tag-btn {
+ font-size: 12px;
+ border: 0;
+}
+
+.collapse {
+  margin-bottom: 30px;
 }
