@@ -1,0 +1,58 @@
+.delivery-card-image {
+  position: relative;
+  width: 80px;
+
+}
+
+.delivery-card-image img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 50px;
+}
+
+.delivery-card {
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  padding: 8px;
+  box-shadow: 2px 2px 5px gray;
+  border-radius: 8px;
+  display: flex;
+  position: relative;
+}
+
+.new-delivery-form {
+  width: 60%;
+  min-height: 150px;
+  margin: 0 auto;
+  float: none;
+}
+
+.tag {
+  background-color: #4C76FF;
+  border-radius: 16px;
+  color: white;
+  padding: 4px 4px;
+  margin-bottom: 4px;
+  margin-right: 4px;
+}
+
+.tags {
+  display: flex;
+  float: right;
+  justify-content: space-around;
+}
+
+.new_tag {
+  width: 100px;
+  height: 24px;
+}
+
+#tag_name {
+  padding: 0;
+  height: 24px;
+}
