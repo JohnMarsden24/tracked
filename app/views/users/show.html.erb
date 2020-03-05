@@ -6,33 +6,56 @@
     <h3>Oops! There are no results for your search!</h3>
 <% else %>
 
+<div class="deliver-card-container">
   <% @deliveries.each do |delivery| %>
+  <% delivery.update_delivery %>
+  <div class="delivery-card">
     <% delivery.update_delivery %>
-  <ul>
-    <li>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
-      Staus: <%= delivery.status %> Estimated delivery: <%= delivery.expected_arrival_date %>
-      <% if !delivery.history.nil? %>
-      <ul>
-        <% delivery.history.status_updates.each do |history| %>
-          <li><%= history[0] %> [<%= history[1]%>] at <%= history[2] %></li>
-       <% end %>
-      </ul>
-      <% end %>
-      <ul>
-        <% delivery.tags.each do |tag| %>
-          <li><%= tag.name %></li>
-        <% end %>
-      </ul>
-      <% @tag = Tag.new %>
-      <%= simple_form_for([delivery, @tag]) do |f| %>
-        <%= f.input :name %>
-        <%= f.button :submit, class: "btn btn-primary" %>
-      <% end %>
-    </li>
-  <% end %>
-  </ul>
+    <% if delivery.courier_slug == 'dpd-uk' %>
+      <% courier_logo = "dpd_logo" %>
+    <% else courier_logo = "fedex_logo" %>
+    <% end %>
+    <div class="delivery-card-image"><%= image_tag courier_logo, alt: "alttext" %></div>
 
+    <div class="delivery-details">
+      <p>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
+      Staus: <%= delivery.status %> Estimated delivery: <%= delivery.expected_arrival_date %>
+      </p>
+
+      <% if !delivery.history.nil? %>
+        <div class="panel-group">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4 class="panel-title">
+            <a data-toggle="collapse" href="#collapse<%=delivery.id%>">Parcel History</a>
+            </h4>
+        </div>
+          <div id="collapse<%=delivery.id%>" class="panel-collapse collapse">
+            <% delivery.history.status_updates.each do |history| %>
+            <ul class="list-group">
+            <div class="panel-body"><li class="list-group-item"><%= history[0] %> [<%= history[1]%>] at <%= history[2] %></li></div>
+            </ul>
+            <% end %>
+          </div>
+          <div class="tags">
+            <% delivery.tags.each do |tag| %>
+              <div class="test"><a class="tag" href='/tags/<%=tag.id%>', data-method="delete"><%= tag.name %></a></div>
+            <% end %>
+
+          <% @tag = Tag.new %>
+            <%= simple_form_for([delivery, @tag]) do |f| %>
+              <%= f.input :name, label: false, placeholder: "add tag" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <% end %>
+  <% end %>
+</div>
+<% end %>
+
 
 
 <h2>Add new delivery</h2>
