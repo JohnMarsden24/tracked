@@ -38,7 +38,7 @@
           </div>
           <div class="tags">
             <% delivery.tags.each do |tag| %>
-              <div><span class="tag"><%= tag.name %></span></div>
+              <div class="test"><a class="tag" href='/tags/<%=tag.id%>', data-method="delete"><%= tag.name %></a></div>
             <% end %>
 
           <% @tag = Tag.new %>
