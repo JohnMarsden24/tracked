@@ -39,6 +39,12 @@
   padding: 4px 4px;
   margin-bottom: 4px;
   margin-right: 4px;
+  text-decoration: none;
+}
+
+.tag:hover {
+  text-decoration: none;
+  color: white;
 }
 
 .tags {
@@ -69,3 +75,4 @@
 .collapse {
   margin-bottom: 30px;
 }
+
