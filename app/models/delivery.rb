@@ -53,7 +53,7 @@ class Delivery < ApplicationRecord
     history_array = delivery_hash[:history]
     if delivery.save
       history_array.each do |tracking_event|
-        delivery.history['status_updates'] << [tracking_event['message'], tracking_event['location'], tracking_event['checkpoint_time']]
+        delivery.history['status_updates'] << [tracking_event['message'], tracking_event['country_iso3'], tracking_event['checkpoint_time']]
       end
       delivery.save
     else
