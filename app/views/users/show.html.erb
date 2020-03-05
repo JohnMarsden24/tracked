@@ -4,12 +4,17 @@
 <% if @deliveries.count == 0 %>
     <h3>Oops! There are no results for your search!</h3>
 <% else %>
-
+<div class="deliver-card-container">
   <% @deliveries.each do |delivery| %>
+  <div class="delivery-card">
     <% delivery.update_delivery %>
-  <ul>
-    <li>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
+    <div class="delivery-card-image"><%= image_tag "logo", alt: "alttext" %></div>
+
+
+    <div class="delivery-details">
+    <p>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
       Staus: <%= delivery.status %> Estimated delivery: <%= delivery.expected_arrival_date %>
+    </p>
       <% if !delivery.history.nil? %>
       <ul>
         <% delivery.history.status_updates.each do |history| %>
@@ -17,22 +22,23 @@
        <% end %>
       </ul>
       <% end %>
-      <ul>
+
+      <div class="tags">
         <% delivery.tags.each do |tag| %>
-          <li><%= tag.name %></li>
+          <div><span class="tag"><%= tag.name %></span></div>
         <% end %>
-      </ul>
-      <% @tag = Tag.new %>
-      <%= simple_form_for([delivery, @tag]) do |f| %>
-        <%= f.input :name %>
-        <%= f.button :submit, class: "btn btn-primary" %>
-      <% end %>
-    </li>
-  <% end %>
-  </ul>
+        <% @tag = Tag.new %>
+          <%= simple_form_for([delivery, @tag]) do |f| %>
+          <%= f.input :name, label: false %>
+        <% end %>
+      </div>
 
   <% end %>
 
+</div>
+  <% end %>
+  </div>
+</div>
 
 <h2>Add new delivery</h2>
 <% @delivery = Delivery.new %>
