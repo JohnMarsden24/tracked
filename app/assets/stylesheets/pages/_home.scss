@@ -4,7 +4,6 @@
   grid-template-areas: "text form";
   justify-content: space-between;
   padding: 0 64px;
-  // margin: auto;
 }
 
 .banner-text {
@@ -40,12 +39,13 @@
   width: 100%;
 }
 
-.filler {
-  height: 600px;
+.couriers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+
+  img {
+    height: 50vh;
+  }
 }
-
-
-
-
-
-
