@@ -1,22 +1,26 @@
-.info-card {
+.info-cards {
   background-color: white;
   width: 16rem;
-  height: 20rem;
-  // padding: 1rem;
 
-  img {
-    padding: 1rem;
-    width: 100%;
+  .photo {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 200px;
   }
 
   .text {
     display: flex;
-    align-items: center;
     justify-content: center;
-    height: 6rem;
-    padding: 1rem;
-    background-color: $blueberry;
+    align-items: center;
+    // padding-top: 16px;
     text-align: center;
-    color: white;
+    color: $lavender;
+    height: 64px;
   }
+}
+
+.card {
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+  padding: 16px;
 }

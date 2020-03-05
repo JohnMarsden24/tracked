@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="1080px" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Design 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Design-4">
+            <g id="Group-2" transform="translate(896.000000, 607.000000) scale(-1, 1) translate(-896.000000, -607.000000) translate(0.000000, 201.000000)">
+                <path d="M1792,790 C1792,790 1322.5,895 1104,642 C885.5,389 1030,172.5 1086.5,100.5 C1143,28.5 1363,-60.5 1552.5,60 C1654.64165,124.950233 1756.55434,424.178337 1604,581.5 C1396,796 1152.9971,728.138397 857.5,682.5 C430.166667,616.5 192.5,500.166667 144.5,333.5" id="Line" stroke="#246A73" stroke-width="2" stroke-linecap="square" stroke-dasharray="8,12"></path>
+                <g id="paper-plane" transform="translate(149.845570, 250.257056) rotate(24.000000) translate(-149.845570, -250.257056) translate(32.345570, 145.757056)" fill-rule="nonzero">
+                    <g id="Group">
+                        <polygon id="Shape" fill="#C6CBCB" points="0 0.418 152.001396 192.681042 165.512979 146.903625"></polygon>
+                        <polygon id="Shape" fill="#246A73" points="106.241113 94.446 95.8070215 121.601792 152.001396 192.681042 165.512979 146.903625"></polygon>
+                        <polygon id="Shape" fill="#D1D5D5" points="152.001396 192.681042 138.007881 158.468292 0 0.418 122.566729 168.587375"></polygon>
+                        <polygon id="Shape" fill="#E2E5E7" points="138.007881 158.468292 58.8702539 208.581542 0 0.418"></polygon>
+                        <polygon id="Shape" fill="#E2E5E7" points="165.512979 146.903625 0 0.418 235 116.546375"></polygon>
+                        <polygon id="Shape" fill="#368F8B" points="83.8316602 96.4250833 56.8006934 201.265167 58.8702539 208.581542 138.083154 158.40825"></polygon>
+                        <path d="M225.327822,111.767333 C157.602151,101.916537 121.795071,96.7083456 117.906582,96.1427592 C114.018092,95.5771728 110.129603,95.0115864 106.241113,94.446 L165.455605,147.0975 L235,116.546375 L225.327822,111.767333 Z" id="Shape" fill="#368F8B"></path>
+                        <polygon id="Shape" fill="#246A73" points="83.8316602 96.4250833 56.8006934 201.265167 87.8041699 100.963958"></polygon>
+                        <polygon id="Shape" fill="#246A73" points="106.241113 94.446 111.522188 99.1420833 225.327822 111.767333"></polygon>
+                        <polygon id="Shape" fill="#C6CBCB" points="138.083154 158.40825 122.391855 168.347667 134.400264 178.273333"></polygon>
+                    </g>
+                    <polygon id="Shape" fill="#368F8B" points="6.07902286 21 11 12.3065168 0 0"></polygon>
+                    <polygon id="Shape" fill="#368F8B" points="12.5521597 11.7287814 23 12 0 0"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

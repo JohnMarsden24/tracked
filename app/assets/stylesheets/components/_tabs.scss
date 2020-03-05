@@ -1,0 +1,23 @@
+.nav {
+  margin-bottom: 8px;
+
+  a {
+    color: $lavender;
+    transition: .3s;
+    opacity: .5;
+
+    &:hover {
+        box-shadow: 0px -1px 0px $lavender inset;
+    }
+  }
+
+  .active {
+    opacity: 1;
+    box-shadow: 0px -2px 0px $lavender inset;
+
+    &:hover {
+      opacity: 1;
+      box-shadow: 0px -2px 0px $lavender inset;
+    }
+  }
+}
