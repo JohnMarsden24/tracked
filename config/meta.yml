@@ -1,0 +1,6 @@
+# config/meta.yml
+
+meta_product_name: "Tracked"
+meta_title: "Tracked - All Your Packages, One Place"
+meta_description: "All Your Packages, One Place"
+meta_image: "cover.png" # should exist in `app/assets/images/`
