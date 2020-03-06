@@ -1,21 +1,8 @@
 <%= render 'shared/navbar' %>
-<div class="back" style="background-image: url('images/plane.png')">
-<h1>hello <%= @user.display_name %></h1>
-<ul>
-<% if @deliveries.count == 0 %>
-    <h3>Oops! There are no results for your search!</h3>
-<% else %>
 
 <div class="deliver-card-container">
   <% @deliveries.each do |delivery| %>
-  <%# delivery.update_delivery %>
-  <div class="delivery-card">
-    <%# delivery.update_delivery %>
-    <% if delivery.courier_slug == 'dpd-uk' %>
-      <% courier_logo = "dpd_logo" %>
-    <% else courier_logo = "fedex_logo" %>
-    <% end %>
-    <div class="delivery-card-image"><%= image_tag courier_logo, alt: "alttext" %></div>
+ <div class="delivery-card">
 
     <div class="delivery-details">
       <p>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
@@ -54,8 +41,6 @@
   <% end %>
   <% end %>
 </div>
-<% end %>
-
 
 
 <h2>Add new delivery</h2>
