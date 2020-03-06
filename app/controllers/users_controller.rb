@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def show
-    # @active = Delivery.where(:status != "Delivered")
     @delivered = current_user.deliveries.where(status: "Delivered")
     @delivery = Delivery.new
     @tag = Tag.new
