@@ -1,22 +1,30 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "Home", root_path %>
 
-  <ul class="nav" id="myTab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#on-their-way" role="tab" aria-controls="home" aria-selected="true">On their way</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#delivered" role="tab" aria-controls="profile" aria-selected="false">Delivered</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="profile" aria-selected="false">Settings</a>
-    </li>
-  </ul>
+       <ul class="nav" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#active" role="tab" aria-controls="home" aria-selected="true">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#delivered" role="tab" aria-controls="profile" aria-selected="false">Delivered</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="profile" aria-selected="false">Settings</a>
+          </li>
+        </ul>
 
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="log-in" role="tabpanel" aria-labelledby="home-tab">
-    </div>
-  </div>
+
+                <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="active" role="tabpanel" aria-labelledby="home-tab">
+        <%= render "users/active" %>
+          </div>
+          <div class="tab-pane fade" id="delivered" role="tabpanel" aria-labelledby="profile-tab">
+            <%= render "users/delivered" %>
+          </div>
+          <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="profile-tab">
+            <%= render "users/settings" %>
+          </div>
+        </div>
 
   <div class="search">
     <%= form_tag user_path, method: :get do %>
