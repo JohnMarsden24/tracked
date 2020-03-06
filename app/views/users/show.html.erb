@@ -39,7 +39,7 @@
           </div>
           <div class="tags">
             <% delivery.tags.each do |tag| %>
-              <div class="test"><a class="tag" href='/tags/<%=tag.id%>', data-method="delete"><%= tag.name %></a></div>
+              <div class="test tag"><%= tag.name %><a href='/tags/<%=tag.id%>', data-method="delete"> <i class="far fa-times-circle"></i></a></div>
             <% end %>
 
           <% @tag = Tag.new %>
