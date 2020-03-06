@@ -1,5 +1,10 @@
 <%= render 'shared/navbar' %>
 
+<% if params[:query].present? && @deliveries.count == 0 %>
+ <h1>Oops! Your search did not yield results!</h1>
+
+ <% else %>
+
 <div class="deliver-card-container">
   <% @deliveries.each do |delivery| %>
  <div class="delivery-card">
@@ -42,6 +47,8 @@
   <% end %>
 </div>
 
+<% end %>
+<br>
 
 <h2>Add new delivery</h2>
 <% @delivery = Delivery.new %>
