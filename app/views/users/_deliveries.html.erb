@@ -1,11 +1,21 @@
-<% @delivered.each do |delivery| %>
+<h2>Add new delivery</h2>
+<% @delivery = Delivery.new %>
+<%= simple_form_for(@delivery) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :tracking_number %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
 
+<div class="deliver-card-container">
+  <% @deliveries.each do |delivery| %>
  <div class="delivery-card">
 
     <div class="delivery-details">
       <p>Name: <%= delivery.name %> - Courier: <%= delivery.courier %> - Tracking number: <%= delivery.tracking_number %>
       Staus: <%= delivery.status %> Estimated delivery: <%= delivery.expected_arrival_date %>
       </p>
+
+      <% if !delivery.history.nil? %>
         <div class="panel-group">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -24,10 +34,16 @@
             <% delivery.tags.each do |tag| %>
               <div class="test tag"><%= tag.name %><a href='/tags/<%=tag.id%>', data-method="delete"> <i class="far fa-times-circle"></i></a></div>
             <% end %>
+
+          <% @tag = Tag.new %>
+            <%= simple_form_for([delivery, @tag]) do |f| %>
+              <%= f.input :name, label: false, placeholder: "add tag" %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-<% end %>
+  <% end %>
+  <% end %>
+</div>
