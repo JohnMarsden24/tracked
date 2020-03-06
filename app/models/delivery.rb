@@ -48,14 +48,14 @@ class Delivery < ApplicationRecord
     delivery.courier_slug = courier_data[:slug][0]
     delivery.courier = courier_data[:courier_name][0]
     details = get_tracking(delivery.courier_slug, delivery)
-    if tracking_data["data"]["tracking"]["expected_delivery"].nil?
-      if tracking_data["data"]["tracking"]['active']
-        delivery.expected_arrival_date = tracking_data["data"]["tracking"]['updated_at']
+    if details["data"]["tracking"]["expected_delivery"].nil?
+      if details["data"]["tracking"]['active']
+        delivery.expected_arrival_date = details["data"]["tracking"]['updated_at']
       else
-        delivery.expected_arrival_date = tracking_data["data"]["tracking"]['shipment_delivery_date']
+        delivery.expected_arrival_date = details["data"]["tracking"]['shipment_delivery_date']
       end
     else
-      delivery.expected_arrival_date = tracking_data["data"]["tracking"]["expected_delivery"]
+      delivery.expected_arrival_date = details["data"]["tracking"]["expected_delivery"]
     end
     delivery.status = details["data"]["tracking"]["subtag_message"]
     history = details["data"]["tracking"]["checkpoints"]
