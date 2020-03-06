@@ -8,9 +8,9 @@
 
 <div class="deliver-card-container">
   <% @deliveries.each do |delivery| %>
-  <% delivery.update_delivery %>
+  <%# delivery.update_delivery %>
   <div class="delivery-card">
-    <% delivery.update_delivery %>
+    <%# delivery.update_delivery %>
     <% if delivery.courier_slug == 'dpd-uk' %>
       <% courier_logo = "dpd_logo" %>
     <% else courier_logo = "fedex_logo" %>
