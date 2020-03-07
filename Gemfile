@@ -20,6 +20,7 @@ gem 'faker'
 gem 'pg_search', '~> 2.3.0'
 
 gem "aftership", "~> 4.3.1"
+gem "httparty"
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -1,14 +1,20 @@
-require 'easypost'
+require "httparty"
+require "aftership"
 
-EasyPost.api_key = "EZAKddbf320e2710454a8bcaf92457322c43XQ7RAPvK0Jj1xPtkVMLoFA"
+# def get_tracking(tracking_id)
+#   HTTParty.get("https://api.aftership.com/v4/trackings/#{tracking_id}",
+#     headers: {
+#       "aftership-api-key" => "7beee5c2-ca2b-49c5-a0c8-ee57c0b18434",
+#       "Content-Type" => "application/json"
+#     }
+#   )
+# end
 
-tracker = EasyPost::Tracker.create({
-  tracking_code: "1840908483",
-  carrier: "DPD-UK"
-})
+# id = "o9o1ssrx26mnsk7i32eei015"
 
-# puts tracker.carrier
+# puts get_tracking(id)
 
-# carrier_types = EasyPost::CarrierAccount.types
+AfterShip.api_key = "7beee5c2-ca2b-49c5-a0c8-ee57c0b18434"
 
-# puts carrier_types
+p AfterShip::V4::Tracking.get('dpd-uk', '1861371825')
+

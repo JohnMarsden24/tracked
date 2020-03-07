@@ -1,4 +1,3 @@
-require('aftership')
 class Delivery < ApplicationRecord
   belongs_to :user
   has_many :tags, dependent: :destroy
@@ -7,101 +6,183 @@ class Delivery < ApplicationRecord
   validates :tracking_number, uniqueness: true, presence: true
   validates :user_id, presence: true
 
+  COURIERS = ["DPD", "Fedex", "Parcel Force", "Collect Plus", "Yodel", "UK Mail", "Royal Mail", "TNT"].sort
+
+  COURIERS_SLUG = {
+    "DPD" => "dpd-uk",
+    "Fedex" => "fedex-uk",
+    "Parcel Force" => "parcel-force",
+    "Collect+" => "collectplus",
+    "Yodel" => "yodel",
+    "UK Mail" => "uk-mail",
+    "Royal Mail" => "royal-mail",
+    "TNT" => "tnt-uk",
+  }
+
   AfterShip.api_key = "7beee5c2-ca2b-49c5-a0c8-ee57c0b18434"
 
-  def create_tracking(delivery)
-    # detects possible list of couriers
-    courier_data = detect_courier(delivery.tracking_number)
-    if courier_data[:slug].length > 1
-      # need a way to deal with mulitple couriers returned from detect_courier
-      counter = 0
-      tracking_data = get_tracking(courier_data[:slug][counter], delivery)
-      while tracking_data["data"] == {}
-        counter += 1
-        tracking_data = get_tracking(courier_data[:slug][counter], delivery)
-      end
-        delivery.courier = courier_data[:courier_name][counter]
-    else
-      #gets tracking item with slug and delivery tracking number
-      tracking_data = get_tracking(courier_data[:slug].first, delivery)
-      delivery.courier = courier_data[:courier_name].first
-    end
-    # sets delivery values to the data returned from the get_tracking method
-    if tracking_data["data"]["tracking"]["expected_delivery"].nil?
-      if tracking_data["data"]["tracking"]['active']
-        delivery.expected_arrival_date = tracking_data["data"]["tracking"]['updated_at']
-      else
-        delivery.expected_arrival_date = tracking_data["data"]["tracking"]['shipment_delivery_date']
-      end
-    else
-      delivery.expected_arrival_date = tracking_data["data"]["tracking"]["expected_delivery"]
-    end
-    delivery.status = tracking_data["data"]["tracking"]["subtag_message"]
-    delivery.courier_slug = courier_data[:slug][0]
-    history = tracking_data["data"]["tracking"]["checkpoints"]
-    delivery_data = {delivery: delivery, history: history}
-    return delivery_data
-  end
+  # def create_tracking(delivery)
+  #   # detects possible list of couriers
+  #   courier_data = detect_courier(delivery.tracking_number)
+  #   if courier_data[:slug].length > 1
+  #     # need a way to deal with mulitple couriers returned from detect_courier
+  #     counter = 0
+  #     tracking_data = get_tracking(courier_data[:slug][counter], delivery)
+  #     while tracking_data["data"] == {}
+  #       counter += 1
+  #       tracking_data = get_tracking(courier_data[:slug][counter], delivery)
+  #     end
+  #       delivery.courier = courier_data[:courier_name][counter]
+  #   else
+  #     #gets tracking item with slug and delivery tracking number
+  #     tracking_data = get_tracking(courier_data[:slug].first, delivery)
+  #     delivery.courier = courier_data[:courier_name].first
+  #   end
+  #   # sets delivery values to the data returned from the get_tracking method
+  #   if tracking_data["data"]["tracking"]["expected_delivery"].nil?
+  #     if tracking_data["data"]["tracking"]['active']
+  #       delivery.expected_arrival_date = tracking_data["data"]["tracking"]['updated_at']
+  #     else
+  #       delivery.expected_arrival_date = tracking_data["data"]["tracking"]['shipment_delivery_date']
+  #     end
+  #   else
+  #     delivery.expected_arrival_date = tracking_data["data"]["tracking"]["expected_delivery"]
+  #   end
+  #   delivery.status = tracking_data["data"]["tracking"]["subtag_message"]
+  #   delivery.courier_slug = courier_data[:slug][0]
+  #   history = tracking_data["data"]["tracking"]["checkpoints"]
+  #   delivery_data = {delivery: delivery, history: history}
+  #   return delivery_data
+  # end
 
-  def tracking(delivery)
-    courier_data = detect_courier(delivery.tracking_number)
-    delivery.courier_slug = courier_data[:slug][0]
-    delivery.courier = courier_data[:courier_name][0]
-    details = get_tracking(delivery.courier_slug, delivery)
-    if details["data"]["tracking"]["expected_delivery"].nil?
-      if details["data"]["tracking"]['active']
-        delivery.expected_arrival_date = details["data"]["tracking"]['updated_at']
-      else
-        delivery.expected_arrival_date = details["data"]["tracking"]['shipment_delivery_date']
-      end
-    else
-      delivery.expected_arrival_date = details["data"]["tracking"]["expected_delivery"]
-    end
-    delivery.status = details["data"]["tracking"]["subtag_message"]
-    history = details["data"]["tracking"]["checkpoints"]
-    to_be_returned = {delivery: delivery, history: history}
-    return to_be_returned
-  end
+  # def tracking(delivery)
+  #   courier_data = detect_courier(delivery.tracking_number)
+  #   delivery.courier_slug = courier_data[:slug][0]
+  #   delivery.courier = courier_data[:courier_name][0]
+  #   details = get_tracking(delivery.courier_slug, delivery)
+  #   if details["data"]["tracking"]["expected_delivery"].nil?
+  #     if details["data"]["tracking"]['active']
+  #       delivery.expected_arrival_date = details["data"]["tracking"]['updated_at']
+  #     else
+  #       delivery.expected_arrival_date = details["data"]["tracking"]['shipment_delivery_date']
+  #     end
+  #   else
+  #     delivery.expected_arrival_date = details["data"]["tracking"]["expected_delivery"]
+  #   end
+  #   delivery.status = details["data"]["tracking"]["subtag_message"]
+  #   history = details["data"]["tracking"]["checkpoints"]
+  #   to_be_returned = {delivery: delivery, history: history}
+  #   return to_be_returned
+  # end
 
-  def update_delivery
-    delivery_hash = tracking(self)
-    delivery = delivery_hash[:delivery]
-    history_array = delivery_hash[:history]
-    if delivery.save
-      history_array.each do |tracking_event|
-        location = tracking_event['country_iso3']
-        if location.nil?
-          location = tracking_event['location']
-        end
-        delivery.history['status_updates'] << [tracking_event['message'], location, tracking_event['checkpoint_time']]
-      end
-      delivery.save
-    else
-      render "users/show"
-    end
-  end
+  # def update_delivery
+  #   delivery_hash = tracking(self)
+  #   delivery = delivery_hash[:delivery]
+  #   history_array = delivery_hash[:history]
+  #   if delivery.save
+  #     history_array.each do |tracking_event|
+  #       location = tracking_event['country_iso3']
+  #       if location.nil?
+  #         location = tracking_event['location']
+  #       end
+  #       delivery.history['status_updates'] << [tracking_event['message'], location, tracking_event['checkpoint_time']]
+  #     end
+  #     delivery.save
+  #   else
+  #     render "users/show"
+  #   end
+  # end
 
-  def get_tracking(slug, delivery)
-    AfterShip::V4::Tracking.get(slug, delivery.tracking_number)
+  # def get_tracking(slug, delivery)
+  #   AfterShip::V4::Tracking.get(slug, delivery.tracking_number)
+  # end
+
+  # def detect_courier(tracking_number)
+  #   results = AfterShip::V4::Courier.detect({tracking_number: tracking_number})["data"]
+  #   courier_data = {
+  #     slug: [],
+  #     courier_name: []
+  #   }
+  #   if results["total"] > 1
+  #     results["couriers"].each do |courier|
+  #       courier_data[:slug] << courier["slug"]
+  #       courier_data[:courier_name] << courier["name"]
+  #     end
+  #   else
+  #     courier_data[:slug] << results["couriers"].first["slug"]
+  #     courier_data[:courier_name] << results["couriers"].first["name"]
+  #   end
+  #   return courier_data
+  # end
+
+  # to show courier list
+
+  def find_courier(tracking_number)
+    couriers = detect_courier(tracking_number)["data"]["couriers"]
+    select_courier(couriers)
   end
 
   def detect_courier(tracking_number)
-    results = AfterShip::V4::Courier.detect({tracking_number: tracking_number})["data"]
-    courier_data = {
-      slug: [],
-      courier_name: []
-    }
-    if results["total"] > 1
-      results["couriers"].each do |courier|
-        courier_data[:slug] << courier["slug"]
-        courier_data[:courier_name] << courier["name"]
-      end
-    else
-      courier_data[:slug] << results["couriers"].first["slug"]
-      courier_data[:courier_name] << results["couriers"].first["name"]
-    end
-    return courier_data
+    AfterShip::V4::Courier.detect({:tracking_number => "#{tracking_number}"})
   end
+
+  def select_courier(couriers)
+    courier_data = {}
+    couriers.each do |courier|
+      courier_data[courier["name"]] = courier["slug"]
+    end
+    courier_data
+  end
+
+  def first_tracking(slug, tracking_number)
+    AfterShip::V4::Tracking.get("#{slug}", "#{tracking_number}")
+  end
+
+  def try_tracking(tracking_id)
+    response = HTTParty.get("https://api.aftership.com/v4/trackings/#{tracking_id}",
+      headers: {
+        "aftership-api-key" => "7beee5c2-ca2b-49c5-a0c8-ee57c0b18434",
+        "Content-Type" => "application/json"
+      }
+    )
+  end
+
+  def get_tracking(tracking_id)
+    response = try_tracking(tracking_id)
+    while response["data"]["tracking"]["tag"] == "Pending"
+      response = try_tracking(tracking_id)
+    end
+    return response
+  end
+
+  def create_tracking_id(slug, tracking_number)
+    HTTParty.post("https://api.aftership.com/v4/trackings",
+      headers: {
+        "aftership-api-key" => "7beee5c2-ca2b-49c5-a0c8-ee57c0b18434",
+        "Content-Type" => "application/json"
+      },
+      body: {
+        "tracking" => {
+          "slug" => "#{slug}",
+          "tracking_number" => "#{tracking_number}",
+        }
+      }.to_json
+    )
+  end
+
+
+  def tracking
+    self.courier_slug = COURIERS_SLUG[self.courier]
+    tracking_data = first_tracking(self.courier_slug, self.tracking_number)["data"]
+    if tracking_data == {}
+      tracking_id = create_tracking_id(self.courier_slug, self.tracking_number)["data"]["tracking"]["id"]
+      tracking_data = get_tracking(tracking_id)["data"]
+    end
+    self.status = tracking_data["tracking"]["subtag_message"]
+    self.expected_arrival_date = tracking_data["tracking"]["expected_delivery"]
+    delivery_history = tracking_data["tracking"]["checkpoints"]
+  end
+
 
   include PgSearch::Model
   pg_search_scope :search_by_everything,
