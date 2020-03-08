@@ -6,7 +6,7 @@ class Delivery < ApplicationRecord
   validates :tracking_number, uniqueness: true, presence: true
   validates :user_id, presence: true
 
-  COURIERS = ["DPD", "Fedex", "Parcel Force", "Collect Plus", "Yodel", "UK Mail", "Royal Mail", "TNT"].sort
+  COURIERS = ["DPD", "Fedex", "Parcel Force", "Collect Plus", "Yodel", "UK Mail", "Royal Mail", "TNT", "Amazon"].sort
 
   COURIERS_SLUG = {
     "DPD" => "dpd-uk",
@@ -17,6 +17,7 @@ class Delivery < ApplicationRecord
     "UK Mail" => "uk-mail",
     "Royal Mail" => "royal-mail",
     "TNT" => "tnt-uk",
+    "Amazon" => "amazon-logistics-uk"
   }
 
   AfterShip.api_key = "7beee5c2-ca2b-49c5-a0c8-ee57c0b18434"
