@@ -182,11 +182,22 @@ class Delivery < ApplicationRecord
       tracking_id = create_tracking_id(self.courier_slug, self.tracking_number)["data"]["tracking"]["id"]
       tracking_data = get_tracking(tracking_id)["data"]
     end
-    self.status = tracking_data["tracking"]["subtag_message"]
+    self.status = set_status(tracking_data["tracking"]["tag"])
     self.expected_arrival_date = tracking_data["tracking"]["expected_delivery"]
     delivery_history = tracking_data["tracking"]["checkpoints"]
   end
 
+  def set_status(tag)
+    delayed_status = ["FailedAttempt", "Exception"]
+    transit_status = ["InTransit", "OutforDelivery", "InfoReceived"]
+    if tag.in?(delayed_status)
+      return "Delayed"
+    elsif tag.in?(transit_status)
+      return "On its way"
+    else
+      return "Delivered"
+    end
+  end
 
   include PgSearch::Model
   pg_search_scope :search_by_everything,
