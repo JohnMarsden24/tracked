@@ -43,6 +43,15 @@
   text-decoration: none;
 }
 
+#delete-cross {
+  color: rgba(255,255,255,0.5);
+  transition: 0.3s;
+}
+
+#delete-cross:hover {
+  color: rgba(255,255,255,1)
+}
+
 .tag:hover {
   text-decoration: none;
   color: white;
@@ -79,6 +88,7 @@
  font-size: 12px;
  border: 0;
 }
+
 
 .collapse {
   margin-bottom: 30px;
