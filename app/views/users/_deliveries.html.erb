@@ -13,12 +13,15 @@
         </button>
       </div>
       <div class="modal-body">
-<%= simple_form_for(@delivery) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :tracking_number %>
-  <%= f.input :courier, collection: Delivery::COURIERS %>
-  <%= f.button :submit, class: "btn-full-wdith" %>
-<% end %>
+
+ <%= simple_form_for(@delivery) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :tracking_number %>
+    <%= f.button :submit, class: "btn-full-wdith" %>
+  <% end %>
+
+  <%#= render 'shared/form' %>
+
       </div>
     </div>
   </div>

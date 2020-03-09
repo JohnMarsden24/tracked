@@ -10,7 +10,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # private
+  def create
+
+  end
+
+
+  private
 
   def resource_name
     :user
@@ -27,4 +32,5 @@ class UsersController < ApplicationController
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
 end

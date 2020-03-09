@@ -1,5 +1,4 @@
 class DeliveriesController < ApplicationController
-
   # def create
   #   new_delivery = Delivery.new(delivery_params)
   #   delivery_data = new_delivery.tracking(new_delivery)
@@ -28,16 +27,49 @@ class DeliveriesController < ApplicationController
   end
 
   def create
-    delivery = Delivery.new(delivery_params)
-    delivery.user = current_user
-    delivery_data = delivery.tracking
-    if delivery.save
-      History.create_history(delivery_data, delivery)
-      redirect_to user_path(current_user)
+        @delivery = Delivery.new(delivery_params)
+    @delivery.user = current_user
+
+    if !params[:delivery][:courier].nil?
+      # write what to do here
+      @delivery_data = @delivery.tracking
+      if @delivery.save
+        History.create_history(@delivery_data, @delivery)
+        redirect_to user_path(current_user)
+      elses
+        redirect_to user_path(current_user)
+      end
+
     else
-      render "users/show"
+
+    @delivery_data = @delivery.find_courier(params[:delivery]["tracking_number"])
+    if @delivery_data.count == 1
+      @delivery.first_tracking(@delivery_data.values[0], params[:delivery]["tracking_number"])
+      if @delivery.save
+        History.create_history(@delivery_data, @delivery)
+        redirect_to user_path(current_user)
+      else
+        redirect_to user_path(current_user)
+      end
+    else
+      @name = params[:delivery]["name"]
+      @tracking_number = params[:delivery]["tracking_number"]
+      render :template => "shared/form"
     end
   end
+  end
+
+  #   def create
+  #   delivery = Delivery.new(delivery_params)
+  #   delivery.user = current_user
+  #   delivery_data = delivery.tracking
+  #   if delivery.save
+  #     History.create_history(delivery_data, delivery)
+  #     redirect_to user_path(current_user)
+  #   else
+  #     render "users/show"
+  #   end
+  # end
 
   def test
   end

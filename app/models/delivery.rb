@@ -6,11 +6,11 @@ class Delivery < ApplicationRecord
   validates :tracking_number, uniqueness: true, presence: true
   validates :user_id, presence: true
 
-  COURIERS = ["DPD", "Fedex", "Parcel Force", "Yodel", "UK Mail", "Royal Mail", "TNT", "Amazon"].sort
+  COURIERS = ["DPD", "Fedex UK", "Parcel Force", "Yodel", "UK Mail", "Royal Mail", "TNT", "Amazon"].sort
 
   COURIERS_SLUG = {
     "DPD" => "dpd-uk",
-    "Fedex" => "fedex-uk",
+    "FedEx UK" => "fedex-uk",
     "Parcel Force" => "parcel-force",
     # "Collect+" => "collectplus",
     "Yodel" => "yodel",
