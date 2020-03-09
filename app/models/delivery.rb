@@ -184,7 +184,14 @@ class Delivery < ApplicationRecord
     end
     self.status = tracking_data["tracking"]["subtag_message"]
     self.expected_arrival_date = tracking_data["tracking"]["expected_delivery"]
+    self.tracking_id = tracking_id
     delivery_history = tracking_data["tracking"]["checkpoints"]
+  end
+
+  def update_tracking
+    tracking_id = self.tracking_id
+    courier_slug = self.courier_slug
+    AfterShip::V4::Tracking.update(courier_slug, tracking_id) #, {:title => 'Testing'}
   end
 
 
