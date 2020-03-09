@@ -1,5 +1,3 @@
-require 'date'
-require 'time'
 <button type="button" class="btn-full-wdith" data-toggle="modal" data-target="#exampleModal" id="modal">
   Add delivery
 </button>
@@ -52,7 +50,7 @@ require 'time'
             <ul class="list-group sc-14162w-0 iSZrzX">
               <li class="sc-14162w-1 jziiTq">
                 <div class="sc-14162w-2 hPkgKa">
-                  <p class="ap9okf-3 sc-14162w-6 jjQyAI"><%= history[2].to_date.strftime("%a, %b %d")  %></p>
+                  <p class="ap9okf-3 sc-14162w-6 jjQyAI"><%= history[2].to_date.strftime("%a, %b %d") %></p>
                   <% dt = history[2] %>
                   <% time = Time.parse(dt.split('T')[1].split('+')[0]) %>
                   <p class="ap9okf-3 icbrCe"> <%= time.strftime("%H:%M %P") %> </p>
@@ -64,7 +62,7 @@ require 'time'
                 <div class="sc-14162w-4 jSlcHv">
                   <p class="ap9okf-3 sc-14162w-6 hNnpWt">
                     <span class="ap9okf-6 fRqzDH"><%= history[0] %></span>
-                    <span class="ap9okf-6 sc-14162w-7 gaeTg"> USPS</span>
+                    <span class="ap9okf-6 sc-14162w-7 gaeTg"> <%= delivery.courier %> </span>
                   </p>
                   <p class="ap9okf-3 gEEinB"><%= history[1] %></p>
                 </div>
