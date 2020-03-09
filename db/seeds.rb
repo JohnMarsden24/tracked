@@ -10,12 +10,34 @@ require 'faker'
 
 User.destroy_all
 
-puts "Creating users..."
+puts "Creating Terry..."
 
-5.times do
+User.create!(display_name: "Terry", email: "terry@email.com", password: "password")
 
-  User.create!(display_name: Faker::Name.first_name, email: Faker::Internet.email, password: "password")
+puts "Terry created!"
 
-end
+puts "Creating some deliveries..."
 
-puts "Users created!"
+Delivery.create!(user_id: 1, tracking_number: "QQ8265464564332", name: "Omega auctions", courier: "Yodel", courier_slug: "yodel", status: "Delivered", expected_arrival_date: "2020-03-08", delivered: true)
+Delivery.create!(user_id: 1, tracking_number: "15501861801992", name: "Drums for Jamie", courier: "DPD", courier_slug: "dpd-uk", status: "Delivered", expected_arrival_date: "2020-03-09", delivered: true)
+Delivery.create!(user_id: 1, tracking_number: "UBX15501869", name: "Les Gibson 60th year", courier: "Fedex", courier_slug: "fedex-uk", status: "Delivered", expected_arrival_date: "2020-03-10", delivered: true)
+Delivery.create!(user_id: 1, tracking_number: "QQ81892344897", name: "Beetles vinyl", courier: "Yodel", courier_slug: "yodel", status: "Delivered", expected_arrival_date: "2020-03-11", delivered: true)
+Delivery.create!(user_id: 1, tracking_number: "390971843217", name: "Bass drum for Jan", courier: "FedEx", courier_slug: "fedex-uk", status: "Out for Delivery", expected_arrival_date: "2020-03-14", delivered: false)
+Delivery.create!(user_id: 1, tracking_number: "JJD0003449491112251", name: "Vinyl collection from Hatfield", courier: "Yodel", courier_slug: "yodel", status: "Out for Delivery", expected_arrival_date: "2020-03-14", delivered: false)
+
+puts "Deliveries created!"
+
+puts "Generating delivery history..."
+
+puts "Delivered history..."
+History.create!(delivery_id: 1, status_updates: [["We've received your order details, and we're expecting your parcel shortly", "abbeyroadmusic.co.uk", "2020-03-06T15:48:00"], ["We have your parcel and it's on its way to you", "DPD", "2020-03-06T16:58:17"], ["Your parcel is at our depot", "Croydon Depot", "2020-03-07T03:51:48"], ["Your parcel will be with you today", "Croydon Depot", "2020-03-09T08:54:20"], ["Your parcel has been delivered and signed for by HONEY", "DPD", "2020-03-09T11:05:29"]])
+History.create!(delivery_id: 2, status_updates: [["We have your order details and will be processing your parcel shortly", "United Kingdom", "2020-03-11T08:15:00"], ["We have your parcel and it's on its way to you", "FedEx", "2020-03-12T16:32:17"], ["Your parcel will be with you today", "FedEx", "2020-03-13T08:54:20"]])
+History.create!(delivery_id: 3, status_updates: [["Your parcel will be with us soon", "GBR", "2020-03-10T00:00:00"], ["Your parcel is at our sort centre", "Hatfield Terminal", "2020-03-10T19:09:00"], ["Your parcel is in transit", "GBR", "2020-03-10T20:12:00"], ["Your parcel has arrived at your local depot", "Waltham Cross Service Centre", "2020-03-11T00:18:00"], ["Sorry we couldn't deliver to you today. Check back here for updates", "GBR", "2020-03-13T08:39:00"]])
+History.create!(delivery_id: 4, status_updates: [["Your parcel will be with us soon", "GBR", "2020-03-10T00:00:00"], ["Your parcel is at our sort centre", "Hatfield Terminal", "2020-03-10T19:09:00"], ["Your parcel is in transit", "GBR", "2020-03-10T20:12:00"], ["Your parcel has arrived at your local depot", "Waltham Cross Service Centre", "2020-03-11T00:18:00"], ["Sorry we couldn't deliver to you today. Check back here for updates", "GBR", "2020-03-13T08:39:00"]])
+
+puts "Pending history..."
+History.create!(delivery_id: 5, status_updates: [["Your parcel will be with us soon", "GBR", "2020-03-10T00:00:00"], ["Your parcel is at our sort centre", "Hatfield Terminal", "2020-03-10T19:09:00"], ["Your parcel is in transit", "GBR", "2020-03-10T20:12:00"], ["Your parcel has arrived at your local depot", "Waltham Cross Service Centre", "2020-03-11T00:18:00"], ["Sorry we couldn't deliver to you today. Check back here for updates", "GBR", "2020-03-13T08:39:00"]])
+History.create!(delivery_id: 6, status_updates: [["Your parcel will be with us soon", "GBR", "2020-03-10T00:00:00"], ["Your parcel is at our sort centre", "Hatfield Terminal", "2020-03-10T19:09:00"], ["Your parcel is in transit", "GBR", "2020-03-10T20:12:00"], ["Your parcel has arrived at your local depot", "Waltham Cross Service Centre", "2020-03-11T00:18:00"], ["Sorry we couldn't deliver to you today. Check back here for updates", "GBR", "2020-03-13T08:39:00"]])
+
+puts "History created!"
+
