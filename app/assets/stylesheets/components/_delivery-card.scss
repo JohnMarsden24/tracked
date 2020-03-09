@@ -23,6 +23,7 @@
   border-radius: 8px;
   display: flex;
   position: relative;
+  background-color: white;
 }
 
 .new-delivery-form {
@@ -33,11 +34,11 @@
 }
 
 .tag {
-  background-color: #4C76FF;
+  background-color: $lavender;
   border-radius: 16px;
   color: white;
   padding: 4px 4px;
-  margin-bottom: 4px;
+  // margin-bottom: 4px;
   margin-right: 4px;
   text-decoration: none;
 }
@@ -52,8 +53,10 @@
   float: right;
   justify-content: space-around;
   position: absolute;
+  align-items: center;
   bottom: 5px;
   right: 5px;
+  padding-bottom: 8px;
 }
 
 .tags a {
@@ -81,3 +84,24 @@
   margin-bottom: 30px;
 }
 
+
+.delivery-status {
+  display: flex;
+  align-items: center;
+
+  h4 {
+    padding-right: 8px;
+    color: $lavender;
+  }
+
+
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+
+.delivery-details {
+  padding-left: 32px;
+}
