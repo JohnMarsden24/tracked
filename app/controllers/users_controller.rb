@@ -1,14 +1,30 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
+    @delivered = current_user.deliveries.where(status: "Delivered")
     @delivery = Delivery.new
     @tag = Tag.new
-
     if params[:query].present?
-      @deliveries = @user.deliveries.includes(:history, :tags).search_by_everything(params[:query])
+      @deliveries = current_user.deliveries.includes(:history, :tags).search_by_everything(params[:query])
     else
-      @deliveries = @user.deliveries.includes(:history, :tags).all
+      @deliveries = current_user.deliveries.where.not(status: "Delivered")
     end
   end
 
+  # private
+
+  def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def resource_class
+    User
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
 end
