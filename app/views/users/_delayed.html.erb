@@ -1,0 +1,72 @@
+<h1>Delayed</h1>
+<% @delayed.each do |delivery| %>
+
+<!-- Delivery card -->
+
+  <button class="delivery-card" data-toggle="modal" data-target="#exampleModalLong<%=delivery.id%>">
+    <div class="delivery-details">
+      <div class="delivery-header">
+        <div class="delivery-status">
+            <h4><%= delivery.name %></h4>
+          <h5><%= delivery.status %></h5>
+        </div>
+        <h6><%= delivery.courier %></h6>
+        <p><%= delivery.tracking_number %></p>
+      </div>
+
+
+      <!-- TAGS -->
+
+      <div class="tags">
+        <% delivery.tags.each do |tag| %>
+          <div class="test tag">
+            <%= tag.name %><a href='/tags/<%=tag.id%>', data-method="delete"> <i class="far fa-times-circle"></i></a>
+          </div>
+        <% end %>
+        <%= simple_form_for([delivery, @tag]) do |f| %>
+          <%= f.input :name, label: false, placeholder: "add tag" %>
+        <% end %>
+      </div>
+    </div>
+  </button>
+
+ <!-- MODAL -->
+
+  <div class="modal fade" id="exampleModalLong<%=delivery.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <% delivery.history.status_updates.each do |history| %>
+            <ul class="list-group sc-14162w-0 iSZrzX">
+              <li class="sc-14162w-1 jziiTq">
+                <div class="sc-14162w-2 hPkgKa">
+                  <p class="ap9okf-3 sc-14162w-6 jjQyAI"><%= history[2].to_date.strftime("%a, %b %d") %></p>
+                  <% dt = history[2] %>
+                  <% time = Time.parse(dt.split('T')[1].split('+')[0]) %>
+                  <p class="ap9okf-3 icbrCe"> <%= time.strftime("%H:%M %P") %> </p>
+                </div>
+                <div class="sc-14162w-3 eGjnzy">
+                  <div class="sc-14162w-5 gNBeSh">
+                  </div>
+                </div>
+                <div class="sc-14162w-4 jSlcHv">
+                  <p class="ap9okf-3 sc-14162w-6 hNnpWt">
+                    <span class="ap9okf-6 fRqzDH"><%= history[0] %></span>
+                    <span class="ap9okf-6 sc-14162w-7 gaeTg"> <%= delivery.courier %> </span>
+                  </p>
+                  <p class="ap9okf-3 gEEinB"><%= history[1] %></p>
+                </div>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>

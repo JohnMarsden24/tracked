@@ -4,3 +4,7 @@ require("channels")
 require("turbolinks")
 
 import "bootstrap";
+
+
+document.addEventListener('turbolinks:load', () => {
+})
