@@ -39,3 +39,7 @@
 </div>
 
 </div>
+
+<% if params[:query] != "" && @deliveries.count == 0 %>
+  <h3>Oops, there are no results for that search!</h3>
+<% end %>

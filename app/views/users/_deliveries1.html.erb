@@ -67,15 +67,13 @@
                   <p class="ap9okf-3 gEEinB"><%= history[1] %></p>
                 </div>
               </li>
-
-            <!-- <div class="panel-body"><li class="list-group-item"><%= history[0] %> [<%= history[1]%>] at <%= history[2] %></li></div> -->
             </ul>
             <% end %>
           </div>
           <div class="tags">
             <% delivery.tags.each do |tag| %>
               <div class="test tag">
-                <%= tag.name %><a href='/tags/<%=tag.id%>', data-method="delete"> <i class="far fa-times-circle"></i></a>
+                <%= tag.name %><a href='/tags/<%=tag.id%>', data-method="delete"> <span id="delete-cross"><i class="far fa-times-circle"></span></i></a>
               </div>
             <% end %>
             <%= simple_form_for([delivery, @tag]) do |f| %>
