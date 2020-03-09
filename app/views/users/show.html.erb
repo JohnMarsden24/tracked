@@ -1,14 +1,5 @@
 <%= render 'shared/navbar' %>
 
-<% if params[:query].present? && @deliveries.count == 0 %>
- <h1>Oops! Your search did not yield results!</h1>
-
- <% else %>
-
-<div class="deliver-card-container">
-  <% @deliveries.each do |delivery| %>
- <div class="delivery-card">
-
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="deliveries" role="tabpanel" aria-labelledby="deliveries-tab">
     <%= render "users/deliveries" %>
@@ -20,8 +11,3 @@
     <%= render "users/settings" %>
   </div>
 </div>
-
-<% end %>
-<br>
-
-

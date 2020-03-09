@@ -6,13 +6,13 @@ class Delivery < ApplicationRecord
   validates :tracking_number, uniqueness: true, presence: true
   validates :user_id, presence: true
 
-  COURIERS = ["DPD", "Fedex", "Parcel Force", "Collect+", "Yodel", "UK Mail", "Royal Mail", "TNT", "Amazon"].sort
+  COURIERS = ["DPD", "Fedex", "Parcel Force", "Yodel", "UK Mail", "Royal Mail", "TNT", "Amazon"].sort
 
   COURIERS_SLUG = {
     "DPD" => "dpd-uk",
     "Fedex" => "fedex-uk",
     "Parcel Force" => "parcel-force",
-    "Collect+" => "collectplus",
+    # "Collect+" => "collectplus",
     "Yodel" => "yodel",
     "UK Mail" => "uk-mail",
     "Royal Mail" => "royal-mail",
@@ -150,8 +150,11 @@ class Delivery < ApplicationRecord
 
   def get_tracking(tracking_id)
     response = try_tracking(tracking_id)
-    while response["data"]["tracking"]["tag"] == "Pending"
+    counter = 0
+    while response["data"]["tracking"]["tag"] == "Pending" || counter < 60
       response = try_tracking(tracking_id)
+      counter += 1
+      sleep 2
     end
     return response
   end
