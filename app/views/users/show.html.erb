@@ -1,5 +1,5 @@
 <%= render 'shared/navbar' %>
-
+<div style="background-image: url(<%= image_path "Plane1.svg"%>")>
 <button type="button" class="btn-full-wdith" data-toggle="modal" data-target="#exampleModal" id="modal">
   Add delivery
 </button>
@@ -27,13 +27,15 @@
 
 
 <div class="delivery-card-container">
-  <div class="in-transit">
+  <div class="delivery-cards in-transit">
     <%= render "users/in-transit2" %>
   </div>
-  <div class="delayed">
+  <div class="delivery-cards delayed">
     <%= render "users/delayed" %>
   </div>
-  <div class="delivered">
+  <div class="delivery-cards delivered">
     <%= render "users/delivered" %>
   </div>
+</div>
+
 </div>

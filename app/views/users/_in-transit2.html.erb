@@ -1,37 +1,38 @@
 <h1>In Transit</h1>
+
 <% @in_transit.each do |delivery| %>
 
 <!-- Delivery card -->
-
-  <button class="delivery-card" data-toggle="modal" data-target="#exampleModalLong<%=delivery.id%>">
-    <div class="delivery-details">
-      <div class="delivery-header">
-        <div class="delivery-status">
-            <h4><%= delivery.name %></h4>
-          <h5><%= delivery.status %></h5>
-        </div>
-        <h6><%= delivery.courier %></h6>
-        <p><%= delivery.tracking_number %></p>
-      </div>
+<div class="delivery-card ">
+  <button data-toggle="modal" data-target="#exampleModalLong<%=delivery.id%>">
+    <div class="header">
       <div class="courier-image" style="background-image: url(<%= image_path delivery.courier_slug%>)">
-
       </div>
-
-
-      <!-- TAGS -->
-
-      <div class="tags">
-        <% delivery.tags.each do |tag| %>
-          <div class="test tag">
-            <%= tag.name %><a href='/tags/<%=tag.id%>', data-method="delete"> <i class="far fa-times-circle"></i></a>
-          </div>
+      <div class="details">
+        <% if delivery.name.nil? %>
+          <h4><%= delivery.tracking_number %></h4>
+        <% else %>
+          <h4><%= delivery.name %></h4>
+          <p><%= delivery.tracking_number %></p>
         <% end %>
+      </div>
+    </div>
+  </button>
+    <div class="tags">
+      <% delivery.tags.each do |tag| %>
+        <div class="tag">
+          <p><%= tag.name %></p>
+          <a href='/tags/<%=tag.id%>', data-method="delete"><i class="far fa-times-circle"></i></a>
+        </div>
+      <% end %>
+      <div class="add-tag">
         <%= simple_form_for([delivery, @tag]) do |f| %>
           <%= f.input :name, label: false, placeholder: "add tag" %>
         <% end %>
       </div>
     </div>
-  </button>
+
+</div>
 
  <!-- MODAL -->
 
@@ -73,4 +74,5 @@
   </div>
 
 <% end %>
+
 
