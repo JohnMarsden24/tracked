@@ -1,3 +1,4 @@
+<% require 'time' %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "Home", root_path %>
 
@@ -31,7 +32,13 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <p>Good morning <%= current_user.display_name %></p>
+    <% if Time.now.hour <= 12 %>
+      <% greeting = 'Good morning, ' %>
+    <% elsif Time.now.hour <= 18 %>
+      <% greeting = 'Good afternoon, ' %>
+    <% else greeting = 'Good evening,' %>
+    <% end %>
+    <p> <%= greeting %><%= current_user.display_name.capitalize %>!</p>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
         <%= image_tag "https://media.istockphoto.com/vectors/triple-dots-three-dots-icon-vector-id957096060?k=6&m=957096060&s=170667a&w=0&h=VCnTUw1kqrkV4iZqvhXpo5bfBePdA6D7HVMrvLPBxcM=", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
