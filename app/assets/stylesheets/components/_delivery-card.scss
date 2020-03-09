@@ -46,6 +46,10 @@
     padding: 8px 0;
   }
 
+  .form-group {
+    margin: 0;
+  }
+
   .tag {
     display: flex;
     align-items: center;
@@ -71,78 +75,6 @@
     box-shadow: 2px 2px rgba(0, 0, 0, 0.8)
   }
 
-}
-
-<<<<<<< HEAD
-
-
-=======
-#delete-cross {
-  color: rgba(255,255,255,0.5);
-  transition: 0.3s;
-}
-
-#delete-cross:hover {
-  color: rgba(255,255,255,1)
-}
->>>>>>> c3ba5423070ddb1876b404caf58326a7098c3676
-
-.tag:hover {
-  text-decoration: none;
-  color: white;
-}
-
-
-
-.tags a {
-  color: white;
-  text-decoration: none;
-}
-
-.new_tag {
-  width: 100px;
-  height: 24px;
-}
-
-#tag_name {
-  padding: 0;
-  height: 24px;
-}
-
-
-.tag-btn {
- font-size: 12px;
- border: 0;
-}
-
-<<<<<<< HEAD
-=======
-
-.collapse {
-  margin-bottom: 30px;
-}
-
-
-.delivery-status {
-  display: flex;
-  align-items: center;
-
-  h4 {
-    padding-right: 8px;
-    color: $lavender;
-  }
-
-
-
-  a:hover {
-    text-decoration: none;
-  }
-}
->>>>>>> c3ba5423070ddb1876b404caf58326a7098c3676
-
-
-.delivery-details {
-  padding-left: 32px;
 }
 
 ul {
