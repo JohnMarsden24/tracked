@@ -47,15 +47,15 @@ require 'time'
             <h4 class="panel-title">
             </h4>
         </div>
-          <div id="collapse<%=delivery.id%>" class="panel-collapse collapse">
+          <div id="collapse<%=delivery.id%>" class="panel-collapse collapse margin-top">
             <% delivery.history.status_updates.each do |history| %>
             <ul class="list-group sc-14162w-0 iSZrzX">
               <li class="sc-14162w-1 jziiTq">
                 <div class="sc-14162w-2 hPkgKa">
-                  <p class="ap9okf-3 sc-14162w-6 jjQyAI"><%= history[2].to_date.strftime("%b %d %Y")  %></p>
+                  <p class="ap9okf-3 sc-14162w-6 jjQyAI"><%= history[2].to_date.strftime("%a, %b %d")  %></p>
                   <% dt = history[2] %>
                   <% time = Time.parse(dt.split('T')[1].split('+')[0]) %>
-                  <p class="ap9okf-3 icbrCe"> <%= time.strftime("%H:%M") %> </p>
+                  <p class="ap9okf-3 icbrCe"> <%= time.strftime("%H:%M %P") %> </p>
                 </div>
                 <div class="sc-14162w-3 eGjnzy">
                   <div class="sc-14162w-5 gNBeSh">
