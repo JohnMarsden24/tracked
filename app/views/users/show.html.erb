@@ -15,10 +15,9 @@
       </div>
       <div class="modal-body">
 <%= simple_form_for(@delivery) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :tracking_number %>
-  <%= f.input :courier, collection: Delivery::COURIERS %>
-  <%= f.button :submit, class: "btn-full-wdith" %>
+  <%= f.input :name, id: "name" %>
+  <%= f.input :tracking_number, id: "tracking_number" %>
+  <%= f.button :submit, class: "btn-full-wdith", id: "submit" %>
 <% end %>
       </div>
     </div>

@@ -3,3 +3,13 @@
 
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
+
+
+
+
+function showHideCourierInfo() {
+  if // API returns multiple couriers {
+    document.getElementById("courier").innerHTML = "<%= f.input :courier, collection: Delivery::COURIERS %>";
+  }
+
+
