@@ -36,7 +36,7 @@ class DeliveriesController < ApplicationController
       if @delivery.save
         History.create_history(@delivery_data, @delivery)
         redirect_to user_path(current_user)
-      elses
+      else
         redirect_to user_path(current_user)
       end
 
