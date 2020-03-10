@@ -48,7 +48,8 @@
             </button>
           </div>
           <div class="modal-body">
-            <% delivery.history.status_updates.each do |history| %>
+            <% full_history = delivery.history.status_updates.reverse %>
+            <% full_history.each do |history| %>
               <ul class="list-group sc-14162w-0 iSZrzX">
                 <li class="sc-14162w-1 jziiTq">
                   <div class="sc-14162w-2 hPkgKa">
@@ -64,7 +65,6 @@
                   <div class="sc-14162w-4 jSlcHv">
                     <p class="ap9okf-3 sc-14162w-6 hNnpWt">
                       <span class="ap9okf-6 fRqzDH"><%= history[0] %></span>
-                      <span class="ap9okf-6 sc-14162w-7 gaeTg"> <%= delivery.courier %> </span>
                     </p>
                     <p class="ap9okf-3 gEEinB"><%= history[1] %></p>
                   </div>
