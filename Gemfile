@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.6.5'
 
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 gem 'turbolinks', '~> 5.2.0'
 gem 'bootsnap', require: false
 gem 'devise'

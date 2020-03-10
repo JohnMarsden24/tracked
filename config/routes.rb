@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   end
 
   resources :tags, only: [:edit, :update, :destroy]
+
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
