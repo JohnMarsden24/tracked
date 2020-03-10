@@ -1,0 +1,4 @@
+if (document.querySelector('#results')) { document.querySelector('#results').parentNode.removeChild(document.querySelector('#results')) }
+document.querySelector('#search-results').insertAdjacentHTML('afterbegin', `<div id="results" class="delivery-cards results"><%= j render('users/results') %></div>`)
+
+

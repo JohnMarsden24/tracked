@@ -18,14 +18,14 @@
 
 
   <div class="search">
-    <%= form_tag user_path, method: :get do %>
+    <%= form_tag user_path, remote: true, method: :get, id: "search-form" do %>
     <div class="d-flex">
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Find your parcel..."
       %>
-      <%= submit_tag "Search", class: "btn btn-light" %>
+      <%#= submit_tag "Search", class: "btn btn-light" %>
     <% end %>
     </div>
   </div>

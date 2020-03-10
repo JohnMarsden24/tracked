@@ -25,22 +25,8 @@
   </div>
 </div>
 
+  <div id="search-results" class="delivery-card-container">
   <div class="delivery-card-container">
-    <% if params[:query] && params[:query] != "" %>
-      <div class="delivery-cards results">
-        <%= render "users/results" %>
-      </div>
-      <div class="delivery-cards delivered">
-        <%= render "users/in-transit" %>
-      </div>
-      <div class="delivery-cards delayed">
-        <%= render "users/delayed" %>
-      </div>
-      <div class="delivery-cards delivered">
-        <%= render "users/delivered" %>
-      </div>
-
-    <% else %>
       <div class="delivery-cards in-transit">
         <%= render "users/in-transit" %>
       </div>
@@ -50,7 +36,6 @@
       <div class="delivery-cards delivered">
         <%= render "users/delivered" %>
       </div>
-    <% end %>
   </div>
 </div>
 
