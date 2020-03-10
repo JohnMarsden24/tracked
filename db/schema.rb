@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_03_09_151251) do
 
   # These are extensions that must be enabled in order to support this database
@@ -28,8 +27,8 @@ ActiveRecord::Schema.define(version: 2020_03_09_151251) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "courier_slug"
-    t.string "tracking_api"
     t.boolean "fake", default: false
+    t.string "tracking_api"
     t.index ["user_id"], name: "index_deliveries_on_user_id"
   end
 
