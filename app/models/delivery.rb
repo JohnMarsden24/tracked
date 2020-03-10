@@ -20,9 +20,12 @@ class Delivery < ApplicationRecord
     "Amazon" => "amazon-logistics-uk"
   }
 
-  AfterShip.api_key = "7beee5c2-ca2b-49c5-a0c8-ee57c0b18434"
+  AfterShip.api_key = "79319b1a-de06-4279-942e-62a95a1fe2b5"
 
-  #"7beee5c2-ca2b-49c5-a0c8-ee57c0b18434"
+  #"79319b1a-de06-4279-942e-62a95a1fe2b5" - Jan's key
+  #79319b1a-de06-4279-942e-62a95a1fe2b5
+
+  #"7beee5c2-ca2b-49c5-a0c8-ee57c0b18434" - John's key
 
   # def create_tracking(delivery)
   #   # detects possible list of couriers
@@ -150,7 +153,7 @@ class Delivery < ApplicationRecord
     counter = 0
     while response["data"]["tracking"]["tag"] == "Pending" && counter < 60
       response = try_tracking(tracking_id)
-      puts "Waiting for API to update"
+      puts "Waiting for API to update (#{counter + 1})"
       counter += 1
       sleep 2
     end
@@ -160,7 +163,7 @@ class Delivery < ApplicationRecord
   def create_tracking_id(slug, tracking_number)
     HTTParty.post("https://api.aftership.com/v4/trackings",
       headers: {
-        "aftership-api-key" => "7beee5c2-ca2b-49c5-a0c8-ee57c0b18434",
+        "aftership-api-key" => "79319b1a-de06-4279-942e-62a95a1fe2b5",
         "Content-Type" => "application/json"
       },
       body: {
@@ -186,12 +189,15 @@ class Delivery < ApplicationRecord
   def set_status(tag)
     delayed_status = ["FailedAttempt", "Exception"]
     transit_status = ["InTransit", "OutforDelivery", "InfoReceived"]
+    delivered_status = ["Delivered"]
     if tag.in?(delayed_status)
       return "Delayed"
     elsif tag.in?(transit_status)
       return "On its way"
-    else
+    elsif tag.in?(delivered_status)
       return "Delivered"
+    else
+      return "Error"
     end
   end
 

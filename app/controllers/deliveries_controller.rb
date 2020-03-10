@@ -30,14 +30,24 @@ class DeliveriesController < ApplicationController
   def create
     delivery = Delivery.new(delivery_params)
     delivery.user = current_user
+    if delivery.valid?
     delivery_data = delivery.tracking
-    if delivery.save
-      History.create_history(delivery_data, delivery)
-      redirect_to user_path(current_user)
+      delivery.save
+        if delivery.status == "Error"
+          delivery.destroy
+          flash[:notice] = "We weren't able to find information on that tracking number!"
+          redirect_to user_path(current_user)
+        else
+          History.create_history(delivery_data, delivery)
+          redirect_to user_path(current_user)
+        end
     else
-      render "users/show"
+      flash[:notice] = "Please enter a tracking number and courier!"
+      redirect_to user_path(current_user)
     end
   end
+
+  # if reponse["data"]["tracking"]["tag"] == "pending"
 
   def test
   end
@@ -52,7 +62,4 @@ class DeliveriesController < ApplicationController
   def delivery_params
     params.require(:delivery).permit(:name, :tracking_number, :courier)
   end
-
-  #api stuff
-
 end
