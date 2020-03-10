@@ -257,4 +257,15 @@ p {
     text-align: initial;
 }
 
+.log-out-btn {
+  text-decoration: none;
+  color: $lavender;
+  opacity: 0.5;
 
+}
+
+.log-out-btn:hover {
+  text-decoration: none;
+  color: $lavender;
+  opacity: 1;
+}
