@@ -224,4 +224,5 @@ class Delivery < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+
 end
