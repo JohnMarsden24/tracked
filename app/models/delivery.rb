@@ -198,7 +198,7 @@ class Delivery < ApplicationRecord
   def update_tracking
     tracking_id = self.tracking_api
     tracking_data = AfterShip::V4::Tracking.get(self.courier_slug, self.tracking_number)["data"]
-    self.status = tracking_data["tracking"]["subtag_message"]
+    self.status = set_status(tracking_data["tracking"]["tag"])
     self.expected_arrival_date = tracking_data["tracking"]["expected_delivery"]
     history_array = tracking_data["tracking"]["checkpoints"]
     if self.save
