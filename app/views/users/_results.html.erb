@@ -16,7 +16,7 @@
     <% end %>
     <button data-toggle="modal" data-target="#exampleModalLong<%=delivery.id%>">
       <div class="header">
-        <div class="courier-image" style="background-image: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url(<%= image_path delivery.courier_slug%>)">
+        <div class="courier-image" style="background-image: url(<%= image_path delivery.courier_slug%>)">
         </div>
         <div class="details">
           <% if delivery.name.nil? %>
