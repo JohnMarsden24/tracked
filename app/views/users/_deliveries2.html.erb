@@ -1,10 +1,9 @@
-<%= render 'shared/navbar' %>
-<div style="background-image: url(<%= image_path "Plane1.svg"%>")>
+
 <button type="button" class="btn-full-wdith" data-toggle="modal" data-target="#exampleModal" id="modal">
   Add delivery
 </button>
 
-<!-- Modal for add delivery -->
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -27,19 +26,13 @@
 
 
 <div class="delivery-card-container">
-  <div class="delivery-cards in-transit">
-    <%= render "users/in-transit2" %>
+  <div class="in-transit">
+    <%= render "users/in-transit" %>
   </div>
-  <div class="delivery-cards delayed">
+  <div class="delayed">
     <%= render "users/delayed" %>
   </div>
-  <div class="delivery-cards delivered">
+  <div class="delivered">
     <%= render "users/delivered" %>
   </div>
 </div>
-
-</div>
-
-<%# if params[:query] != "" && @deliveries.count == 0 %>
-  <!-- <h3>Oops, there are no results for that search!</h3> -->
-<%# end %>
