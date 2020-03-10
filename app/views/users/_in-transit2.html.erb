@@ -1,5 +1,6 @@
-<h1>Delivered</h1>
-<% @delivered.each do |delivery| %>
+<h1>In Transit</h1>
+
+<% @in_transit.each do |delivery| %>
 
 <!-- Delivery card -->
 <div class="delivery-card ">
@@ -24,11 +25,9 @@
           <a href='/tags/<%=tag.id%>', data-method="delete"><i class="far fa-times-circle"></i></a>
         </div>
       <% end %>
-      <div class="add-tag">
         <%= simple_form_for([delivery, @tag]) do |f| %>
           <%= f.input :name, label: false, placeholder: "add tag" %>
         <% end %>
-      </div>
     </div>
 
 </div>
@@ -73,4 +72,5 @@
   </div>
 
 <% end %>
+
 
