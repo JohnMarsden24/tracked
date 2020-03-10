@@ -27,15 +27,10 @@
   }
 }
 
-
-
-.modal-dialog {
-  width: 80% !important;
+#search-results {
+  flex-grow: 1;
+  flex-basis: 0;
 }
-
-.hidden {
-    visibility: hidden;
-  }
 
 // .card-container-body{
 //   div:last-of-type;
