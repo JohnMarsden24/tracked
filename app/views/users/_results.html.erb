@@ -1,11 +1,11 @@
 <div class="title">
-  <h4>In Transit</h4>
+  <h4>Search results for <%= params[:query] %></h4>
 </div>
 <div class="card-container-body">
-  <% @in_transit.each_with_index do |delivery, index| %>
+  <% @deliveries.each_with_index do |delivery, index| %>
 
   <!-- Delivery card -->
-    <% if index == (@in_transit.count - 1) %>
+    <% if index == (@deliveries.count - 1) %>
       <div class="delivery-card">
     <% else %>
       <div class="delivery-card lav-border">

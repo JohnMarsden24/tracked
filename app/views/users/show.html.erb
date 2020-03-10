@@ -1,5 +1,5 @@
 <%= render 'shared/navbar' %>
-<div style="background-image: url(<%= image_path "Plane1.svg"%>")>
+<div>
 <button type="button" class="btn-full-wdith" data-toggle="modal" data-target="#exampleModal" id="modal">
   Add delivery
 </button>
@@ -25,21 +25,32 @@
   </div>
 </div>
 
+  <div class="delivery-card-container">
+    <% if params[:query] != ""%>
+      <div class="delivery-cards results">
+        <%= render "users/results" %>
+      </div>
+      <div class="delivery-cards delivered">
+        <%= render "users/in-transit2" %>
+      </div>
+      <div class="delivery-cards delayed">
+        <%= render "users/delayed" %>
+      </div>
+      <div class="delivery-cards delivered">
+        <%= render "users/delivered" %>
+      </div>
 
-<div class="delivery-card-container">
-  <div class="delivery-cards in-transit">
-    <%= render "users/in-transit2" %>
-  </div>
-  <div class="delivery-cards delayed">
-    <%= render "users/delayed" %>
-  </div>
-  <div class="delivery-cards delivered">
-    <%= render "users/delivered" %>
+    <% else %>
+      <div class="delivery-cards in-transit">
+        <%= render "users/in-transit2" %>
+      </div>
+      <div class="delivery-cards delayed">
+        <%= render "users/delayed" %>
+      </div>
+      <div class="delivery-cards delivered">
+        <%= render "users/delivered" %>
+      </div>
+    <% end %>
   </div>
 </div>
 
-</div>
-
-<%# if params[:query] != "" && @deliveries.count == 0 %>
-  <!-- <h3>Oops, there are no results for that search!</h3> -->
-<%# end %>

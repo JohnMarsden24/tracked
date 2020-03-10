@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     # @deliveries = current_user.deliveries
     if params[:query].present?
       @deliveries = current_user.deliveries.includes(:history, :tags).search_by_everything(params[:query])
+      @in_transit = current_user.deliveries.where(status: "Out for Delivery")
+      @delayed = current_user.deliveries.where(status: "Delayed")
+      @delivered = current_user.deliveries.where(status: "Delivered")
     else
       @in_transit = current_user.deliveries.where(status: "Out for Delivery")
       @delayed = current_user.deliveries.where(status: "Delayed")

@@ -1,24 +1,38 @@
+// Cards
+
+.lav-border {
+  border-bottom: 2px solid $lavender;
+}
+
 .delivery-card {
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
   display: block;
-  width: 100%;
-  background: rgb(254, 254, 254);
-  border-radius: 8px;
-  margin-bottom: 8px;
   padding: 8px;
+  transition: .3s;
+
+  &:hover {
+    box-shadow: 0px 0px 0px 2px $lavender inset;
+  }
 
   button {
     background: none;
     border: none;
+    text-decoration: none;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
   }
 
-  h4 {
-    margin: 0;
+  h6 {
+    margin-bottom: 0;
+    font-family: $headers-font
   }
 
   p {
     margin: 0;
     opacity: .75;
+    font-size: .75rem;
   }
 
   .header {
@@ -70,12 +84,12 @@
       font-size: .75rem;
     }
   }
-
-  &:hover {
-    box-shadow: 2px 2px rgba(0, 0, 0, 0.8)
-  }
-
 }
+
+.delivery-card:last-element  {
+    background-color: red;
+}
+
 
 ul {
     display: block;

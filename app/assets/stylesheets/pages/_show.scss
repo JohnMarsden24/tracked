@@ -2,16 +2,40 @@
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 32px;
   padding: 0 32px;
 }
 
 .delivery-cards {
-  background-color: rgba(141, 59, 114, .25);
-  padding: 8px;
-  border-radius: 8px;
+  background-color: white;
+  border-radius: 16px;
+  align-self: start;
+  padding-bottom: 16px;
+
+  .title {
+    color: white;
+    background-color: $lavender;
+    padding: 16px;
+    border-radius: 16px 16px 0 0;
+    margin-bottom: 16px;
+  }
+
+  .card-container-body {
+    padding: 16px;
+  }
 }
+
+
 
 .modal-dialog {
   width: 80% !important;
 }
+
+.hidden {
+    visibility: hidden;
+  }
+
+// .card-container-body{
+//   div:last-of-type;
+//     background-color: $lavender;
+// }
