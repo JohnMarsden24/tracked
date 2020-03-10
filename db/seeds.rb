@@ -22,8 +22,8 @@ Delivery.create!(user_id: 1, tracking_number: "QQ8265464564332", name: "Omega au
 Delivery.create!(user_id: 1, tracking_number: "15501861801992", name: "Drums for Jamie", courier: "DPD", courier_slug: "dpd-uk", status: "Delivered", expected_arrival_date: "2020-03-09", delivered: true, fake: true)
 Delivery.create!(user_id: 1, tracking_number: "UBX15501869", name: "Les Gibson 60th year", courier: "Fedex", courier_slug: "fedex-uk", status: "Delivered", expected_arrival_date: "2020-03-04", delivered: true, fake: true)
 Delivery.create!(user_id: 1, tracking_number: "QQ81892344897", name: "Beatles vinyl", courier: "Yodel", courier_slug: "yodel", status: "Delivered", expected_arrival_date: "2020-03-11", delivered: true, fake: true)
-Delivery.create!(user_id: 1, tracking_number: "390971733217", name: "Bass drum for Jan", courier: "FedEx", courier_slug: "fedex-uk", status: "Out for Delivery", expected_arrival_date: "2020-03-14", delivered: false, fake: true)
-Delivery.create!(user_id: 1, tracking_number: "JJD0003449497312251", name: "Vinyl collection from Hatfield", courier: "Yodel", courier_slug: "yodel", status: "Out for Delivery", expected_arrival_date: "2020-03-14", delivered: false, fake: true)
+Delivery.create!(user_id: 1, tracking_number: "390971733217", name: "Bass drum for Jan", courier: "FedEx", courier_slug: "fedex-uk", status: "On its way", expected_arrival_date: "2020-03-14", delivered: false, fake: true)
+Delivery.create!(user_id: 1, tracking_number: "JJD0003449497312251", name: "Vinyl collection from Hatfield", courier: "Yodel", courier_slug: "yodel", status: "On its way", expected_arrival_date: "2020-03-14", delivered: false, fake: true)
 
 puts "Deliveries created!"
 
