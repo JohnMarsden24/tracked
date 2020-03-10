@@ -20,7 +20,9 @@ class Delivery < ApplicationRecord
     "Amazon" => "amazon-logistics-uk"
   }
 
-  AfterShip.api_key = "7beee5c2-ca2b-49c5-a0c8-ee57c0b18434"
+  AfterShip.api_key = "79319b1a-de06-4279-942e-62a95a1fe2b5"
+
+  #"7beee5c2-ca2b-49c5-a0c8-ee57c0b18434"
 
   # def create_tracking(delivery)
   #   # detects possible list of couriers
@@ -140,19 +142,15 @@ class Delivery < ApplicationRecord
   end
 
   def try_tracking(tracking_id)
-    response = HTTParty.get("https://api.aftership.com/v4/trackings/#{tracking_id}",
-      headers: {
-        "aftership-api-key" => "7beee5c2-ca2b-49c5-a0c8-ee57c0b18434",
-        "Content-Type" => "application/json"
-      }
-    )
+    AfterShip::V4::Tracking.get(self.courier_slug, self.tracking_number)
   end
 
   def get_tracking(tracking_id)
     response = try_tracking(tracking_id)
     counter = 0
-    while response["data"]["tracking"]["tag"] == "Pending" || counter < 60
+    while response["data"]["tracking"]["tag"] == "Pending" && counter < 60
       response = try_tracking(tracking_id)
+      puts "Waiting for API to update"
       counter += 1
       sleep 2
     end
@@ -162,7 +160,7 @@ class Delivery < ApplicationRecord
   def create_tracking_id(slug, tracking_number)
     HTTParty.post("https://api.aftership.com/v4/trackings",
       headers: {
-        "aftership-api-key" => "7beee5c2-ca2b-49c5-a0c8-ee57c0b18434",
+        "aftership-api-key" => "79319b1a-de06-4279-942e-62a95a1fe2b5",
         "Content-Type" => "application/json"
       },
       body: {
@@ -177,21 +175,31 @@ class Delivery < ApplicationRecord
 
   def tracking
     self.courier_slug = COURIERS_SLUG[self.courier]
-    tracking_data = first_tracking(self.courier_slug, self.tracking_number)["data"]
-    if tracking_data == {}
-      tracking_id = create_tracking_id(self.courier_slug, self.tracking_number)["data"]["tracking"]["id"]
-      tracking_data = get_tracking(tracking_id)["data"]
-    end
+    tracking_api = create_tracking_id(self.courier_slug, self.tracking_number)["data"]["tracking"]["id"]
+    tracking_data = get_tracking(tracking_api)["data"]
     self.status = tracking_data["tracking"]["subtag_message"]
     self.expected_arrival_date = tracking_data["tracking"]["expected_delivery"]
-    self.tracking_id = tracking_id
+    self.tracking_api = tracking_api
     delivery_history = tracking_data["tracking"]["checkpoints"]
   end
 
   def update_tracking
-    tracking_id = self.tracking_id
-    courier_slug = self.courier_slug
-    AfterShip::V4::Tracking.update(courier_slug, tracking_id) #, {:title => 'Testing'}
+    tracking_id = self.tracking_api
+    tracking_data = AfterShip::V4::Tracking.get(self.courier_slug, self.tracking_number)["data"]
+    self.status = tracking_data["tracking"]["subtag_message"]
+    self.expected_arrival_date = tracking_data["tracking"]["expected_delivery"]
+    history_array = tracking_data["tracking"]["checkpoints"]
+    if self.save
+      p "Inside Save"
+      history_array.each do |tracking_event|
+        location = tracking_event['country_iso3']
+        if location.nil?
+          location = tracking_event['location']
+        end
+        p location
+        self.history['status_updates'] << [tracking_event['message'], location, tracking_event['checkpoint_time']]
+      end
+    end
   end
 
 
