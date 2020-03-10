@@ -20,7 +20,7 @@ class Delivery < ApplicationRecord
     "Amazon" => "amazon-logistics-uk"
   }
 
-  AfterShip.api_key = "79319b1a-de06-4279-942e-62a95a1fe2b5"
+  AfterShip.api_key = "7beee5c2-ca2b-49c5-a0c8-ee57c0b18434"
 
   #"7beee5c2-ca2b-49c5-a0c8-ee57c0b18434"
 
