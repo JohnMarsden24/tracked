@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   helper_method :resource_name, :resource, :devise_mapping, :resource_class
 
   def home
+    CheckApiJob.perform_later
   end
 
   private

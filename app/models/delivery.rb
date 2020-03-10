@@ -187,6 +187,36 @@ class Delivery < ApplicationRecord
     delivery_history = tracking_data["tracking"]["checkpoints"]
   end
 
+  def set_status(tag)
+    delayed_status = ["FailedAttempt", "Exception"]
+    transit_status = ["InTransit", "OutforDelivery", "InfoReceived"]
+    if tag.in?(delayed_status)
+      return "Delayed"
+    elsif tag.in?(transit_status)
+      return "On its way"
+    else
+      return "Delivered"
+    end
+  end
+
+  def update_tracking
+    tracking_id = self.tracking_api
+    tracking_data = AfterShip::V4::Tracking.get(self.courier_slug, self.tracking_number)["data"]
+    self.status = tracking_data["tracking"]["subtag_message"]
+    self.expected_arrival_date = tracking_data["tracking"]["expected_delivery"]
+    history_array = tracking_data["tracking"]["checkpoints"]
+    if self.save
+      p "Inside Save"
+      history_array.each do |tracking_event|
+        location = tracking_event['country_iso3']
+        if location.nil?
+          location = tracking_event['location']
+        end
+        p location
+        self.history['status_updates'] << [tracking_event['message'], location, tracking_event['checkpoint_time']]
+      end
+    end
+  end
 
   include PgSearch::Model
   pg_search_scope :search_by_everything,
