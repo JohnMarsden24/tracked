@@ -30,27 +30,16 @@
       <div class="delivery-cards results">
         <%= render "users/results" %>
       </div>
-      <div class="delivery-cards delivered">
-        <%= render "users/in-transit2" %>
-      </div>
-      <div class="delivery-cards delayed">
-        <%= render "users/delayed" %>
-      </div>
-      <div class="delivery-cards delivered">
-        <%= render "users/delivered" %>
-      </div>
-
-    <% else %>
-      <div class="delivery-cards in-transit">
-        <%= render "users/in-transit2" %>
-      </div>
-      <div class="delivery-cards delayed">
-        <%= render "users/delayed" %>
-      </div>
-      <div class="delivery-cards delivered">
-        <%= render "users/delivered" %>
-      </div>
     <% end %>
+    <div class="delivery-cards in-transit">
+      <%= render "users/in-transit2" %>
+    </div>
+    <div class="delivery-cards delayed">
+      <%= render "users/delayed" %>
+    </div>
+    <div class="delivery-cards delivered">
+      <%= render "users/delivered" %>
+    </div>
   </div>
 </div>
 
