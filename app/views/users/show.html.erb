@@ -26,7 +26,7 @@
 </div>
 
   <div class="delivery-card-container">
-    <% if params[:query] != ""%>
+    <% if params[:query] && params[:query] != "" %>
       <div class="delivery-cards results">
         <%= render "users/results" %>
       </div>

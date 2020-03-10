@@ -1,5 +1,9 @@
 <div class="title">
+  <% if @deliveries.length == 0 %>
+    <h4>No results for <%= params[:query] %></h4>
+    <% else %>
   <h4>Search results for <%= params[:query] %></h4>
+  <% end %>
 </div>
 <div class="card-container-body">
   <% @deliveries.each_with_index do |delivery, index| %>
