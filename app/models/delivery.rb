@@ -160,7 +160,7 @@ class Delivery < ApplicationRecord
   def create_tracking_id(slug, tracking_number)
     HTTParty.post("https://api.aftership.com/v4/trackings",
       headers: {
-        "aftership-api-key" => "79319b1a-de06-4279-942e-62a95a1fe2b5",
+        "aftership-api-key" => "7beee5c2-ca2b-49c5-a0c8-ee57c0b18434",
         "Content-Type" => "application/json"
       },
       body: {
