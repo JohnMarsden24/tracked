@@ -3,9 +3,15 @@
   <a href=''><i class="fas fa-eye-slash"></i></a>
 </div>
 <div class="card-container-body">
+  <% if @in_transit.count == 0 %>
+    <div class="no-results">
+      <h4>No deliveries to show</h4>
+    </div>
+  <% end %>
   <% @in_transit.each_with_index do |delivery, index| %>
 
   <!-- Delivery card -->
+  <div class="delivery-card-outline">
     <% if index == (@in_transit.count - 1) %>
       <div class="delivery-card">
     <% else %>
@@ -18,25 +24,29 @@
           </div>
           <div class="details">
             <% if delivery.name.nil? %>
-              <h6><%= delivery.tracking_number %> <%= delivery.arrival %></h6>
+              <h6><%= delivery.tracking_number %></h6>
             <% else %>
-              <h6><%= delivery.name %> <%= delivery.arrival %></h6>
+              <h6><%= delivery.name %></h6>
               <p><%= delivery.tracking_number %></p>
             <% end %>
           </div>
         </div>
       </button>
-      <a href='', data-method="patch"><i class="fas fa-edit"></i></a>
-      <a href='', data-method="delete"><i class="fas fa-times"></i></a>
+      <% if (delivery.arrival == "today") || (delivery.arrival == "tomorrow")  %>
+        <div class="arrival">
+          <p><%= delivery.arrival %></p>
+        </div>
+      <% end %>
+      <div class="delete">
+        <a href='', data-method="delete"><i class="fas fa-times"></i></a>
+      </div>
       </div>
     </button>
-    <a href='' data-method="delete"><i class="far fa-times-circle"></i></a>
-    <a href='', data-method="patch"><i class="fas fa-edit"></i></a>
       <div class="tags">
         <% delivery.tags.each do |tag| %>
           <div class="tag">
             <p><%= tag.name %></p>
-            <a href='/tags/<%=tag.id%>' data-remote="true" data-method="delete"><i class="far fa-times-circle"></i></a>
+            <a href='/tags/<%=tag.id%>' data-remote="true" data-method="delete"><i class="fas fa-times"></i></a>
           </div>
         <% end %>
           <%= simple_form_for [delivery, @tag], remote: true do |f| %>
@@ -44,6 +54,7 @@
           <% end %>
       </div>
     </div>
+  </div>
 
      <!-- MODAL -->
 
@@ -51,6 +62,17 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content" >
           <div class="modal-header">
+            <div class="details">
+            <% if delivery.name.nil? %>
+              <h6><%= delivery.tracking_number %></h6>
+              <p>Arriving <%= delivery.arrival %></p>
+            <% else %>
+              <h6><%= delivery.name %></h6>
+              <p>Arriving <%= delivery.arrival %></p>
+              <p><%= delivery.tracking_number %></p>
+            <% end %>
+            <a href='', data-method="patch"><i class="fas fa-edit"></i>edit</a>
+          </div>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

@@ -1,20 +1,33 @@
 // Cards
 
-.lav-border {
-  border-bottom: 2px solid $lavender;
-}
-
-.delivery-card {
-  display: block;
-  // padding: 8px;
+.delivery-card-outline {
+  padding: 0 16px;
   transition: .3s;
 
   &:hover {
     box-shadow: 0px 0px 0px 2px $lavender inset;
   }
+}
+
+.lav-border {
+  border-bottom: 1px solid $lavender;
+}
+
+.no-results {
+  text-align: center;
+  padding-top: 16px;
+  opacity: .7;
+}
+
+.delivery-card {
+  display: block;
+  transition: .3s;
+  padding: 8px 0;
+
 
   .header {
     display: flex;
+    align-items: center;
 
     i {
       color: black;
@@ -22,6 +35,7 @@
       padding: 0 2px;
       font-size: .75rem;
       background-color: white;
+      align-self: flex-start;
 
       &:hover {
         opacity: .5;
@@ -29,8 +43,14 @@
     }
   }
 
+  .delete {
+    align-self: flex-start;
+  }
+
   button {
     background: none;
+    padding: 8px;
+    // opacity: .7;
     border: none;
     text-decoration: none;
     width: 100%;
@@ -40,15 +60,24 @@
     }
   }
 
+  .arrival {
+    background-color: $emerald;
+    padding: 4px 8px;
+    color: white;
+    border-radius: 16px;
+    align-self: flex-start;
+    opacity: 1;
+    margin-right: 4px;
+
+    p {
+      margin: 0;
+      font-size: .9rem;
+    }
+  }
+
   h6 {
     margin-bottom: 0;
     font-family: $headers-font
-  }
-
-  p {
-    margin: 0;
-    opacity: .75;
-    font-size: .75rem;
   }
 
   .sub-header {
@@ -67,6 +96,16 @@
   .details {
     margin-left: 16px;
     text-align: left;
+
+    p {
+    margin: 0;
+    opacity: .75;
+    font-size: .75rem;
+    }
+
+    i {
+      color: black;
+    }
   }
 
   .tags {
@@ -91,6 +130,7 @@
     text-decoration: none;
 
     p {
+      margin: 0;
       opacity: 100%;
       margin-right: 4px;
       font-size: .75rem;
