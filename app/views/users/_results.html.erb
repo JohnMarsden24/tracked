@@ -4,7 +4,7 @@
     <% else %>
   <h4>Search results for "<%= params[:query] %>"</h4>
   <% end %>
-    <a href='', data-method="delete"><i class="far fa-times-circle"></i></a>
+  <a href=''><i class="fas fa-eye-slash"></i></a>
 </div>
 <div class="card-container-body">
   <% @deliveries.each_with_index do |delivery, index| %>
@@ -15,27 +15,30 @@
     <% else %>
       <div class="delivery-card lav-border">
     <% end %>
-    <button data-toggle="modal" data-target="#exampleModalLong<%=delivery.id%>">
-      <div class="header">
-        <div class="courier-image" style="background-image: url(<%= image_path delivery.courier_slug%>)">
+    <div class="header">
+      <button data-toggle="modal" data-target="#exampleModalLong<%=delivery.id%>">
+        <div class="sub-header">
+          <div class="courier-image" style="background-image: url(<%= image_path delivery.courier_slug%>)">
+          </div>
+          <div class="details">
+            <% if delivery.name.nil? %>
+              <h6><%= delivery.tracking_number %></h6>
+            <% else %>
+              <h6><%= delivery.name %></h6>
+              <p><%= delivery.tracking_number %></p>
+            <% end %>
+          </div>
         </div>
-        <div class="details">
-          <% if delivery.name.nil? %>
-            <h6><%= delivery.tracking_number %></h6>
-          <% else %>
-            <h6><%= delivery.name %></h6>
-            <p><%= delivery.tracking_number %></p>
-          <% end %>
-        </div>
+      </button>
+      <a href='', data-method="patch"><i class="fas fa-edit"></i></a>
+      <a href='', data-method="delete"><i class="fas fa-times"></i></a>
       </div>
-    </button>
-    <a href='', data-method="delete"><i class="far fa-times-circle"></i></a>
-    <a href='', data-method="patch"><i class="fas fa-edit"></i></a>
+
       <div class="tags">
         <% delivery.tags.each do |tag| %>
           <div class="tag">
             <p><%= tag.name %></p>
-            <a href='/tags/<%=tag.id%>', data-method="delete"><i class="far fa-times-circle"></i></a>
+            <a href='/tags/<%=tag.id%>', data-method="delete"><i class="fas fa-times"></i></a>
           </div>
         <% end %>
           <%= simple_form_for([delivery, @tag]) do |f| %>
