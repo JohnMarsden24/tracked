@@ -44,7 +44,7 @@
     </button>
       <div class="tags">
         <% delivery.tags.each do |tag| %>
-          <div class="tag">
+          <div class="tag" id="tag-<%= tag.id %>">
             <p><%= tag.name %></p>
             <a href='/tags/<%=tag.id%>' data-remote="true" data-method="delete"><i class="fas fa-times"></i></a>
           </div>
