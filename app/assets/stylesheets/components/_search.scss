@@ -2,3 +2,30 @@
   position: absolute;
   left: 80px;
 }
+
+.form-control-new {
+  border: none;
+  // border-bottom: 1px solid $lavender;
+  // width: 50%;
+  // color: black;
+  // text-decoration: underline;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// #query {
+//   background-color: red;
+// }
+
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.fa-search {
+  color: $lavender;
+  margin-right: 8px;
+}
