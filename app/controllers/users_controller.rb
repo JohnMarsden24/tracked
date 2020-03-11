@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
   def show
-    # @delivered = current_user.deliveries.where(status: "Delivered")
     @delivery = Delivery.new
     @tag = Tag.new
-    # @deliveries = current_user.deliveries
+    @greeting = greeting
     if params[:query].present?
       @deliveries = current_user.deliveries.includes(:history, :tags).search_by_everything(params[:query])
       @in_transit = current_user.deliveries.where(status: "On its way")
@@ -17,6 +16,16 @@ class UsersController < ApplicationController
   end
 
   # private
+
+  def greeting
+    if Time.now.hour <= 12
+      "Good morning, "
+    elsif Time.now.hour <= 18
+      "Good afternoon, "
+    else
+      "Good evening, "
+    end
+  end
 
   def resource_name
     :user

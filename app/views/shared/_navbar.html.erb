@@ -1,7 +1,18 @@
-<% require 'time' %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "Home", root_path %>
 
+  <a href="/"><%= image_tag "favicon", alt: "alttext" %></a>
+
+  <div class="search-bar">
+    <i class="fas fa-search"></i>
+    <%= form_tag user_path, remote: true, method: :get, id: "search-form" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control-new",
+        placeholder: "Find your parcel..."
+      %>
+      <%#= submit_tag "Search", class: "btn btn-light" %>
+    <% end %>
+  </div>
        <ul class="nav" id="myTab" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="active-tab" data-toggle="tab" href="#deliveries" role="tab" aria-controls="home" aria-selected="true">Deliveries</a>
@@ -17,18 +28,6 @@
 
 
 
-  <div class="search">
-    <%= form_tag user_path, remote: true, method: :get, id: "search-form" do %>
-    <div class="d-flex">
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find your parcel..."
-      %>
-      <%#= submit_tag "Search", class: "btn btn-light" %>
-    <% end %>
-    </div>
-  </div>
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">

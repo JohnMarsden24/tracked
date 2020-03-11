@@ -1,5 +1,4 @@
 <%= render 'shared/navbar' %>
-<div>
 <button type="button" class="btn-full-wdith" data-toggle="modal" data-target="#exampleModal" id="modal">
   Add delivery
 </button>
@@ -14,12 +13,12 @@
         </button>
       </div>
       <div class="modal-body">
-<%= simple_form_for(@delivery) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :tracking_number %>
-  <%= f.input :courier, collection: Delivery::COURIERS %>
-  <%= f.button :submit, class: "btn-full-wdith" %>
-<% end %>
+        <%= simple_form_for(@delivery) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :tracking_number %>
+          <%= f.input :courier, collection: Delivery::COURIERS %>
+          <%= f.button :submit, class: "btn-full-wdith" %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -37,7 +36,7 @@
       <div class="delivery-cards">
         <%= render "users/delivered" %>
       </div>
-</div>
+    </div>
   </div>
   <div class="tab-pane fade" id="statistics" role="tabpanel" aria-labelledby="statistics-tab">
     <%= render "users/statistics" %>
