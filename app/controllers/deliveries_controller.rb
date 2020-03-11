@@ -19,19 +19,9 @@ class DeliveriesController < ApplicationController
   # end
 
   def destroy
-    @delivery = Delivery.find(params[:id])
-    @delivery.destory
-    redirect_to user_path(current_user)
   end
 
   def edit
-    @delivery = Delivery.find(params[:id])
-    @delivery.update_tracking
-    if @delivery.save
-      redirect_to user_path(current_user)
-    else
-      render :edit
-    end
   end
 
   def update
