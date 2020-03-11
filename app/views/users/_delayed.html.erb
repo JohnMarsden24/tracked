@@ -3,11 +3,13 @@
     <button class="delayed-btn hide-btn"><i class="fas fa-eye-slash"></i></button>
 </div>
 <div class="card-container-body">
+
  <% if @delayed.count == 0 %>
     <div class="no-results">
       <h4>No deliveries to show</h4>
     </div>
   <% end %>
+
   <% @delayed.each_with_index do |delivery, index| %>
 
   <!-- Delivery card -->
