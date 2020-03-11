@@ -4,7 +4,25 @@
   <div class="card mt-4">
     <%= column_chart current_user.deliveries.group_by_day(:expected_arrival_date).count, colors: ["#8D3C72", "#8D3C72"], title: "Deliveries this Month", xtitle: "Expected Day of Arrival", ytitle: "Num. of Orders" %>
   </div>
-  <div class="card mt-4">
-    <%= pie_chart current_user.deliveries.group(:courier_slug).count, colors: ["#8D3C72", "#984F80", "#A3638E", "#AF769C", "#BA8AAA", "#C69DB8"], title: "Orders by courier" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div class="card mt-4 mb-4">
+          <%= pie_chart current_user.deliveries.group(:courier_slug).count, colors: ["#8D3C72", "#984F80", "#A3638E", "#AF769C", "#BA8AAA", "#C69DB8"], title: "Orders by courier" %>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card mt-4 mb-4">
+          <% delayed = current_user.deliveries.all.select{|m| m.status == 'Delayed'}%>
+          <% if delayed == [] %>
+            <h4>None of your orders are delayed :) </h4>
+            <p>Be happy you ungrateful cunt!</p>
+          <% else %>
+            <%= pie_chart delayed.group(:courier_slug).count, colors: ["#8D3C72", "#984F80", "#A3638E", "#AF769C", "#BA8AAA", "#C69DB8"], title: "Delays by courier" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
