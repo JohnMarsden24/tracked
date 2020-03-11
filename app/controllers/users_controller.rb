@@ -1,4 +1,3 @@
-require 'fusioncharts-rails'
 class UsersController < ApplicationController
   def show
     @delivery = Delivery.new
