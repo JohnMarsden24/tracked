@@ -1,9 +1,10 @@
 <div class="title">
   <% if @deliveries.length == 0 %>
-    <h4>No results for <%= params[:query] %></h4>
+    <h4>No results for "<%= params[:query] %>"</h4>
     <% else %>
-  <h4>Search results for <%= params[:query] %></h4>
+  <h4>Search results for "<%= params[:query] %>"</h4>
   <% end %>
+    <a href='', data-method="delete"><i class="far fa-times-circle"></i></a>
 </div>
 <div class="card-container-body">
   <% @deliveries.each_with_index do |delivery, index| %>
@@ -28,6 +29,8 @@
         </div>
       </div>
     </button>
+    <a href='', data-method="delete"><i class="far fa-times-circle"></i></a>
+    <a href='', data-method="patch"><i class="fas fa-edit"></i></a>
       <div class="tags">
         <% delivery.tags.each do |tag| %>
           <div class="tag">

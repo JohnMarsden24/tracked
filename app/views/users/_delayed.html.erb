@@ -1,5 +1,6 @@
 <div class="title">
   <h4>Delayed</h4>
+    <a href='', data-method="delete"><i class="far fa-times-circle"></i></a>
 </div>
 <div class="card-container-body">
   <% @delayed.each do |delivery| %>
@@ -24,6 +25,8 @@
         </div>
       </div>
     </button>
+    <a href='', data-method="delete"><i class="far fa-times-circle"></i></a>
+    <a href='', data-method="patch"><i class="fas fa-edit"></i></a>
       <div class="tags">
         <% delivery.tags.each do |tag| %>
           <div class="tag">
