@@ -1,3 +1,4 @@
+require 'fusioncharts-rails'
 class UsersController < ApplicationController
   def show
     @delivery = Delivery.new
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
       @delayed = current_user.deliveries.where(status: "Delayed")
       @delivered = current_user.deliveries.where(status: "Delivered")
     end
-  end
+
 
   # private
 
@@ -41,5 +42,6 @@ class UsersController < ApplicationController
 
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
+  end
   end
 end
