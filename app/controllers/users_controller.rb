@@ -5,15 +5,11 @@ class UsersController < ApplicationController
     @greeting = greeting
     if params[:query].present?
       @deliveries = current_user.deliveries.includes(:history, :tags).search_by_everything(params[:query])
-      @in_transit = current_user.deliveries.where(status: "On its way")
-      @delayed = current_user.deliveries.where(status: "Delayed")
-      @delivered = current_user.deliveries.where(status: "Delivered")
-    else
-      @in_transit = current_user.deliveries.where(status: "On its way")
-      @delayed = current_user.deliveries.where(status: "Delayed")
-      @delivered = current_user.deliveries.where(status: "Delivered")
     end
-
+    @in_transit = current_user.deliveries.where(status: "On its way").order(:expected_arrival_date)
+    @delayed = current_user.deliveries.where(status: "Delayed").order(:expected_arrival_date)
+    @delivered = current_user.deliveries.where(status: "Delivered").order(:expected_arrival_date)
+  end
 
   # private
 
@@ -41,6 +37,5 @@ class UsersController < ApplicationController
 
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
-  end
   end
 end
