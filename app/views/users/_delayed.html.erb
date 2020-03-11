@@ -3,7 +3,7 @@
     <button class="delayed-btn hide-btn"><i class="fas fa-eye-slash"></i></button>
 </div>
 <div class="card-container-body">
-  <% @delayed.each do |delivery| %>
+  <% @delayed.each_with_index do |delivery, index| %>
 
   <!-- Delivery card -->
     <% if index == (@delayed.count - 1) %>
