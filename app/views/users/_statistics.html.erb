@@ -13,12 +13,12 @@
       </div>
       <div class="col-sm">
         <div class="card mt-4 mb-4">
-          <% delayed = current_user.deliveries.all.select{|m| m.status == 'Delayed'}%>
-          <% if delayed == [] %>
+
+          <% if @delayed == [] %>
             <h4>None of your orders are delayed :) </h4>
             <p>Be happy you ungrateful cunt!</p>
           <% else %>
-            <%= pie_chart delayed.group(:courier_slug).count, colors: ["#8D3C72", "#984F80", "#A3638E", "#AF769C", "#BA8AAA", "#C69DB8"], title: "Delays by courier" %>
+            <%= pie_chart current_user.deliveries.where(status: "Delayed").group(:courier_slug).count, colors: ["#8D3C72", "#984F80", "#A3638E", "#AF769C", "#BA8AAA", "#C69DB8"], title: "Delays by courier" %>
           <% end %>
         </div>
       </div>
