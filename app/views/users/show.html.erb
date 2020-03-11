@@ -27,13 +27,13 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="deliveries" role="tabpanel" aria-labelledby="deliveries-tab">
     <div id="search-results" class="delivery-card-container">
-      <div class="delivery-cards">
+      <div class="delivery-cards otw-column">
         <%= render "users/on_their_way" %>
       </div>
-      <div class="delivery-cards">
+      <div class="delivery-cards delayed-column">
         <%= render "users/delayed" %>
       </div>
-      <div class="delivery-cards">
+      <div class="delivery-cards delivered-column">
         <%= render "users/delivered" %>
       </div>
     </div>
