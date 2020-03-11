@@ -117,7 +117,9 @@ class Delivery < ApplicationRecord
     elsif (today +1) == delivery_date
       "tomorrow"
     elsif (today + 7) > delivery_date
-      "next 7 days"
+      "within the next 7 days"
+    else
+      self.expected_arrival_date.to_s
     end
   end
 
