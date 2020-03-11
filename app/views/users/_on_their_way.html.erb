@@ -49,9 +49,12 @@
             <a href='/tags/<%=tag.id%>' data-remote="true" data-method="delete"><i class="fas fa-times"></i></a>
           </div>
         <% end %>
+        <div class="add-tag">
           <%= simple_form_for [delivery, @tag], remote: true do |f| %>
-            <%= f.input :name, label: false, placeholder: "add tag" %>
+            <%= f.input :name, label: false, placeholder: "add tag", input_html: { class: "width-dynamic proba dva" } %>
           <% end %>
+
+        </div>
       </div>
     </div>
   </div>
