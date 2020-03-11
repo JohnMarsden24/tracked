@@ -18,9 +18,9 @@
           </div>
           <div class="details">
             <% if delivery.name.nil? %>
-              <h6><%= delivery.tracking_number %></h6>
+              <h6><%= delivery.tracking_number %> <%= delivery.arrival %></h6>
             <% else %>
-              <h6><%= delivery.name %></h6>
+              <h6><%= delivery.name %> <%= delivery.arrival %></h6>
               <p><%= delivery.tracking_number %></p>
             <% end %>
           </div>
