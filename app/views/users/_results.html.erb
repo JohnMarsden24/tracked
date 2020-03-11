@@ -38,10 +38,10 @@
         <% delivery.tags.each do |tag| %>
           <div class="tag">
             <p><%= tag.name %></p>
-            <a href='/tags/<%=tag.id%>', data-method="delete"><i class="fas fa-times"></i></a>
+            <a href='/tags/<%=tag.id%>' data-remote="true" data-method="delete"><i class="far fa-times-circle"></i></a>
           </div>
         <% end %>
-          <%= simple_form_for([delivery, @tag]) do |f| %>
+          <%= simple_form_for [delivery, @tag], remote: true do |f| %>
             <%= f.input :name, label: false, placeholder: "add tag" %>
           <% end %>
       </div>
