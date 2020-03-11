@@ -14,7 +14,7 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
     delivery = @tag.delivery
     @tag.destroy
-    redirect_to user_path(current_user, anchor: "tag-#{delivery.id}")
+    redirect_to user_path(current_user, anchor: "delivery-#{delivery.id}")
   end
 
   private
