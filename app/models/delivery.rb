@@ -220,6 +220,21 @@ class Delivery < ApplicationRecord
     end
   end
 
+  def delete_tracking(slug, tracking_number)
+    HTTParty.delete("https://api.aftership.com/v4/trackings",
+      headers: {
+        "aftership-api-key" => "79319b1a-de06-4279-942e-62a95a1fe2b5",
+        "Content-Type" => "application/json"
+      },
+      body: {
+        "tracking" => {
+          "slug" => "#{slug}",
+          "tracking_number" => "#{tracking_number}",
+        }
+      }.to_json
+    )
+  end
+
   include PgSearch::Model
   pg_search_scope :search_by_everything,
     against: [ :name, :courier, :tracking_number, :status, :expected_arrival_date, :arrival_date, :delivered ],
