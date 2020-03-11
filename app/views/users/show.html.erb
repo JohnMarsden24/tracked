@@ -18,7 +18,7 @@
           <%= f.input :name %>
           <%= f.input :tracking_number %>
           <%= f.input :courier, collection: Delivery::COURIERS %>
-          <%= f.button :submit, class: "btn-full-wdith" %>
+          <%= f.button :submit, class: "btn-full-wdith", id: "delivery-add-btn" %>
         <% end %>
       </div>
     </div>
