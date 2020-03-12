@@ -68,16 +68,30 @@
         <div class="modal-content" >
           <div class="modal-header">
             <div class="details">
-            <% if delivery.name.nil? %>
-              <h6><%= delivery.tracking_number %></h6>
-              <p>Arriving <%= delivery.arrival %></p>
-            <% else %>
-              <h6><%= delivery.name %></h6>
-              <p>Arriving <%= delivery.arrival %></p>
-              <p><%= delivery.tracking_number %></p>
-            <% end %>
-            <%= link_to '<i class="fas fa-edit" style="color:#A9A9A9;"></i> edit'.html_safe, edit_delivery_path(delivery.id) %>
-          </div>
+
+              <% if delivery.name.nil? %>
+                <h6><%= delivery.tracking_number %></h6>
+                <% if delivery.arrival == "today" || delivery.arrival == "tomorrow" %>
+                  <h6>Arriving <%= delivery.arrival %></h6>
+                <% elsif delivery.arrival == "on its way" %>
+                  <h6><%= delivery.arrival.capitalize %></h6>
+                <% else %>
+                  <h6>Expected on <%= delivery.expected_arrival_date.strftime("%d %B") %></h6>
+                <% end %>
+
+              <% else %>
+                <h6><%= delivery.name %></h6>
+                <p><%= delivery.tracking_number %></p>
+                <% if delivery.arrival == "today" || delivery.arrival == "tomorrow" %>
+                  <h6>Arriving <%= delivery.arrival %></h6>
+                <% elsif delivery.arrival == "on its way" %>
+                  <h6><%= delivery.arrival.capitalize %></h6>
+                <% else %>
+                  <h6>Expected on <%= delivery.expected_arrival_date.strftime("%d %B") %></h6>
+                <% end %>
+              <% end %>
+
+           </div>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

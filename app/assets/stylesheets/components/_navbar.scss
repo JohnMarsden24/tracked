@@ -1,4 +1,6 @@
 .navbar-lewagon {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
   align-items: center;
   background: $lavender;
@@ -25,6 +27,8 @@
 }
 
 .navbar-middle {
+  display: flex;
+  justify-content: center;
   .nav {
     margin-bottom: 16px;
   }
@@ -32,15 +36,31 @@
 
 .navbar-right {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
 
   p {
     font-family: $headers-font;
     color: white;
     padding-right: 8px;
+    margin: 0;
+  }
+
+  i {
+    align-self: center;
+  }
+
+  a {
+    color: $lavender;
+    &:hover {
+      color: $lavender;
+      opacity: .75;
+    }
   }
 
   .fa-bars {
+    display:flex;
+    align-items: center;
     color: white;
     font-size: 1.2rem;
     transition: .3s;
@@ -51,14 +71,6 @@
     }
   }
 
-  .navbar-nav {
-    margin: 0;
-  }
-
-  .nav-item {
-    display: flex;
-    align-items: center;
-  }
 }
 
 

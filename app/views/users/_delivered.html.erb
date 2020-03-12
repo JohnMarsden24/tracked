@@ -61,11 +61,12 @@
             <div class="details">
             <% if delivery.name.nil? %>
               <h6><%= delivery.tracking_number %></h6>
+              <h6>Delivered on <%= delivery.expected_arrival_date.strftime("%d %B") %></h6>
             <% else %>
               <h6><%= delivery.name %></h6>
-              <p>Arriving <%= delivery.arrival %></p>
+              <p><%= delivery.tracking_number %></p>
+              <h6>Delivered on <%= delivery.expected_arrival_date.strftime("%d %B") %></h6>
             <% end %>
-            <%= link_to '<i class="fas fa-edit" style="color:#A9A9A9;"></i> edit'.html_safe, edit_delivery_path(delivery.id) %>
           </div>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
