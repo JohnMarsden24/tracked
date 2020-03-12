@@ -14,7 +14,7 @@
 
   <!-- Delivery card -->
   <div class="delivery-card-outline" id="delivery-<%= delivery.id %>">
-    <% if index == (@in_transit.count - 1) %>
+    <% if index == (@delayed.count - 1) %>
       <div class="delivery-card">
     <% else %>
       <div class="delivery-card lav-border">
