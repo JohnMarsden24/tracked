@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
+  align-items: center;
   background: $lavender;
+  padding: 0 48px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,35 +14,19 @@
   display: flex;
   align-items: center;
 
-  #modal {
-    margin: 0;
-  }
-
-  button {
-    margin-left: 16px;
-    color: $lavender;
-    transition: .3s;
-    background: white;
-    border: none;
-    font-family: $headers-font;
-    font-size: 16px;
-    padding: 4px 16px;
-    border-radius: 16px;
+  img {
+    width: 40px;
+    height: 40px;
 
     &:hover {
-        transform: scale(1.1);
-    }
-
-    &:focus {
-      border: none;
-      outline: none;
+      transform: scale(1.03);
     }
   }
 }
 
 .navbar-middle {
   .nav {
-    margin: 0;
+    margin-bottom: 16px;
   }
 }
 
