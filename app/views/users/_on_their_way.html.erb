@@ -74,7 +74,7 @@
               <p>Arriving <%= delivery.arrival %></p>
               <p><%= delivery.tracking_number %></p>
             <% end %>
-            <a href='', data-method="patch"><i class="fas fa-edit"></i>edit</a>
+              <%= link_to '<i class="fas fa-edit" style="color:#A9A9A9;"></i> edit'.html_safe, edit_delivery_path(delivery.id) %>
           </div>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>

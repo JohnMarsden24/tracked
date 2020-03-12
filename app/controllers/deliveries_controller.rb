@@ -22,9 +22,18 @@ class DeliveriesController < ApplicationController
   end
 
   def edit
+    @user = current_user
+    @delivery = Delivery.find(params[:id])
   end
 
   def update
+    @user = current_user
+    @delivery = Delivery.find(params[:id])
+    if @delivery.update(delivery_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
   end
 
   def create
