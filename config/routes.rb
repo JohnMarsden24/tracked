@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   get 'about', to: 'pages#about'
 
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    resources :deliveries, only: [:destroy]
+  end
 
   resources :deliveries, only: [:create]
 
