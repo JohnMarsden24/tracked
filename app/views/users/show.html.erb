@@ -34,6 +34,18 @@
         %>
         <%#= submit_tag "Search", class: "btn btn-light" %>
       <% end %>
+    <div class="show-buttons d-flex">
+      <div class="showtag otw-show showtag-fade">
+        <p>On their way</p><button disabled="true" class="otw-show hide-btn"><i class="fas fa-eye "></i></button>
+      </div>
+      <div class="showtag delayed-show showtag-fade">
+        <p>Delayed</p><button disabled="true" class="delayed-show hide-btn" hide-btn"><i class="fas fa-eye "></i></button>
+      </div>
+      <div class="showtag delivered-show showtag-fade">
+        <p>Delivered</p><button disabled="true" class=".delivered-show hide-btn"><i class="fas fa-eye "></i></button>
+      </div>
+    </div>
+
     </div>
     <div id="search-results" class="delivery-card-container">
       <div class="delivery-cards otw-column">

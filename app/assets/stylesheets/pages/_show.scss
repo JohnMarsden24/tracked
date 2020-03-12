@@ -50,3 +50,37 @@
 //   div:last-of-type;
 //     background-color: $lavender;
 // }
+
+.showtag {
+    display: flex;
+    align-items: center;
+    background-color: $lavender;
+    border-radius: 16px;
+    color: white;
+    padding: 4px 8px;
+    margin-right: 8px;
+    text-decoration: none;
+
+    p {
+      margin: 0;
+      opacity: 100%;
+      margin-right: 4px;
+      font-size: .75rem;
+    }
+
+    i {
+      color: white;
+      opacity: .75;
+      font-size: .75rem;
+      transition: .3s;
+
+      &:hover {
+        opacity: .5;
+      }
+    }
+  }
+
+  .showtag-fade {
+    opacity: 0.3;
+  }
+
