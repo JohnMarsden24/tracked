@@ -43,47 +43,65 @@ document.addEventListener('turbolinks:load', () => {
 
     otwBtn.addEventListener('click', () => {
       otwColumn.style.display = 'none'
+      otwShow.disabled = false
+      otwShow.classList.remove('showtag-fade')
       localStorage.setItem('otwhide', 'true')
     })
 
     otwShow.addEventListener('click', () => {
       otwColumn.style.display = 'block'
+      otwShow.disabled = true
+      otwShow.classList.add('showtag-fade')
       localStorage.setItem('otwhide', 'false')
     })
 
     const otwhide = localStorage.getItem('otwhide');
     if(otwhide === 'true'){
       otwColumn.style.display = "none";
+      otwShow.classList.remove('showtag-fade')
+      otwShow.disabled = true
   }
 
     delayedBtn.addEventListener('click', () => {
       delayedColumn.style.display = 'none'
+      delayedShow.disabled = false
+      delayedShow.classList.remove('showtag-fade')
       localStorage.setItem('delayedhide', 'true')
     })
 
     delayedShow.addEventListener('click', () => {
       delayedColumn.style.display = 'block'
+      delayedShow.disabled = true
+      delayedShow.classList.add('showtag-fade')
       localStorage.setItem('delayedhide', 'false')
     })
 
     const delayedhide = localStorage.getItem('delayedhide');
     if(delayedhide === 'true'){
       delayedColumn.style.display = "none";
+      delayedShow.classList.remove('showtag-fade')
+      delayedShow.disabled = true
   }
 
       deliveredBtn.addEventListener('click', () => {
       deliveredColumn.style.display = 'none'
+      deliveredShow.disabled = false
+      deliveredShow.classList.remove('showtag-fade')
       localStorage.setItem('deliveredhide', 'true')
     })
 
     deliveredShow.addEventListener('click', () => {
       deliveredColumn.style.display = 'block'
+      deliveredShow.disabled = true
+      deliveredShow.classList.add('showtag-fade')
       localStorage.setItem('deliveredhide', 'false')
     })
 
     const deliveredhide = localStorage.getItem('deliveredhide');
     if(deliveredhide === 'true'){
       deliveredColumn.style.display = "none";
+      deliveredShow.classList.remove('showtag-fade')
+      deliveredShow.disabled = true
   }
 })
 
