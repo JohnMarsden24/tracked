@@ -10,11 +10,12 @@
         </button>
       </div>
       <div class="modal-body">
+        <h4 class="text-center">Add Delivery</h4>
         <%= simple_form_for(@delivery) do |f| %>
           <%= f.input :name %>
           <%= f.input :tracking_number %>
           <%= f.input :courier, collection: Delivery::COURIERS %>
-          <%= f.button :submit, class: "btn-full-wdith" %>
+          <%= f.button :submit, class: "btn-full-width", id: "delivery-add-btn" %>
         <% end %>
       </div>
     </div>

@@ -111,15 +111,17 @@ class Delivery < ApplicationRecord
 
   def arrival
     today = Date.today.yday
-    delivery_date = Date.parse(self.expected_arrival_date.to_s).yday
-    if today == delivery_date
-      "today"
-    elsif (today +1) == delivery_date
-      "tomorrow"
-    elsif (today + 7) > delivery_date
-      "within the next 7 days"
+    if self.expected_arrival_date.nil?
+      "on its way"
     else
-      self.expected_arrival_date.to_s
+      delivery_date = Date.parse(self.expected_arrival_date.to_s).yday
+      if today == delivery_date
+        "today"
+      elsif (today +1) == delivery_date
+        "tomorrow"
+      elsif (today + 7) > delivery_date
+        "next 7 days"
+      end
     end
   end
 
