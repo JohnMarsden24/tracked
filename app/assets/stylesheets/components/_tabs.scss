@@ -1,4 +1,4 @@
-.nav {
+.nav-item-white {
   a {
     color: white;
     transition: .3s;
@@ -17,6 +17,29 @@
     &:hover {
       opacity: 1;
       box-shadow: 0px -2px 0px white inset;
+    }
+  }
+}
+
+.nav-item-lavender {
+  a {
+    color: $lavender;
+    transition: .3s;
+    opacity: .5;
+    font-family: $headers-font;
+
+    &:hover {
+        box-shadow: 0px -1px 0px $lavender inset;
+    }
+  }
+
+  .active {
+    opacity: 1;
+    box-shadow: 0px -2px 0px $lavender inset;
+
+    &:hover {
+      opacity: 1;
+      box-shadow: 0px -2px 0px $lavender inset;
     }
   }
 }

@@ -1,15 +1,16 @@
 .banner {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-areas: "text form";
-  justify-content: space-between;
+  display: flex;
+  // grid-template-columns: 2fr 1fr;
+  // grid-template-areas: "text form";
+  // justify-content: space-between;
   padding: 0 64px;
+  flex-wrap: flex;
 }
 
 .banner-text {
   grid-area: text;
   // background-image: url("tracked_logo.svg");
-  width: 100%;
+  width: 80vw;
   height: 80vh;
   background-position: left;
   background-size: 75%;
@@ -17,42 +18,20 @@
 }
 
 .banner-form {
-  grid-area: form;
-  position: relative;
+  display: flex;
 }
 
 .log-in {
   background-color: white;
-  width: 80%;
-  position: absolute;
-  right: 0;
-  top: 10%;
+  border-radius: 8px;
+  min-width: 20vw;
+  align-self: start;
+  margin-top: 20%;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
 
   .nav {
     margin-top: 0;
-  }
-
-  a {
-    color: $lavender;
-    transition: .3s;
-    opacity: .5;
-    font-family: $headers-font;
-    margin-bottom: 16px;
-
-    &:hover {
-        box-shadow: 0px -1px 0px $lavender inset;
-    }
-  }
-
-  .active {
-    opacity: 1;
-    box-shadow: 0px -2px 0px $lavender inset;
-
-    &:hover {
-      opacity: 1;
-      box-shadow: 0px -2px 0px $lavender inset;
-    }
+    margin-bottom: 8px;
   }
 }
 
@@ -75,4 +54,26 @@
   img {
     height: 50vh;
   }
+}
+
+.welcome-back {
+  display: flex;
+  align-self: center;
+  text-align: center;
+
+  h2 {
+    opacity: .75;
+    font-family: $headers-font;
+    padding-bottom: 16px;
+    margin-bottom: 0;
+  }
+
+  a {
+    color: white;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
 }
