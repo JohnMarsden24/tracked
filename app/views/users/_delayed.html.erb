@@ -19,31 +19,32 @@
     <% else %>
       <div class="delivery-card lav-border">
     <% end %>
-    <div class="header">
+   <div class="header">
       <button data-toggle="modal" data-target="#exampleModalLong<%=delivery.id%>">
         <div class="sub-header">
-          <div class="courier-image" style="background-image: url(<%= image_path delivery.courier_slug%>)">
+          <div class="photo-and-text">
+            <div class="courier-image" style="background-image: url(<%= image_path delivery.courier_slug%>)">
+            </div>
+            <div class="details">
+              <% if delivery.name.nil? %>
+                <h6><%= delivery.tracking_number %></h6>
+              <% else %>
+                <h6><%= delivery.name %></h6>
+                <p><%= delivery.tracking_number %></p>
+              <% end %>
+            </div>
           </div>
-          <div class="details">
-            <% if delivery.name.nil? %>
-              <h6><%= delivery.tracking_number %></h6>
-            <% else %>
-              <h6><%= delivery.name %></h6>
-              <p><%= delivery.tracking_number %></p>
-            <% end %>
-          </div>
+          <% if (delivery.arrival == "today") || (delivery.arrival == "tomorrow")  %>
+            <div class="arrival">
+              <p><%= delivery.arrival %></p>
+            </div>
+          <% end %>
         </div>
       </button>
-      <% if (delivery.arrival == "today") || (delivery.arrival == "tomorrow")  %>
-        <div class="arrival">
-          <p><%= delivery.arrival %></p>
-        </div>
-      <% end %>
       <div class="delete">
         <%= link_to '<i class="fas fa-times"></i>'.html_safe, user_delivery_path(delivery), method: :delete %>
       </div>
-      </div>
-    </button>
+    </div>
       <div class="tags">
         <% delivery.tags.each do |tag| %>
           <div class="tag" id="tag-<%= tag.id %>">

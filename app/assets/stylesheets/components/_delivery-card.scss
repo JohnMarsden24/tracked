@@ -61,12 +61,18 @@
     }
   }
 
+  .photo-and-text {
+    display: flex;
+    align-items: center;
+  }
+
   .arrival {
     background-color: $emerald;
     padding: 4px 8px;
     color: white;
     border-radius: 16px;
     align-self: flex-start;
+    justify-self: flex-end;
     opacity: 1;
     margin-right: 4px;
 
@@ -84,6 +90,7 @@
   .sub-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 
   .courier-image {
