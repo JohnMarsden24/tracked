@@ -5,20 +5,12 @@
 
 .form-control-new {
   border: none;
-  // border-bottom: 1px solid $lavender;
-  // width: 50%;
-  // color: black;
-  // text-decoration: underline;
+  border-bottom: 1px solid $lavender;
 
   &:focus {
     outline: none;
   }
 }
-
-// #query {
-//   background-color: red;
-// }
-
 
 .search-bar {
   display: flex;

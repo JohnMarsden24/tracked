@@ -112,7 +112,7 @@ class Delivery < ApplicationRecord
   def arrival
     today = Date.today.yday
     if self.expected_arrival_date.nil?
-      "soon"
+      "on its way"
     else
       delivery_date = Date.parse(self.expected_arrival_date.to_s).yday
       if today == delivery_date

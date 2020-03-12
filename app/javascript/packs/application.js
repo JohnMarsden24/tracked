@@ -15,6 +15,10 @@ import "bootstrap";
 // })
 import { submit_spinner } from "../components/submit_spinner"
 
+
+
+
+
 document.addEventListener('turbolinks:load', () => {
   submit_spinner();
   document.querySelector("#query").addEventListener("keyup", event => {
@@ -26,23 +30,17 @@ document.addEventListener('turbolinks:load', () => {
       document.querySelector('#search-form').dispatchEvent(new Event('submit', {bubbles: true}))
     }
   })
-})
+  const otwBtn = document.querySelector(".otw-btn");
+  const otwShow = document.querySelector(".otw-show");
+  const delayedBtn = document.querySelector(".delayed-btn");
+  const delayedShow = document.querySelector(".delayed-show");
+  const deliveredBtn = document.querySelector(".delivered-btn");
+  const deliveredShow = document.querySelector(".delivered-show");
 
-const otwBtn = document.querySelector(".otw-btn");
-const otwShow = document.querySelector(".otw-show");
-const delayedBtn = document.querySelector(".delayed-btn");
-const delayedShow = document.querySelector(".delayed-show");
-const deliveredBtn = document.querySelector(".delivered-btn");
-const deliveredShow = document.querySelector(".delivered-show");
+  const otwColumn = document.querySelector(".otw-column");
+  const delayedColumn = document.querySelector(".delayed-column");
+  const deliveredColumn = document.querySelector(".delivered-column");
 
-const otwColumn = document.querySelector(".otw-column");
-const delayedColumn = document.querySelector(".delayed-column");
-const deliveredColumn = document.querySelector(".delivered-column");
-
-
-
-
-document.addEventListener('turbolinks:load', () => {
     otwBtn.addEventListener('click', () => {
       otwColumn.style.display = 'none'
       localStorage.setItem('otwhide', 'true')

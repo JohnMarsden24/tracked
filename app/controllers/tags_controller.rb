@@ -4,7 +4,7 @@ class TagsController < ApplicationController
     @tag = Tag.new(tags_params)
     @tag.delivery = Delivery.find(params[:delivery_id])
     if @tag.save
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user, anchor: "tag-#{@tag.id}")
     else
       redirect_to user_path(current_user)
     end
@@ -12,8 +12,9 @@ class TagsController < ApplicationController
 
   def destroy
     @tag = Tag.find(params[:id])
+    delivery = @tag.delivery
     @tag.destroy
-    redirect_to user_path
+    redirect_to user_path(current_user, anchor: "delivery-#{delivery.id}")
   end
 
   private
