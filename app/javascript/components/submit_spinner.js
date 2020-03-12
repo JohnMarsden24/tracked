@@ -8,7 +8,7 @@ export const submit_spinner = () => {
       event.preventDefault();
       console.log("Prevented!");
       let body = document.querySelector("body")
-      body.insertAdjacentHTML("afterbegin", `<div class="background-holder"><div class="central-box modal-body"><div class="spin"><h3 class="sentence">Calling Couriers</h3><div class="loader"></div></div></div></div>`);
+      body.insertAdjacentHTML("afterbegin", `<div class="background-holder"><div class="central-box modal-body"><div class="spin"><h3 class="sentence">calling couriers...</h3><div class="loader"></div></div></div></div>`);
       // document.querySelector('.background-holder').style.marginTop = window.pageYOffset;
       debugger
       setInterval(newSentence, 1000);
@@ -21,7 +21,7 @@ export const submit_spinner = () => {
 
 
 
-let texts = ["Folding Planes", "Chasing Delivery Drivers", "Helping Santa"]
+let texts = ["folding planes...", "chasing delivery drivers...", "finding your parcel...", "washing hands..."]
 let index = 0;
 
 export const newSentence = () => {
