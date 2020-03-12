@@ -30,9 +30,9 @@
           </div>
         </div>
       </button>
-      <div class="delete">
-        <a href='', data-method="delete"><i class="fas fa-times"></i></a>
-      </div>
+        <div class="delete">
+          <%= link_to '<i class="fas fa-times"></i>'.html_safe, user_delivery_path(delivery), method: :delete %>
+        </div>
       </div>
     </button>
       <div class="tags">
@@ -40,7 +40,7 @@
           <div class="tag" id="tag-<%= tag.id %>">
             <p><%= tag.name %></p>
             <a href='/tags/<%=tag.id%>' data-remote="true" data-method="delete"><i class="fas fa-times"></i></a>
-          </div>
+          </div>be
         <% end %>
           <%= simple_form_for [delivery, @tag], remote: true do |f| %>
             <%= f.input :name, label: false, placeholder: "add tag" %>

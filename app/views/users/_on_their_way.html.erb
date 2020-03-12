@@ -38,7 +38,7 @@
         </div>
       <% end %>
       <div class="delete">
-        <a href='', data-method="delete"><i class="fas fa-times"></i></a>
+        <%= link_to '<i class="fas fa-times"></i>'.html_safe, user_delivery_path(delivery), method: :delete %>
       </div>
       </div>
     </button>
