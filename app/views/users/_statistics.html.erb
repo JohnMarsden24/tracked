@@ -1,6 +1,30 @@
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 <div class="container">
-  <h2>Our amazing charts</h2>
+  <h4 class="text-center title mt-4" style="color:#8D3C72;">Your orders at a glance</h4>
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-4">
+        <div class="card mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
+          <h4><%= current_user.deliveries.count %> orders delivered!</h4>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
+         <h4><%= (((current_user.deliveries.select{|d| d.status != "Delayed"}.count.to_f)/(current_user.deliveries.count.to_f)) * 100).to_i %>% of which were on time</h4>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
+          <% courier_count = Hash.new(0) %>
+          <% current_user.deliveries.each do |delivery| %>
+            <% courier_count[delivery.courier] += 1 %>
+          <% end %>
+          <h4>Your favorite courier:</h4>
+          <h4><%= courier_count.key(courier_count.values.max) %></h4>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="card mt-4">
     <%= column_chart current_user.deliveries.group_by_day(:expected_arrival_date).count, colors: ["#8D3C72", "#8D3C72"], title: "Deliveries this Month", xtitle: "Expected Day of Arrival", ytitle: "Num. of Orders" %>
   </div>
@@ -13,7 +37,6 @@
       </div>
       <div class="col-sm">
         <div class="card mt-4 mb-4">
-
           <% if @delayed == [] %>
             <h4>None of your orders are delayed :) </h4>
             <p>Be happy you ungrateful cunt!</p>
