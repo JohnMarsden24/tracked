@@ -1,9 +1,12 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :about]
   helper_method :resource_name, :resource, :devise_mapping, :resource_class
 
   def home
     CheckApiJob.perform_later
+  end
+
+  def about
   end
 
   private

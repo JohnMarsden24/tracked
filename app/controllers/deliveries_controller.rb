@@ -19,6 +19,13 @@ class DeliveriesController < ApplicationController
   # end
 
   def destroy
+    @delivery = Delivery.find(params[:user_id])
+    @user = @delivery.user
+    if @delivery.fake == false
+      AfterShip::V4::Tracking.delete(@delivery.courier_slug, @delivery.tracking_api)
+    end
+    @delivery.destroy
+    redirect_to user_path(@user)
   end
 
   def edit

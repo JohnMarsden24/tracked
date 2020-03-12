@@ -3,17 +3,21 @@
   <h4 class="text-center title mt-4" style="color:#8D3C72;">Your orders at a glance</h4>
   <div class="container">
     <div class="row d-flex justify-content-center align-items-center">
-      <div class="col-md-4">
+      <div class="col-md-4 pr-0 pl-0">
         <div class="card mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
           <h4><%= current_user.deliveries.count %> orders delivered!</h4>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 pr-4 pl-4">
         <div class="card mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
-         <h4><%= (((current_user.deliveries.select{|d| d.status != "Delayed"}.count.to_f)/(current_user.deliveries.count.to_f)) * 100).to_i %>% of which were on time</h4>
+          <% if current_user.deliveries.count == 0  %>
+            <h4> No Deliveries </h4>
+          <% else %>
+            <h4><%= (((current_user.deliveries.select{|d| d.status != "Delayed"}.count.to_f)/(current_user.deliveries.count.to_f)) * 100).to_i %>% of which were on time</h4>
+          <% end %>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 pr-0 pl-0">
         <div class="card mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
           <% courier_count = Hash.new(0) %>
           <% current_user.deliveries.each do |delivery| %>
@@ -30,18 +34,18 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-sm">
+      <div class="col-sm pl-0 pr-4">
         <div class="card mt-4 mb-4">
-          <%= pie_chart current_user.deliveries.group(:courier_slug).count, colors: ["#8D3C72", "#984F80", "#A3638E", "#AF769C", "#BA8AAA", "#C69DB8"], title: "Orders by courier" %>
+          <%= pie_chart current_user.deliveries.group(:courier).count, colors: ["#8D3C72", "#ADD9F4", "#476C9B", "#468C98", "#F67E7D", "#D57A66"], title: "Orders by courier" %>
         </div>
       </div>
-      <div class="col-sm">
+      <div class="col-sm pl-4 pr-0">
         <div class="card mt-4 mb-4">
           <% if @delayed == [] %>
             <h4>None of your orders are delayed :) </h4>
-            <p>Be happy you ungrateful cunt!</p>
+            <p>Be happy!</p>
           <% else %>
-            <%= pie_chart current_user.deliveries.where(status: "Delayed").group(:courier_slug).count, colors: ["#8D3C72", "#984F80", "#A3638E", "#AF769C", "#BA8AAA", "#C69DB8"], title: "Delays by courier" %>
+            <%= pie_chart current_user.deliveries.where(status: "Delayed").group(:courier).count, colors: ["#8D3C72", "#ADD9F4", "#476C9B", "#468C98", "#F67E7D", "#D57A66"], title: "Delays by courier" %>
           <% end %>
         </div>
       </div>
