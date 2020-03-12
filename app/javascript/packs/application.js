@@ -13,14 +13,14 @@ import "bootstrap";
 // inTransit.addEventListener("click", (event) => {
 //   event.parentElement.classList.add("hidden");
 // })
-
-
+import { submit_spinner } from "../components/submit_spinner"
 
 
 
 
 
 document.addEventListener('turbolinks:load', () => {
+  submit_spinner();
   document.querySelector("#query").addEventListener("keyup", event => {
     if (document.querySelector("#query").value.length == 0) {
       if (document.querySelector('#results')) {
