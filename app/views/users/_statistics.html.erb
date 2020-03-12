@@ -36,7 +36,7 @@
     <div class="row">
       <div class="col-sm">
         <div class="card mt-4 mb-4">
-          <%= pie_chart current_user.deliveries.group(:courier_slug).count, colors: ["#8D3C72", "#984F80", "#A3638E", "#AF769C", "#BA8AAA", "#C69DB8"], title: "Orders by courier" %>
+          <%= pie_chart current_user.deliveries.group(:courier).count, colors: ["#8D3C72", "#ADD9F4", "#476C9B", "#468C98", "#F67E7D", "#D57A66"], title: "Orders by courier" %>
         </div>
       </div>
       <div class="col-sm">
@@ -45,7 +45,7 @@
             <h4>None of your orders are delayed :) </h4>
             <p>Be happy!</p>
           <% else %>
-            <%= pie_chart current_user.deliveries.where(status: "Delayed").group(:courier_slug).count, colors: ["#8D3C72", "#984F80", "#A3638E", "#AF769C", "#BA8AAA", "#C69DB8"], title: "Delays by courier" %>
+            <%= pie_chart current_user.deliveries.where(status: "Delayed").group(:courier).count, colors: ["#8D3C72", "#ADD9F4", "#476C9B", "#468C98", "#F67E7D", "#D57A66"], title: "Delays by courier" %>
           <% end %>
         </div>
       </div>
