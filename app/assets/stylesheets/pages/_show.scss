@@ -1,6 +1,6 @@
 .deliveries-header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   padding: 8px 48px;
 }
 
@@ -48,11 +48,6 @@
   flex-basis: 0;
 }
 
-// .card-container-body{
-//   div:last-of-type;
-//     background-color: $lavender;
-// }
-
 .showtag {
     display: flex;
     align-items: center;
@@ -84,5 +79,19 @@
 
   .showtag-fade {
     opacity: 0.3;
+  }
+
+  .modal-header {
+    h6 {
+      margin-bottom: 4px;
+      font-family: $headers-font
+    }
+
+    p {
+      margin: 0;
+      opacity: .75;
+      font-size: .75rem;
+      margin-bottom: 16px;
+    }
   }
 

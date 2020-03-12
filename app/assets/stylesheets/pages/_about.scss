@@ -1,3 +1,46 @@
+.team-container {
+  margin-top: 24px;
+}
+
 .about-cards {
   margin-top: 16px;
+
+  .team-details {
+    padding-left: 16px;
+
+    h6 {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    opacity: .9;
+    }
+
+  }
+
+  .name {
+    font-size: 1.2rem;
+  }
+
+  .team-image {
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 4px;
+  }
+
+  #linkedin {
+    font-size: 24px;
+    color: #0077B5;
+    opacity: 100%;
+    width: 32px;
+  }
+
+  #github {
+    font-size: 24px;
+    color: black;
+    opacity: 100%;
+    width: 32px;
+  }
 }

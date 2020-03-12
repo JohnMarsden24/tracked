@@ -25,7 +25,7 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="deliveries" role="tabpanel" aria-labelledby="deliveries-tab">
     <div class="deliveries-header">
-      <button type="button" class="btn-full-width" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" class="btn-full-width" data-toggle="modal" data-target="#exampleModal" style="justify-self: start">
         Add delivery
       </button>
       <div class="search-bar">
@@ -39,10 +39,10 @@
           <%#= submit_tag "Search", class: "btn btn-light" %>
         <% end %>
       </div>
-      <div class="show-buttons d-flex">
-          <button disabled="true" class="otw-show btn-full-width">On their way</button>
-          <button disabled="true" class="delayed-show btn-full-width">Delayed</button>
-          <button disabled="true" class="delivered-show btn-full-width">Delivered</button>
+      <div class="show-buttons d-flex" style="justify-self: end">
+        <button disabled="true" class="otw-show btn-full-width ml-1">On their way</button>
+        <button disabled="true" class="delayed-show btn-full-width ml-1">Delayed</button>
+        <button disabled="true" class="delivered-show btn-full-width ml-1">Delivered</button>
       </div>
     </div>
 
