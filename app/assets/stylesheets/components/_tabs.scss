@@ -1,23 +1,22 @@
 .nav {
-  margin-bottom: 8px;
-
   a {
-    color: $lavender;
+    color: white;
     transition: .3s;
     opacity: .5;
+    font-family: $headers-font;
 
     &:hover {
-        box-shadow: 0px -1px 0px $lavender inset;
+        box-shadow: 0px -1px 0px white inset;
     }
   }
 
   .active {
     opacity: 1;
-    box-shadow: 0px -2px 0px $lavender inset;
+    box-shadow: 0px -2px 0px white inset;
 
     &:hover {
       opacity: 1;
-      box-shadow: 0px -2px 0px $lavender inset;
+      box-shadow: 0px -2px 0px white inset;
     }
   }
 }

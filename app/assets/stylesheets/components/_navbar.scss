@@ -1,12 +1,73 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $lavender;
+
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+
+  #modal {
+    margin: 0;
+  }
+
+  button {
+    margin-left: 16px;
+    color: $lavender;
+    transition: .3s;
+    background: white;
+    border: none;
+    font-family: $headers-font;
+    font-size: 16px;
+    padding: 4px 16px;
+    border-radius: 16px;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
 }
+
+.navbar-middle {
+  .nav {
+    margin: 0;
+  }
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+
+  p {
+    font-family: $headers-font;
+    color: white;
+    padding-right: 8px;
+  }
+
+  .fa-bars {
+    color: white;
+    font-size: 1.2rem;
+  }
+
+  .navbar-nav {
+    margin: 0;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+  }
+}
+
+

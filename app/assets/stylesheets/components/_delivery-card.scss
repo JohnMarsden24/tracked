@@ -5,14 +5,14 @@
   transition: .3s;
 
   &:hover {
-    box-shadow: 0px 0px 0px 1px $lavender inset;
+    box-shadow: 0px 0px 0px 3px $lavender inset;
     transform: scale(1.03);
     background-color: white;
   }
 }
 
 .lav-border {
-  border-bottom: 1px solid $lavender;
+  border-bottom: 2px solid $lavender;
 }
 
 .no-results {

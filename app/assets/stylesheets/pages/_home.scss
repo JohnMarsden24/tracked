@@ -26,8 +26,34 @@
   width: 80%;
   position: absolute;
   right: 0;
-  top: 64px;
+  top: 48px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+
+  .nav {
+    margin-top: 0;
+  }
+
+  a {
+    color: $lavender;
+    transition: .3s;
+    opacity: .5;
+    font-family: $headers-font;
+    margin-bottom: 16px;
+
+    &:hover {
+        box-shadow: 0px -1px 0px $lavender inset;
+    }
+  }
+
+  .active {
+    opacity: 1;
+    box-shadow: 0px -2px 0px $lavender inset;
+
+    &:hover {
+      opacity: 1;
+      box-shadow: 0px -2px 0px $lavender inset;
+    }
+  }
 }
 
 
@@ -49,8 +75,4 @@
   img {
     height: 50vh;
   }
-}
-
-#modal {
-  margin-bottom: 32px;
 }
