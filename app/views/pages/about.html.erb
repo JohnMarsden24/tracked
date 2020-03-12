@@ -1,0 +1,38 @@
+<%= render 'shared/navbar' %>
+
+<div class="tab-content" id="myTabContent">
+  <div class="title">
+    <h4>Team tracked</h4>
+    <button class="otw-btn hide-btn"><i class="fas fa-eye-slash"></i></button>
+  </div>
+  <div class="card-container-body">
+
+    <!-- Delivery card -->
+    <div class="delivery-card-outline">
+      <div class="delivery-card lav-border">
+        <div class="header">
+          <button data-toggle="modal" data-target="#exampleModalLong">
+            <div class="sub-header">
+              <div class="courier-image" style="background-image: url()">
+              </div>
+              <div class="details">
+                <h6>Name</h6>
+                <p>deets</p>
+              </div>
+            </div>
+            <div class="delete">
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
+          </button>
+        </div>
+        <div class="tags">
+          <div class="tag" id="tag-<%= tag.id %>">
+            <p>test</p>
+            <a href='#'><i class="fas fa-times"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
