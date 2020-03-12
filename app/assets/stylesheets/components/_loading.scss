@@ -4,22 +4,21 @@
 
 .background-holder {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 20;
-  height: 200vh;
-  width: 100vw;
+  top: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  width: 510px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0,180,149, 0.8);
 }
 
 .central-box {
   background-color: white;
   border-radius: 8px;
   width: 40vw;
-  height: 50vh;
+  height: 423px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +27,7 @@
 
 .spin {
   > h3 {
-    color: $orange;
+    color: $lavender;
     font-size: 24px;
     font-weight: semi-bold;
     padding-bottom: 30px;
@@ -39,7 +38,7 @@
 .loader {
   margin: 0 auto;
   border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid $yellow; /* Blue */
+  border-top: 16px solid $lavender; /* Blue */
   border-radius: 50%;
   width: 120px;
   height: 120px;
