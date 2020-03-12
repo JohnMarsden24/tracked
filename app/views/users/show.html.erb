@@ -1,7 +1,4 @@
 <%= render 'shared/navbar' %>
-<button type="button" class="btn-full-wdith" data-toggle="modal" data-target="#exampleModal" id="modal">
-  Add delivery
-</button>
 
 <!-- Modal for add delivery -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -27,6 +24,17 @@
 
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="deliveries" role="tabpanel" aria-labelledby="deliveries-tab">
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <%= form_tag user_path, remote: true, method: :get, id: "search-form" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control-new",
+          placeholder: "Find your parcel..."
+        %>
+        <%#= submit_tag "Search", class: "btn btn-light" %>
+      <% end %>
+    </div>
     <div id="search-results" class="delivery-card-container">
       <div class="delivery-cards otw-column">
         <%= render "users/on_their_way" %>

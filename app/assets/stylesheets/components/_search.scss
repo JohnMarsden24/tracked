@@ -1,11 +1,9 @@
-.search {
-  position: absolute;
-  left: 80px;
-}
-
 .form-control-new {
   border: none;
-  border-bottom: 1px solid $lavender;
+  border-bottom: 3px solid $lavender;
+  font-size: 1.25rem;
+  background-color: #F4F4F4;
+  width: 80%;
 
   &:focus {
     outline: none;
@@ -13,11 +11,14 @@
 }
 
 .search-bar {
+  padding: 16px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .fa-search {
   color: $lavender;
   margin-right: 8px;
+  font-size: 1.25rem;
 }
