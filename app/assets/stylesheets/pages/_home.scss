@@ -1,15 +1,11 @@
 .banner {
   display: flex;
-  // grid-template-columns: 2fr 1fr;
-  // grid-template-areas: "text form";
-  // justify-content: space-between;
   padding: 0 64px;
   flex-wrap: flex;
 }
 
 .banner-text {
   grid-area: text;
-  // background-image: url("tracked_logo.svg");
   width: 80vw;
   height: 80vh;
   background-position: left;
@@ -24,7 +20,7 @@
 .log-in {
   background-color: white;
   border-radius: 8px;
-  min-width: 20vw;
+  min-width: 22vw;
   align-self: start;
   margin-top: 20%;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);

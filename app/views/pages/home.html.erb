@@ -36,7 +36,7 @@
                             input_html: { autocomplete: "current-password" } %>
                 <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
               </div>
-              <div class="form-actions">
+              <div class="form-actions d-flex justify-content-center">
                 <%= f.button :submit, "Log in", class: "btn-full-width" %>
               </div>
             <% end %>
@@ -60,7 +60,7 @@
                             required: true,
                             input_html: { autocomplete: "new-password" } %>
               </div>
-              <div class="form-actions">
+              <div class="form-actions d-flex justify-content-center">
                 <%= f.button :submit, "Sign up", class: "btn-full-width" %>
               </div>
             <% end %>

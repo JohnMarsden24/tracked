@@ -15,7 +15,9 @@
           <%= f.input :name %>
           <%= f.input :tracking_number %>
           <%= f.input :courier, collection: Delivery::COURIERS %>
-          <%= f.button :submit, class: "btn-full-width", id: "delivery-add-btn" %>
+          <div class="d-flex justify-content-center">
+            <%= f.button :submit, class: "btn-full-width", id: "delivery-add-btn" %>
+          </div>
         <% end %>
       </div>
     </div>
