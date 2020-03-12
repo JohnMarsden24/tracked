@@ -75,7 +75,11 @@
                 <% elsif delivery.arrival == "on its way" %>
                   <h6><%= delivery.arrival.capitalize %></h6>
                 <% else %>
-                  <h6>Expected on <%= delivery.expected_arrival_date.strftime("%d %B") %></h6>
+                  <% if delivery.expected_arrival_date.strftime("%d %B")[0] == "0" %>
+                    <h6>Expected on <%= delivery.expected_arrival_date.strftime("%d %B")[1..-1] %></h6>
+                  <% else %>
+                    <h6>Expected on <%= delivery.expected_arrival_date.strftime("%d %B") %></h6>
+                  <% end %>
                 <% end %>
 
               <% else %>
@@ -86,7 +90,11 @@
                 <% elsif delivery.arrival == "on its way" %>
                   <h6><%= delivery.arrival.capitalize %></h6>
                 <% else %>
-                  <h6>Expected on <%= delivery.expected_arrival_date.strftime("%d %B") %></h6>
+                  <% if delivery.expected_arrival_date.strftime("%d %B")[0] == "0" %>
+                    <h6>Expected on <%= delivery.expected_arrival_date.strftime("%d %B")[1..-1] %></h6>
+                  <% else %>
+                    <h6>Expected on <%= delivery.expected_arrival_date.strftime("%d %B") %></h6>
+                  <% end %>
                 <% end %>
               <% end %>
 
