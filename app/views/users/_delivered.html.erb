@@ -62,18 +62,22 @@
             <div class="details">
             <% if delivery.name.nil? %>
               <h6><%= delivery.tracking_number %></h6>
-              <% if delivery.expected_arrival_date.strftime("%d %B")[0] == "0" %>
-                <h6>Delivered on <%= delivery.expected_arrival_date.strftime("%d %B")[1..-1] %></h6>
-              <% else %>
-                <h6>Delivered on <%= delivery.expected_arrival_date.strftime("%d %B") %></h6>
+              <% unless delivery.arrival== "on its way" %>
+                <% if delivery.expected_arrival_date.strftime("%d %B")[0] == "0" %>
+                  <h6>Delivered on <%= delivery.expected_arrival_date.strftime("%d %B")[1..-1] %></h6>
+                <% else %>
+                  <h6>Delivered on <%= delivery.expected_arrival_date.strftime("%d %B") %></h6>
+                <% end %>
               <% end %>
             <% else %>
               <h6><%= delivery.name %></h6>
               <p><%= delivery.tracking_number %></p>
-              <% if delivery.expected_arrival_date.strftime("%d %B")[0] == "0" %>
-                <h6>Delivered on <%= delivery.expected_arrival_date.strftime("%d %B")[1..-1] %></h6>
-              <% else %>
-                <h6>Delivered on <%= delivery.expected_arrival_date.strftime("%d %B") %></h6>
+              <% unless delivery.arrival == "on its way" %>
+                <% if delivery.expected_arrival_date.strftime("%d %B")[0] == "0" %>
+                  <h6>Delivered on <%= delivery.expected_arrival_date.strftime("%d %B")[1..-1] %></h6>
+                <% else %>
+                  <h6>Delivered on <%= delivery.expected_arrival_date.strftime("%d %B") %></h6>
+                <% end %>
               <% end %>
             <% end %>
           </div>
