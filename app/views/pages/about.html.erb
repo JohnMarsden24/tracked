@@ -1,4 +1,32 @@
-<%= render 'shared/navbar' %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
+  <div class="navbar-left">
+    <div class="navbar-logo">
+      <a href="/"><%= image_tag "navbar_logo", alt: "alttext" %></a>
+    </div>
+  </div>
+
+  <div class="navbar-middle">
+    <ul class="nav" id="myTab" role="tablist">
+      <li class="nav-item-white">
+        <a class="nav-link active" id="active-tab" data-toggle="tab" href="#deliveries" role="tab" aria-controls="home" aria-selected="true">About</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="navbar-right">
+    <% if signed_in? %>
+      <p><%= @greeting %><%= current_user.display_name.capitalize %></p>
+      <div class="dropdown show">
+        <i class="fas fa-bars"id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
 
 <div class="delivery-card-container team-container">
   <div class="delivery-cards about-cards">
@@ -20,6 +48,18 @@
             </div>
           </div>
           <div class="tags">
+            <div class="tag" id="tag-<%= tag.id %>">
+              <p>Aussie 🇦🇺</p>
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
+            <div class="tag" id="tag-<%= tag.id %>">
+              <p>🥂</p>
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
+            <div class="tag" id="tag-<%= tag.id %>">
+              <p>🥟</p>
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
             <div class="tag" id="tag-<%= tag.id %>">
               <p>LeWagon</p>
               <a href='#'><i class="fas fa-times"></i></a>
@@ -45,6 +85,14 @@
           </div>
           <div class="tags">
             <div class="tag" id="tag-<%= tag.id %>">
+              <p>🏴󠁧󠁢󠁳󠁣󠁴󠁿</p>
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
+            <div class="tag" id="tag-<%= tag.id %>">
+              <p>😎</p>
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
+            <div class="tag" id="tag-<%= tag.id %>">
               <p>LeWagon</p>
               <a href='#'><i class="fas fa-times"></i></a>
             </div>
@@ -69,6 +117,26 @@
           </div>
           <div class="tags">
             <div class="tag" id="tag-<%= tag.id %>">
+              <p>🇩🇪</p>
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
+            <div class="tag" id="tag-<%= tag.id %>">
+              <p>100% legs</p>
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
+            <div class="tag" id="tag-<%= tag.id %>">
+              <p>chicken wings 🍗</p>
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
+            <div class="tag" id="tag-<%= tag.id %>">
+              <p>karoke</p>
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
+            <div class="tag" id="tag-<%= tag.id %>">
+              <p>guiness</p>
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
+            <div class="tag" id="tag-<%= tag.id %>">
               <p>LeWagon</p>
               <a href='#'><i class="fas fa-times"></i></a>
             </div>
@@ -87,11 +155,23 @@
             </div>
             <div class="team-details">
               <h6 class="name">Ben Sargeant</h6>
-              <h6><i class="fab fa-linkedin" id="linkedin"></i>linkedin.com/in/ben-sargeant-951b2b91</h6>
+              <h6><i class="fab fa-linkedin" id="linkedin"></i>linkedin.com/in/ben-sargeant91</h6>
               <h6><i class="fab fa-github" id="github"></i>github.com/Sargeant91</h6>
             </div>
           </div>
           <div class="tags">
+            <div class="tag" id="tag-<%= tag.id %>">
+              <p>little coffee</p>
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
+            <div class="tag" id="tag-<%= tag.id %>">
+              <p>🇪🇺</p>
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
+            <div class="tag" id="tag-<%= tag.id %>">
+              <p>🇬🇧</p>
+              <a href='#'><i class="fas fa-times"></i></a>
+            </div>
             <div class="tag" id="tag-<%= tag.id %>">
               <p>LeWagon</p>
               <a href='#'><i class="fas fa-times"></i></a>

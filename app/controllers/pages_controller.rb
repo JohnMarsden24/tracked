@@ -7,9 +7,20 @@ class PagesController < ApplicationController
   end
 
   def about
+    @greeting = greeting
   end
 
   private
+
+  def greeting
+    if Time.now.hour <= 12
+      "Good morning, "
+    elsif Time.now.hour <= 18
+      "Good afternoon, "
+    else
+      "Good evening, "
+    end
+  end
 
   def resource_name
     :user
