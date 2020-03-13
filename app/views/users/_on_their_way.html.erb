@@ -24,7 +24,7 @@
             <div class="courier-image" style="background-image: url(<%= image_path delivery.courier_slug%>)">
             </div>
             <div class="details">
-              <% if delivery.name.nil? %>
+              <% if delivery.name == "" %>
                 <h6><%= delivery.tracking_number %></h6>
               <% else %>
                 <h6><%= delivery.name %></h6>
@@ -68,7 +68,7 @@
           <div class="modal-header">
             <div class="details">
 
-              <% if delivery.name.nil? %>
+              <% if delivery.name == "" %>
                 <h6><%= delivery.tracking_number %></h6>
                 <% if delivery.arrival == "today" || delivery.arrival == "tomorrow" %>
                   <h6>Arriving <%= delivery.arrival %></h6>
