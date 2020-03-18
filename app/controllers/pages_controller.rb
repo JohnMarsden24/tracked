@@ -10,6 +10,9 @@ class PagesController < ApplicationController
     @greeting = greeting
   end
 
+  def test
+  end
+
   private
 
   def greeting

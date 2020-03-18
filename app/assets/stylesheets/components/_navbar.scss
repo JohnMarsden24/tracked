@@ -1,20 +1,15 @@
-.navbar-lewagon {
+.navbar {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  justify-content: space-between;
-  align-items: center;
+  grid-template-areas: "logo tabs welcome";
   background: $lavender;
   padding: 0 48px;
 }
 
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-
 .navbar-left {
   display: flex;
   align-items: center;
+  grid-area: logo;
 
   img {
     width: 40px;
@@ -29,6 +24,7 @@
 .navbar-middle {
   display: flex;
   justify-content: center;
+  grid-area: tabs;
   .nav {
     margin-bottom: 16px;
   }
@@ -38,6 +34,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  grid-area: welcome;
 
   p {
     font-family: $headers-font;
@@ -70,7 +67,21 @@
       opacity: 75%;
     }
   }
+}
 
+@media screen and (max-width: 600px) {
+
+  .navbar {
+    padding: 0 16px;
+    grid-template-columns: 2fr 10fr;
+    grid-template-areas:
+      "logo welcome"
+      "logo tabs";
+
+    ul {
+      margin-top: 0;
+    }
+  }
 }
 
 
