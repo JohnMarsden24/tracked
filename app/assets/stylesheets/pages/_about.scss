@@ -1,5 +1,6 @@
 .team-container {
   margin-top: 24px;
+  max-width: 100vw;
 }
 
 .about-cards {
@@ -52,22 +53,28 @@
 @media screen and (max-width: 600px) {
   .about-cards {
 
+    h6 {
+      font-size: .8rem;
+    }
+
     .team-details {
       padding-left: 8px;
     }
 
     .name {
-      font-size: .9rem;
+      font-size: .8rem;
     }
 
     #linkedin {
-      font-size: .9rem;
+      // font-size: .8rem;
       width: 16px;
+      margin-right: 16px;
     }
 
     #github {
-      font-size: .9rem;
+      // font-size: .8rem;
       width: 16px;
+      margin-right: 16px;
     }
 
     .team-image {
