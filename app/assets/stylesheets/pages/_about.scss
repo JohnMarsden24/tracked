@@ -52,8 +52,22 @@
 @media screen and (max-width: 600px) {
   .about-cards {
 
-    h6 {
-      font-size: .8rem;
+    .team-details {
+      padding-left: 8px;
+    }
+
+    .name {
+      font-size: .9rem;
+    }
+
+    #linkedin {
+      font-size: .9rem;
+      width: 16px;
+    }
+
+    #github {
+      font-size: .9rem;
+      width: 16px;
     }
 
     .team-image {
