@@ -1,53 +1,45 @@
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 <div class="container">
   <h4 class="text-center title mt-4" style="color:#8D3C72;">Your orders at a glance</h4>
-  <div class="container">
-    <div class="row d-flex justify-content-center align-items-center">
-      <div class="col-md-4 pr-0 pl-0">
-        <div class="card mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
-          <h4><%= current_user.deliveries.count %> orders delivered!</h4>
+    <div class="stats">
+        <div class="stats1 mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
+          <h4><%= current_user.deliveries.count %> orders delivered</h4>
         </div>
-      </div>
-      <div class="col-md-4 pr-4 pl-4">
-        <div class="card mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
+        <div class="stats2 mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
           <% if current_user.deliveries.count == 0  %>
             <h4> No Deliveries </h4>
           <% else %>
             <h4><%= (((current_user.deliveries.select{|d| d.status != "Delayed"}.count.to_f)/(current_user.deliveries.count.to_f)) * 100).to_i %>% of which were on time</h4>
           <% end %>
         </div>
-      </div>
-      <div class="col-md-4 pr-0 pl-0">
-        <div class="card mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
+        <div class="stats3 mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
           <% courier_count = Hash.new(0) %>
           <% current_user.deliveries.each do |delivery| %>
             <% courier_count[delivery.courier] += 1 %>
           <% end %>
-          <h4>Your favorite courier:</h4>
-          <h4><%= courier_count.key(courier_count.values.max) %></h4>
+          <h4>Your favorite courier: <%= courier_count.key(courier_count.values.max) %></h4>
         </div>
+    </div>
+  <div class="row">
+    <div class="col-12 col-md-12 mt-4">
+      <div class="card">
+      <%= column_chart current_user.deliveries.group_by_day(:expected_arrival_date).count, colors: ["#8D3C72", "#8D3C72"], title: "Deliveries this Month", xtitle: "Expected Day of Arrival", ytitle: "Num. of Orders" %>
+
       </div>
     </div>
-  </div>
-  <div class="card mt-4">
-    <%= column_chart current_user.deliveries.group_by_day(:expected_arrival_date).count, colors: ["#8D3C72", "#8D3C72"], title: "Deliveries this Month", xtitle: "Expected Day of Arrival", ytitle: "Num. of Orders" %>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm pl-0 pr-4">
-        <div class="card mt-4 mb-4">
-          <%= pie_chart current_user.deliveries.group(:courier).count, colors: ["#8D3C72", "#ADD9F4", "#476C9B", "#468C98", "#F67E7D", "#D57A66", "#44BBA4" ,"#AD91A3", "#E2C290"], title: "Orders by courier" %>
-        </div>
+    <div class="col-12 col-md-6 graph1">
+      <div class="card mt-4 mb-4">
+        <%= pie_chart current_user.deliveries.group(:courier).count, colors: ["#8D3C72", "#ADD9F4", "#476C9B", "#468C98", "#F67E7D", "#D57A66", "#44BBA4" ,"#AD91A3", "#E2C290"], title: "Orders by courier" %>
       </div>
-      <div class="col-sm pl-4 pr-0">
-        <div class="card mt-4 mb-4">
-          <% if @delayed == [] %>
-            <h4>None of your orders are delayed :) </h4>
-            <p>Be happy!</p>
-          <% else %>
-            <%= pie_chart current_user.deliveries.where(status: "Delayed").group(:courier).count, colors: ["#8D3C72", "#ADD9F4", "#476C9B", "#468C98", "#F67E7D", "#D57A66", "#44BBA4" ,"#AD91A3", "#E2C290"], title: "Delays by courier" %>
-          <% end %>
-        </div>
+    </div>
+    <div class="col-12 col-md-6 graph2">
+      <div class="card mt-4 mb-4">
+        <% if @delayed == [] %>
+          <h4>None of your orders are delayed</h4>
+          <p>Be happy!</p>
+        <% else %>
+          <%= pie_chart current_user.deliveries.where(status: "Delayed").group(:courier).count, colors: ["#8D3C72", "#ADD9F4", "#476C9B", "#468C98", "#F67E7D", "#D57A66", "#44BBA4" ,"#AD91A3", "#E2C290"], title: "Delays by courier" %>
+        <% end %>
       </div>
     </div>
   </div>

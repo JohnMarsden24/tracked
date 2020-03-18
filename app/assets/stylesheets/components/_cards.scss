@@ -13,7 +13,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // padding-top: 16px;
     text-align: center;
     color: $lavender;
     height: 64px;
@@ -24,3 +23,9 @@
   box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
   padding: 16px;
 }
+
+  @media screen and (max-width: 600px) {
+    .info-cards {
+      margin: 32px 0;
+    }
+  }
