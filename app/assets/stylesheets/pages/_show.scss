@@ -159,11 +159,11 @@
   @media screen and (max-width: 600px) {
 
     .delivery-card-container {
-      padding: 0 16px;
+      padding: 0 8px;
     }
 
    .deliveries-header {
-    padding: 0 32px;
+    padding: 0 16px;
     grid-template-columns: 12fr;
     grid-template-areas:
       "search"
@@ -182,15 +182,15 @@
     }
 
     .stats1 {
-    flex-grow: 1;
-  }
+      flex-grow: 1;
+    }
 
-  .stats2 {
-    flex-grow: 1;
-  }
+    .stats2 {
+      flex-grow: 1;
+    }
 
-  .stats3 {
-    flex-grow: 1;
-  }
+    .stats3 {
+      flex-grow: 1;
+    }
   }
 

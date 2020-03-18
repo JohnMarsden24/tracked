@@ -48,3 +48,17 @@
     flex-wrap: wrap;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .about-cards {
+
+    h6 {
+      font-size: .8rem;
+    }
+
+    .team-image {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
