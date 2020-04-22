@@ -11,3 +11,9 @@
     color: white;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .btn-full-width {
+    flex-grow: 1;
+  }
+}
