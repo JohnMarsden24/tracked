@@ -1,9 +1,7 @@
-<div class="navbar">
+<div class="my-navbar">
 
   <div class="navbar-left">
-    <div class="navbar-logo">
-      <a href="/"><%= image_tag "navbar_logo", alt: "alttext" %></a>
-    </div>
+    <a href="/"><%= image_tag "navbar_logo", alt: "alttext" %></a>
   </div>
 
   <div class="navbar-middle">
@@ -19,13 +17,11 @@
 
   <div class="navbar-right">
     <% if signed_in? %>
-      <p><%= @greeting %><%= current_user.display_name.capitalize %></p>
-      <div class="dropdown show">
-        <i class="fas fa-bars"id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+      <p class="greeting"><%= @greeting %><%= current_user.display_name.capitalize %></p>
+        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars"></i></a>
+        <div class="dropdown-menu dropdown-menu-right">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
-      </div>
     <% end %>
   </div>
 

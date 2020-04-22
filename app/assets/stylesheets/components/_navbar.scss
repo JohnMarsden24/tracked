@@ -1,7 +1,7 @@
-.navbar {
+.my-navbar {
+  height: 10vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "logo tabs welcome";
   background: $lavender;
   padding: 0 48px;
 }
@@ -9,7 +9,6 @@
 .navbar-left {
   display: flex;
   align-items: center;
-  grid-area: logo;
 
   img {
     width: 40px;
@@ -24,7 +23,6 @@
 .navbar-middle {
   display: flex;
   justify-content: center;
-  grid-area: tabs;
   .nav {
     margin-bottom: 16px;
   }
@@ -34,17 +32,13 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  grid-area: welcome;
 
   p {
     font-family: $headers-font;
     color: white;
     padding-right: 8px;
     margin: 0;
-  }
-
-  i {
-    align-self: center;
+    font-size: 1.2rem;
   }
 
   a {
@@ -56,10 +50,8 @@
   }
 
   .fa-bars {
-    display:flex;
-    align-items: center;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     transition: .3s;
 
     &:hover {
@@ -69,22 +61,18 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 
-  .navbar {
-    padding: 0 16px;
-    grid-template-columns: 2fr 10fr;
-    grid-template-areas:
-      "logo welcome"
-      "logo tabs";
-
-    ul {
-      margin-top: 0;
-    }
+  .my-navbar {
+    grid-template-columns: 1fr 2fr 1fr;
   }
 
-  .navbar-right {
-    padding: 16px 0 8px 0;
+  .greeting {
+    display: none;
+  }
+
+  .my-navbar {
+    padding: 0 16px;
   }
 }
 
