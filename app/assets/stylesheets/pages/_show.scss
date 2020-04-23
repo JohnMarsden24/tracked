@@ -119,6 +119,19 @@
     }
   }
 
+  .container {
+    .stat, .title {
+      margin-top: 16px;
+    }
+
+    .graph2 {
+      margin-bottom: 16px;
+    }
+
+  }
+
+
+
   .stats {
     display: flex;
     justify-content: space-between;

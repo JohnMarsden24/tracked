@@ -1,18 +1,18 @@
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 <div class="container">
-  <h4 class="text-center title mt-4" style="color:#8D3C72;">Your orders at a glance</h4>
+  <h4 class="text-center title" style="color:#8D3C72;">Your orders at a glance</h4>
     <div class="stats">
-        <div class="stats1 mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
+        <div class="stats1 stat text-center font-weight-bold" style="color:#8D3C72;">
           <h4><%= current_user.deliveries.count %> orders delivered</h4>
         </div>
-        <div class="stats2 mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
+        <div class="stats2 stat text-center font-weight-bold" style="color:#8D3C72;">
           <% if current_user.deliveries.count == 0  %>
             <h4> No Deliveries </h4>
           <% else %>
             <h4><%= (((current_user.deliveries.select{|d| d.status != "Delayed"}.count.to_f)/(current_user.deliveries.count.to_f)) * 100).to_i %>% of which were on time</h4>
           <% end %>
         </div>
-        <div class="stats3 mt-4 mb-4 text-center font-weight-bold" style="color:#8D3C72;">
+        <div class="stats3 stat text-center font-weight-bold" style="color:#8D3C72;">
           <% courier_count = Hash.new(0) %>
           <% current_user.deliveries.each do |delivery| %>
             <% courier_count[delivery.courier] += 1 %>
@@ -21,19 +21,19 @@
         </div>
     </div>
   <div class="row">
-    <div class="col-12 col-md-12 mt-4">
-      <div class="card mb-4">
+    <div class="col-12 col-md-12 ">
+      <div class="card stat">
       <%= column_chart current_user.deliveries.group_by_day(:expected_arrival_date).count, colors: ["#8D3C72", "#8D3C72"], title: "Deliveries this Month", xtitle: "Expected Day of Arrival", ytitle: "Num. of Orders" %>
 
       </div>
     </div>
     <div class="col-12 col-md-6 graph1">
-      <div class="card mt-4 mb-4">
+      <div class="card  stat">
         <%= pie_chart current_user.deliveries.group(:courier).count, colors: ["#8D3C72", "#ADD9F4", "#476C9B", "#468C98", "#F67E7D", "#D57A66", "#44BBA4" ,"#AD91A3", "#E2C290"], title: "Orders by courier" %>
       </div>
     </div>
     <div class="col-12 col-md-6 graph2">
-      <div class="card mt-4 mb-4">
+      <div class="card  stat">
         <% if @delayed == [] %>
           <h4>None of your orders are delayed</h4>
           <p>Be happy!</p>
