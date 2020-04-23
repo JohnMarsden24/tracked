@@ -35,10 +35,14 @@
   justify-content: flex-end;
   align-items: center;
 
+  .nav-link {
+    padding: 0;
+  }
+
   p {
     font-family: $headers-font;
     color: white;
-    padding-right: 8px;
+    padding-right: 16px;
     margin: 0;
     font-size: 1.2rem;
   }
@@ -77,5 +81,3 @@
     padding: 0 16px;
   }
 }
-
-
