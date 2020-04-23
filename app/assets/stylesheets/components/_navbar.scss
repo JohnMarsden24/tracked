@@ -23,8 +23,10 @@
 .navbar-middle {
   display: flex;
   justify-content: center;
-  .nav {
-    margin-bottom: 16px;
+  align-items:center;
+
+  ul {
+    margin: 0;
   }
 }
 
@@ -64,7 +66,7 @@
 @media screen and (max-width: 768px) {
 
   .my-navbar {
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 10fr 1fr;
   }
 
   .greeting {
