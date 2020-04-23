@@ -355,3 +355,9 @@ p {
   border: none;
 }
 
+.modal-body {
+  p {
+    word-break: break-word;
+  }
+}
+
