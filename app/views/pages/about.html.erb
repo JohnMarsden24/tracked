@@ -1,32 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-
-  <div class="navbar-left">
-    <div class="navbar-logo">
-      <a href="/"><%= image_tag "navbar_logo", alt: "alttext" %></a>
-    </div>
-  </div>
-
-  <div class="navbar-middle">
-    <ul class="nav" id="myTab" role="tablist">
-      <li class="nav-item-white">
-        <a class="nav-link active" id="active-tab" data-toggle="tab" href="#deliveries" role="tab" aria-controls="home" aria-selected="true">About</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="navbar-right">
-    <% if signed_in? %>
-      <p><%= @greeting %><%= current_user.display_name.capitalize %></p>
-      <div class="dropdown show">
-        <i class="fas fa-bars"id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-</div>
+<%= render 'shared/navbar' %>
 
 <div class="delivery-card-container team-container">
   <div class="delivery-cards about-cards">
