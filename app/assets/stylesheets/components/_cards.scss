@@ -24,6 +24,19 @@
   padding: 16px;
 }
 
+.card-login {
+  width: 50%;
+  // margin: 0 auto;
+}
+
+.card-login-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
   @media screen and (max-width: 600px) {
     .info-cards {
       margin: 32px 0;
