@@ -19,7 +19,9 @@ class Delivery < ApplicationRecord
     "Amazon" => "amazon-logistics-uk"
   }
 
-  AfterShip.api_key = "3d049111-2123-4c39-91e5-890f79811719"
+  ApiKey = ENV["AFTERSHIP"]
+
+  AfterShip.api_key = ApiKey
 
   def try_tracking
     AfterShip::V4::Tracking.get(self.courier_slug, self.tracking_number)
@@ -39,7 +41,7 @@ class Delivery < ApplicationRecord
   def create_tracking_id(slug, tracking_number)
     HTTParty.post("https://api.aftership.com/v4/trackings",
       headers: {
-        "aftership-api-key" => "3d049111-2123-4c39-91e5-890f79811719",
+        "aftership-api-key" => "#{ApiKey}",
         "Content-Type" => "application/json"
       },
       body: {
